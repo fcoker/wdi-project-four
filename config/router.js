@@ -5,16 +5,16 @@ const products = require('../controllers/products');
 const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
-// const adminRoute = require('../lib/adminRoute');
+const adminRoute = require('../lib/adminRoute');
 
 router.route('/')
   .get(products.index)
-  .post(products.create);
+  .post(secureRoute, adminRoute, products.create);
 
 router.route('/product/:productId')
   .get(products.show)
-  .put(secureRoute, products.update)
-  .delete(secureRoute, products.delete);
+  .put(secureRoute, adminRoute, products.update)
+  .delete(secureRoute, adminRoute, products.delete);
 
 // router.post('/product/:productId/reviews', secureRoute, reviews.create);
 // router.post('/product/:productId/reviews', reviews.create);
@@ -25,11 +25,11 @@ router.post('/register', auth.register);
 router.post('/login', auth.login);
 
 router.route('/users')
-  .get(users.index);
+  .get(secureRoute, adminRoute, users.index);
 
 router.route('/users/:userId')
-  .put(users.update)
-  .get(users.show);
+  .put(secureRoute, users.update)
+  .get(secureRoute, users.show);
 
 
 // router.post('/checkout', secureRoute, purchases.create);
