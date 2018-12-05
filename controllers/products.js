@@ -3,8 +3,9 @@ const Product = require('../models/product');
 const indexRoute = (req, res, next) => {
   Product
     .find()
-    .then(wonder => {
-      res.json(wonder.sort((a, b) => a.name - b.name));
+    .then(products => {
+      // res.json(products.sort((a, b) => a.name - b.name));
+      res.json(products);
     })
     .catch(next);
 };
@@ -12,7 +13,7 @@ const indexRoute = (req, res, next) => {
 const showRoute = (req, res, next) => {
   Product
     .findById(req.params.productId)
-    .then(product => {console.log(product); res.json(product)})
+    .then(product => res.json(product))
     .catch(next);
 };
 

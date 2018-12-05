@@ -1,30 +1,40 @@
 const User = require('../models/user');
 
-const showUser = (req, res) => {
+const indexUsers = (req, res, next) => {
+  User
+    .find()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(next);
+};
+
+const showUser = (req, res, next) => {
   User.findById(req.params.userId)
     .populate('addedReviews')
-    .then(user => {
-      res.render('users/show', user);
-    });
+    .then(user => res.json(user))
+    .catch(next);
 };
 
-const editUser = (req, res) => {
+const editUser = (req, res, next) => {
   User.findById(req.params.userId)
-    .then(user => {
-      res.render('users/edit', user);
-    });
+    .then(user => res.json(user))
+    .catch(next);
 };
 
-const updateUser = (req, res) => {
-  User.findByIdAndUpdate(req.params.userId, req.body)
-    .then(user => {
-      res.redirect(`/users/${user._id}`);
-    });
+const updateUser = (req, res, next) => {
+  User
+    .findById(req.params.userId)
+    .then(user => user.set(req.body))
+    .then(user => user.save())
+    .then(user => res.json(user))
+    .catch(next);
 };
 
 
 
 module.exports = {
+  index: indexUsers,
   show: showUser,
   edit: editUser,
   update: updateUser
