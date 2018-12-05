@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const products = require('../controllers/products');
 // const purchases = require('../controllers/purchases');
-// const reviews = require('../controllers/reviews');
+const reviews = require('../controllers/reviews');
 const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
@@ -16,10 +16,10 @@ router.route('/product/:productId')
   .put(secureRoute, adminRoute, products.update)
   .delete(secureRoute, adminRoute, products.delete);
 
-// router.post('/product/:productId/reviews', secureRoute, reviews.create);
+router.post('/product/:productId/reviews', secureRoute, reviews.create);
 // router.post('/product/:productId/reviews', reviews.create);
 // router.delete('/product/:productId/reviews/:reviewId', reviews.delete);
-// router.delete('/product/:productId/reviews/:reviewId', secureRoute, reviews.delete);
+router.delete('/product/:productId/reviews/:reviewId', secureRoute, reviews.delete);
 
 router.post('/register', auth.register);
 router.post('/login', auth.login);
