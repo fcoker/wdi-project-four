@@ -9,7 +9,9 @@ const loginRoute = (req, res, next) => {
       if (user && user.validatePassword(req.body.password)){
         const token = jwt.sign({
           username: user.username,
-          sub: user._id
+          sub: user._id,
+          profilePic: user.profilePic,
+          permission: user.accountType
         }, secret, { expiresIn: '6h'});
         res.json({
           message: `Welcome back, ${user.username}.`,

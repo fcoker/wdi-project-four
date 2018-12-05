@@ -1,7 +1,38 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
+const User = require('../models/user');
+const { dbURI } = require('../config/environment');
+mongoose.connect(dbURI);
 
-const Products = [
+const userIds = [
+  '5be9b02777e350fe07977fb0',
+  '5be9b02777e350fe07977fb1',
+  '5be9b02777e350fe07977fb2'
+];
+
+const userData = [
+  {
+    _id: userIds[0],
+    username: 'Sham',
+    email: 'sh@m',
+    password: 'pass',
+    accountType: 'admin'
+  }, {
+    _id: userIds[1],
+    username: 'Rafa',
+    email: 'r@fa',
+    password: 'pass',
+    accountType: 'customer'
+  }, {
+    _id: userIds[2],
+    username: 'Femi',
+    email: 'f@mi',
+    password: 'pass',
+    accountType: 'customer'
+  }
+];
+
+const productData = [
   {
     name: 'Red Dead Redemption II',
     format: 'PS4',
@@ -58,3 +89,16 @@ const Products = [
     reviews: []
   }
 ];
+
+Product.collection.drop();
+User.collection.drop();
+
+Product.create(productData)
+  .then(products => {
+    console.log(`Created ${products.length} products`);
+    User.create(userData)
+      .then(users => {
+        console.log(`Created ${users.length} users`);
+        mongoose.connection.close();
+      });
+  });

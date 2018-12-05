@@ -10,16 +10,18 @@ const productSchema = mongoose.Schema({
   description: String,
   releaseDate: String,
   reviews: [{
-    ratingValue: { type: String, required: true },
+    ratingValue: { type: Number, required: true, min: 0, max: 10 },
     user: { type: mongoose.Schema.ObjectId, ref: 'User' }
   }]
 });
 
 productSchema.virtual('averageRating')
   .get(function() {
+    //adds up all rating values in the products reviews and divides by the total number of reviews
+    //to get an average rating, displays the result to 1 decimal point - if no reviews - display 'None'
     const avgRating = this.reviews.reduce((total, review) => total + review.ratingValue, 0) / this.reviews.length;
     if (this.reviews.length > 0){
-      return avgRating.toFixed(2);
+      return avgRating.toFixed(1);
     } else {
       return 'None';
     }
