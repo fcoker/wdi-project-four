@@ -16,12 +16,6 @@ const showUser = (req, res, next) => {
     .catch(next);
 };
 
-const editUser = (req, res, next) => {
-  User.findById(req.params.userId)
-    .then(user => res.json(user))
-    .catch(next);
-};
-
 const updateUser = (req, res, next) => {
   User
     .findById(req.params.userId)
@@ -36,6 +30,5 @@ const updateUser = (req, res, next) => {
 module.exports = {
   index: indexUsers,
   show: showUser,
-  edit: editUser,
   update: updateUser
 };

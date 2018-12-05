@@ -28,7 +28,7 @@ router.route('/users')
   .get(users.index);
 
 router.route('/users/:userId')
-  .put(secureRoute, users.edit)
+  .put(users.update)
   .get(users.show);
 
 
