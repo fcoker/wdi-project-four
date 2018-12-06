@@ -7,7 +7,6 @@ const indexRoute = (req, res, next) => {
       res.json(products.sort((a, b) => {
         return b.averageRating - a.averageRating;
       }));
-      // res.json(products);
     })
     .catch(next);
 };
