@@ -21,9 +21,9 @@ productSchema.virtual('averageRating')
     //to get an average rating, displays the result to 1 decimal point - if no reviews - display 'None'
     const avgRating = this.reviews.reduce((total, review) => total + review.ratingValue, 0) / this.reviews.length;
     if (this.reviews.length > 0){
-      return avgRating.toFixed(1);
+      return parseFloat(avgRating.toFixed(1));
     } else {
-      return 'None';
+      return 0;
     }
   });
 
