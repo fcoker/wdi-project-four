@@ -4,8 +4,10 @@ const indexRoute = (req, res, next) => {
   Product
     .find()
     .then(products => {
-      // res.json(products.sort((a, b) => a.averageRating - b.averageRating));
-      res.json(products);
+      res.json(products.sort((a, b) => {
+        return b.averageRating - a.averageRating;
+      }));
+      // res.json(products);
     })
     .catch(next);
 };

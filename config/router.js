@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const products = require('../controllers/products');
-// const purchases = require('../controllers/purchases');
 const reviews = require('../controllers/reviews');
 const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const adminRoute = require('../lib/adminRoute');
+const purchases = require('../controllers/purchases');
 
 router.route('/')
   .get(products.index)
@@ -17,8 +17,6 @@ router.route('/product/:productId')
   .delete(secureRoute, adminRoute, products.delete);
 
 router.post('/product/:productId/reviews', secureRoute, reviews.create);
-// router.post('/product/:productId/reviews', reviews.create);
-// router.delete('/product/:productId/reviews/:reviewId', reviews.delete);
 router.delete('/product/:productId/reviews/:reviewId', secureRoute, reviews.delete);
 
 router.post('/register', auth.register);
@@ -32,7 +30,8 @@ router.route('/users/:userId')
   .get(secureRoute, users.show);
 
 
-// router.post('/checkout', secureRoute, purchases.create);
-// router.get('/purchases', secureRoute, purchases.userIndex);
+router.post('/checkout', secureRoute, purchases.create);
+router.get('/mypurchases', secureRoute, purchases.myPurchasesIndex);
+router.get('/allpurchases', secureRoute, adminRoute, purchases.allPurchasesIndex);
 
 module.exports = router;
