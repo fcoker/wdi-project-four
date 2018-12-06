@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from './components/Common/Header';
+import Header from './components/common/Header';
 import ProductsIndex from './components/products/Index';
 import ProductNew from './components/products/New';
 import ProductUpdate from './components/products/Edit';
 import ProductsShow from './components/products/Show';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Basket from './components/common/Basket';
 
 
 
@@ -29,6 +30,9 @@ class App extends React.Component {
             <Route path="/product/:productId/edit" component={ProductUpdate} />
             <Route path='/product/:productId' component={ProductsShow}/>
             <Route exact path="/login" component={Login} />
+            {
+            //  <Route exact path="/basket" component={Basket} />
+            }
             <Route exact path="/register" component={Register} />
           </Switch>
         </main>

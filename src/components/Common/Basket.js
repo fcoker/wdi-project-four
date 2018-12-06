@@ -1,6 +1,6 @@
 import React from 'react';
-import basketLib from '../lib/basket';
-import { handleChange } from '../lib/common';
+import basketLib from '../../lib/basket';
+import { handleChange } from '../../lib/common';
 
 class Basket extends React.Component {
   constructor(props) {
