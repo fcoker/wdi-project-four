@@ -21,6 +21,10 @@ export function tokenUserId() {
   return decodeToken().sub;
 }
 
+export function tokenAccountType() {
+  return decodeToken().permission;
+}
+
 export function getHeader(){
   return { headers: { Authorization: `Bearer ${getToken()}`}};
 }
@@ -31,6 +35,10 @@ export function deleteToken() {
 
 export function isAuthenticated() {
   return !!getToken();
+}
+
+export function isAdmin() {
+  return tokenAccountType() === 'admin';
 }
 
 export function authorizationHeader() {

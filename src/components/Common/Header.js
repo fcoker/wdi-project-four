@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getBasketCount } from '../../lib/basket';
-import { isAuthenticated, deleteToken, decodeToken } from '../../lib/auth';
+import { isAuthenticated, deleteToken, decodeToken, isAdmin } from '../../lib/auth';
 
 
 class Header extends React.Component {
@@ -15,16 +15,17 @@ class Header extends React.Component {
     this.props.history.push('/');
   }
   render() {
+    console.log(isAdmin());
     return (
       <nav className="navbar is-danger">
         <div className="navbar-start">
           <Link className="navbar-item" to={'/'}>P&W Products</Link>
-          <Link className="navbar-item" to='product/new'>Add a Product</Link>
+          {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAuthenticated() && <Link className="navbar-item" to='/basket'>🛒({getBasketCount()})</Link>}
+          {isAuthenticated() && <Link className="navbar-item" to={`/users/${decodeToken().sub}`}>Profile</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item" to='/logout'>Log Out</a>}
           {!isAuthenticated() && <Link className="navbar-item" to='/register'>Register</Link>}
           {!isAuthenticated() && <Link className="navbar-item" to='/login'>Log In</Link>}
-          {isAuthenticated() && <Link className="navbar-item" to={`/users/${decodeToken().sub}`}>Profile</Link>}
         </div>
       </nav>
     );

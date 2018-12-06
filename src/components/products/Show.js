@@ -6,7 +6,9 @@ import { addItem } from '../../lib/basket';
 class ProductsShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      quantity: 1
+    };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);

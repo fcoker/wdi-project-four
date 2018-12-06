@@ -11,7 +11,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import UserShow from './components/user/UserShow';
 import UserEdit from './components/user/UserEdit';
-// import Basket from './components/common/Basket';
+import Basket from './components/common/Basket';
 
 
 
@@ -32,8 +32,8 @@ class App extends React.Component {
             <Route path="/product/:productId/edit" component={ProductUpdate} />
             <Route path='/product/:productId' component={ProductsShow}/>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/basket" component={Basket} />
             {
-            //  <Route exact path="/basket" component={Basket} />
             }
             <Route exact path="/register" component={Register} />
             <Route path="/users/:userId/edit" component={UserEdit} />
