@@ -1,26 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import { getHeader, decodeToken } from '../../lib/auth';
+import { Link } from 'react-router-dom';
 
 
 export default class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/api/users/${this.props.match.params.id}`)
+    console.log(getHeader());
+    axios.get(`/api/users/${this.props.match.params.userId}`, getHeader())
       .then(res => {
         this.setState({ user: res.data });
-        console.log('this.state in userShow has been set to ', this.state.user);
       });
   }
 
-  handleClick() {
-    console.log(this.state);
-
-  }
 
   render() {
     const user = this.state.user;
@@ -38,16 +35,15 @@ export default class UserShow extends React.Component {
             <div>
               <p>{user.name}</p>
               <p>{user.email}</p>
-              <p>{user.address}</p>
             </div>
 
             <div>
               <h3>Order History</h3>
             </div>
 
-            <div>
-              <button onClick={this.handleClick}>Edit</button>
-            </div>
+            <Link to= {`/users/${decodeToken().sub}/edit`}>
+              <button>Edit</button>
+            </Link>
 
           </div>
           :

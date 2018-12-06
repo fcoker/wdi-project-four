@@ -9,6 +9,8 @@ import ProductUpdate from './components/products/Edit';
 import ProductsShow from './components/products/Show';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import UserShow from './components/user/UserShow';
+import UserEdit from './components/user/UserEdit';
 
 
 
@@ -30,6 +32,8 @@ class App extends React.Component {
             <Route path='/product/:productId' component={ProductsShow}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route path="/users/:userId/edit" component={UserEdit} />
+            <Route path="/users/:userId" component={UserShow} />
           </Switch>
         </main>
       </div>
