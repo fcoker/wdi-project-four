@@ -9,7 +9,7 @@ class ProductsIndex extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/')
+    axios.get('/api')
       .then(result => this.setState({ products: result.data }));
   }
 
@@ -17,6 +17,7 @@ class ProductsIndex extends React.Component {
     return (
       <section>
         <h1>aLl PrOdUcTs</h1>
+        {this.state.products && this.state.products.map(product => <p key={product._id}>{product.name}</p>)}
       </section>
     );
   }
