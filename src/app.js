@@ -25,11 +25,11 @@ class App extends React.Component {
         <main className="container">
           <Switch>
             <Route exact path='/' component={ProductsIndex} />
-            <Route exact path="product/new" component={ProductNew} />
-            <Route path="product/:id/edit" component={ProductUpdate} />
-            <Route path='product/:id' component={ProductsShow}/>
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
+            <Route exact path="/product/new" component={ProductNew} />
+            <Route path="/product/:productId/edit" component={ProductUpdate} />
+            <Route path='/product/:productId' component={ProductsShow}/>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
           </Switch>
         </main>
       </div>

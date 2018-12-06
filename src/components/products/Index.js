@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ProductBox from './ProductBox';
 
 
 class ProductsIndex extends React.Component {
@@ -17,7 +18,7 @@ class ProductsIndex extends React.Component {
     return (
       <section>
         <h1>aLl PrOdUcTs</h1>
-        {this.state.products && this.state.products.map(product => <p key={product._id}>{product.name}</p>)}
+        {this.state.products && this.state.products.map(product => <ProductBox key={product._id} product={product}/>)}
       </section>
     );
   }

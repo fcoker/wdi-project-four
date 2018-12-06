@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,28 +13,30 @@ class ProductsShow extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/${this.props.match.params.id}`)
+    axios.get(`/api/product/${this.props.match.params.productId}`)
       .then(res => {
-        this.setState({ products: res.data });
+        this.setState({ product: res.data });
       });
   }
 
   handleDelete(event){
     event.preventDefault();
-    axios.delete(`/api/products/${this.state.products._id}`)
-      .then( () => this.props.history.push('/products/'));
+    axios.delete(`/api/product/${this.state.product._id}`)
+      .then( () => this.props.history.push('/'));
   }
 
   render() {
-    const products = this.state.products;
+    const product = this.state.product;
     return (
+
       <section>
-        {products
+        {product
           ?
           <div>
             <article>
-              <h3>{products.name}</h3>
-              <img  src={products.image} />
+              <h3>{product.name}</h3>
+              <h3>{product.price}</h3>
+              <img id="image" src={product.images} />
             </article>
           </div>
 
@@ -41,8 +44,13 @@ class ProductsShow extends React.Component {
 
           <p>Please wait...</p>}
         <div>
-          <button id="delete" className="button is-dark" onClick={this.handleDelete} >Delete</button>
-          <button id="edit" className="button is-light">Add to Cart</button>
+          <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
+          <Link to={`/${this.props.match.params.id}/edit`}>
+            <button className="button is-light has-text-centered edit">Edit</button>
+          </Link>
+          <Link to={`/${this.props.match.params.id}/basket`}>
+            <button className="button is-light">Add to Cart</button>
+          </Link>
         </div>
       </section>
     );
