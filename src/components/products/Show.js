@@ -45,10 +45,10 @@ class ProductsShow extends React.Component {
           <p>Please wait...</p>}
         <div>
           <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
-          <Link to={`/${this.props.match.params.id}/edit`}>
+          <Link to={`/product/${this.props.match.params.productId}/edit`}>
             <button className="button is-light has-text-centered edit">Edit</button>
           </Link>
-          <Link to={`/${this.props.match.params.id}/basket`}>
+          <Link to={`/${this.props.match.params.productId}/basket`}>
             <button className="button is-light">Add to Cart</button>
           </Link>
         </div>

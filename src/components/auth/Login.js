@@ -18,7 +18,7 @@ class Login extends React.Component {
     axios.post('/api/login', this.state)
       .then(result => {
         saveToken(result.data.token);
-        this.props.history.push('/');
+        this.props.handleLoginClick();
       });
   }
   handleChange({ target: { name, value }}) {
@@ -27,11 +27,11 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="hero is-light is-fullheight">
+      <section className="hero is-link is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-grey">Login</h3>
+              <h3 className="title has-text-danger">Login</h3>
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
