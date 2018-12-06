@@ -9,7 +9,9 @@ import ProductUpdate from './components/products/Edit';
 import ProductsShow from './components/products/Show';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Basket from './components/common/Basket';
+import UserShow from './components/user/UserShow';
+import UserEdit from './components/user/UserEdit';
+// import Basket from './components/common/Basket';
 
 
 
@@ -34,6 +36,8 @@ class App extends React.Component {
             //  <Route exact path="/basket" component={Basket} />
             }
             <Route exact path="/register" component={Register} />
+            <Route path="/users/:userId/edit" component={UserEdit} />
+            <Route path="/users/:userId" component={UserShow} />
           </Switch>
         </main>
       </div>
