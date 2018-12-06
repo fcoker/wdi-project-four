@@ -5,7 +5,7 @@ const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const adminRoute = require('../lib/adminRoute');
-// const purchases = require('../controllers/purchases');
+const purchases = require('../controllers/purchases');
 
 router.route('/')
   .get(products.index)
@@ -30,7 +30,8 @@ router.route('/users/:userId')
   .get(secureRoute, users.show);
 
 
-// router.post('/checkout', secureRoute, purchases.create);
-// router.get('/purchases', secureRoute, purchases.userIndex);
+router.post('/checkout', secureRoute, purchases.create);
+router.get('/mypurchases', secureRoute, purchases.myPurchasesIndex);
+router.get('/allpurchases', secureRoute, adminRoute, purchases.allPurchasesIndex);
 
 module.exports = router;
