@@ -32,12 +32,11 @@ export default class UserShow extends React.Component {
             </div>
 
             <div>
-              <p>{user.name}</p>
               <p>{user.email}</p>
             </div>
 
             <div>
-              <h3>Order History</h3>
+              <h3>Order History:</h3>
               <MyPurchaseHistory />
             </div>
 

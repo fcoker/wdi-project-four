@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product');
 const User = require('../models/user');
+const Purchase = require('../models/purchase');
 const { dbURI } = require('../config/environment');
 mongoose.connect(dbURI);
 
@@ -95,6 +96,7 @@ const productData = [
 
 Product.collection.drop();
 User.collection.drop();
+Purchase.collection.drop();
 
 Product.create(productData)
   .then(products => {

@@ -82,8 +82,8 @@ class ProductsShow extends React.Component {
             </div>
 
             <div className="">
-              {hasSuggestions
-                ?
+              { hasSuggestions
+                &&
                 <div>
                   <h3>You may also like:</h3>
                   {suggested.map(suggestion =>
@@ -92,8 +92,6 @@ class ProductsShow extends React.Component {
                       <img src={suggestion.images[0]}/>
                     </div>)}
                 </div>
-                :
-                <p>No similar items.</p>
               }
             </div>
 
