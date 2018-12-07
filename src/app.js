@@ -2,12 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-<<<<<<< HEAD
-import Header from './components/Common/Header';
-import Search from './components/Common/Search'
-=======
+
 import Header from './components/common/Header';
->>>>>>> development
+import Search from './components/common/Search';
 import ProductsIndex from './components/products/Index';
 import ProductNew from './components/products/New';
 import ProductUpdate from './components/products/Edit';
