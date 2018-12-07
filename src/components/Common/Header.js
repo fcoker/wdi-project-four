@@ -20,6 +20,7 @@ class Header extends React.Component {
         <div className="navbar-start">
           <Link className="navbar-item" to={'/'}>P&W Products</Link>
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
+          {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
           {isAuthenticated() && <Link className="navbar-item" to='/basket'>🛒({getBasketCount()})</Link>}
           {isAuthenticated() && <Link className="navbar-item" to={`/users/${decodeToken().sub}`}>Profile</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item" to='/logout'>Log Out</a>}

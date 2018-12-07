@@ -9,8 +9,6 @@ class Basket extends React.Component {
     this.checkout = basketLib.checkout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = handleChange.bind(this);
-    // this.handleEditSubmit = this.handleEditSubmit.bind(this);
-    // this.handleEditClick = this.handleEditClick.bind(this);
     this.handleMinusClick = this.handleMinusClick.bind(this);
     this.handlePlusClick = this.handlePlusClick.bind(this);
   }
@@ -24,26 +22,15 @@ class Basket extends React.Component {
     this.setState({ basket: basketLib.getBasket()});
   }
 
-  // handleEditSubmit(e) {
-  //   e.preventDefault();
-  //   basketLib.setQuantity(this.state.editing, this.state.editQuantity);
-  //   this.setState({ editing: null, editQuantity: null, basket: basketLib.getBasket() });
-  // }
-  //
-  // handleEditClick(item) {
-  //   this.setState({
-  //     editQuantity: item.quantity,
-  //     editing: item._id});
-  // }
   handlePlusClick(item) {
     basketLib.incrementQuantity(basketLib.getBasket(), item._id, 1);
     this.setState({ basket: basketLib.getBasket() });
     basketLib.totalBasketPrice();
   }
+
   handleMinusClick(item) {
     basketLib.decrementQuantity(basketLib.getBasket(), item._id, 1);
     this.setState({ basket: basketLib.getBasket() });
-
   }
 
 
@@ -62,29 +49,21 @@ class Basket extends React.Component {
             <div className="column is-4">
               <p>{item.name}</p>
             </div>
-            {
-              // <div className="column is-3">
-              // <button onClick={() => this.handleEditClick(item)}>✏️ Edit</button>
-              // {(this.state.editing === item._id) ?
-              //   <form onSubmit={this.handleEditSubmit}>
-              //   <input className="input" type="number" value={this.state.editQuantity} name="editQuantity" onChange={this.handleChange}/>
-              //   </form>
-              //   :
-              //   <p>{item.quantity}</p>
-              // }
-              // </div>
-            }
+
             <div className="column is-1">
               <span onClick={() => this.handleMinusClick(item)}> ➖ </span>
               <span>{item.unitQuantity}</span>
               <span onClick={() => this.handlePlusClick(item)}> ➕ </span>
             </div>
+
             <div className="column is-1">
               <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
             </div>
+
             <div className="column is-6">
               <p>£{item.unitPrice}</p>
             </div>
+
           </div>
         )
           :
