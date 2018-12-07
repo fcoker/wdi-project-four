@@ -14,7 +14,8 @@ class Register extends React.Component {
     axios.post('/api/register', this.state)
       .then(result => {
         console.log('register', result.data);
-        this.props.history.push('/login');
+        this.props.handleRegisterClick();
+
       });
   }
   handleChange({ target: { name, value }}) {
@@ -23,11 +24,11 @@ class Register extends React.Component {
 
   render() {
     return (
-      <section className="hero is-light is-fullheight">
+      <section className="hero is-link is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-grey">Register</h3>
+              <h3 className="title has-text-danger">Register</h3>
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">

@@ -14,10 +14,15 @@ class ProductsIndex extends React.Component {
       .then(result => this.setState({ products: result.data }));
   }
 
+
   render() {
+
+
     return (
+
       <section>
-        <h1>aLl PrOdUcTs</h1>
+
+
         {this.state.products && this.state.products.map(product => <ProductBox key={product._id} product={product}/>)}
       </section>
     );

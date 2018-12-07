@@ -13,7 +13,7 @@ class ProductUpdate extends React.Component{
   }
 
   componentDidMount(){
-    axios.get(`/api/products/${this.props.match.params.id}`)
+    axios.get(`/api/product/${this.props.match.params.productId}`)
       .then(result=> {
         this.setState({ product: result.data});
       });
@@ -21,12 +21,12 @@ class ProductUpdate extends React.Component{
   handleSubmit(event) {
     console.log('form subbmitted', this.state);
     event.preventDefault();
-    axios.put(`/api/products/${this.props.match.params.id}`, this.state.product, { headers: {
+    axios.put(`/api/product/${this.props.match.params.productId}`, this.state.product, { headers: {
       Authorization: `Bearer ${getToken()}`
     }})
       .then(result => {
         console.log(result);
-        this.props.history.push(`/products/${this.props.match.params.id}`);
+        this.props.history.push(`/product/${this.props.match.params.productId}`);
       });
   }
 
@@ -37,7 +37,7 @@ class ProductUpdate extends React.Component{
 
   render() {
     return (
-      <section className="hero is-light is-fullheight">
+      <section className="hero is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
@@ -46,42 +46,42 @@ class ProductUpdate extends React.Component{
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <div className="control">
-                      <input className="input " onChange={this.handleChange}  value={this.state.products.name || ''}  name="name" placeholder="name"  />
+                      <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="name"  />
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.format || ''}  name="format"  placeholder="format"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.format || ''}  name="format"  placeholder="format"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.product.genre || ''}  name="genre"  placeholder="genre"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.genre || ''}  name="genre"  placeholder="genre"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.image || ''}  name="image"  placeholder="imageUrl"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images || ''}  name="image"  placeholder="imageUrl"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.video || ''}  name="video"  placeholder="video"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.video || ''}  name="video"  placeholder="video"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.price || ''}  name="price"  placeholder="price"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.price || ''}  name="price"  placeholder="price"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.description || ''}  name="description"  placeholder="description"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="description"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.products.releaseDate || ''}  name="releaseDate"  placeholder="releaseDate"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.releaseDate || ''}  name="releaseDate"  placeholder="releaseDate"/>
                     </div>
                   </div>
                   <button className="button is-dark">Edit</button>
