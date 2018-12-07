@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Common/Header';
+import Search from './components/Common/Search'
 import ProductsIndex from './components/products/Index';
 import ProductNew from './components/products/New';
 import ProductUpdate from './components/products/Edit';
 import ProductsShow from './components/products/Show';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-
 
 
 import 'bulma';
@@ -37,6 +37,7 @@ class App extends React.Component {
       <div>
         <Header handleLoginClick={this.toggleLogin} handleRegisterClick={this.toggleRegister}/>
         <main className="container">
+          <Search />
           {this.state.login && <Login handleLoginClick={this.toggleLogin}/>}
           {this.state.register && <Register handleRegisterClick={this.toggleRegister}/>}
           <Switch>
