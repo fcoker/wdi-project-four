@@ -1,21 +1,36 @@
-import React from 'react';
-
-class Search extends React.Component {
-
-  handleSearch(event) {
-    console.log(event.target.value);
-  }
-
-  render() {
-    return (
-      <div className="row">
-        <div className="input-field">
-          <label>Search</label>
-          <input type="text" onKeyUp={this.handleSearch.bind(this)}/>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Search;
+// import React from 'react';
+//
+// class Search extends React.Component {
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       query: ''
+//     };
+//     this.handleSearch = this.handleSearch.bind(this);
+//   }
+//
+//
+//
+//  handleSearch = (event) => {
+//
+//    this.setState({ query: event.target.value }, () => console.log(this.state)
+//    );
+//  }
+//
+//
+//  render() {
+//
+//    return (
+//      <form>
+//        <input
+//          placeholder="Search for..."
+//          onChange={this.handleSearch}
+//
+//          value={this.state.query}
+//        />
+//      </form>
+//    );
+//  }
+// }
+//
+// export default Search;

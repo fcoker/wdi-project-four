@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 import Header from './components/common/Header';
-import Search from './components/common/Search';
+// import Search from './components/common/Search';
 import ProductsIndex from './components/products/Index';
 import ProductNew from './components/products/New';
 import ProductUpdate from './components/products/Edit';
@@ -29,19 +29,24 @@ class App extends React.Component {
     this.toggleLogin = this.toggleLogin.bind(this);
     this.toggleRegister = this.toggleRegister.bind(this);
   }
+
   toggleLogin(){
     this.setState({ login: !this.state.login });
   }
   toggleRegister(){
     this.setState({ register: !this.state.register });
   }
+
+
+
+
+
   render() {
     return (
-
       <div>
         <Header handleLoginClick={this.toggleLogin} handleRegisterClick={this.toggleRegister}/>
         <main className="container">
-          <Search />
+
           {this.state.login && <Login handleLoginClick={this.toggleLogin}/>}
           {this.state.register && <Register handleRegisterClick={this.toggleRegister}/>}
           <Switch>
