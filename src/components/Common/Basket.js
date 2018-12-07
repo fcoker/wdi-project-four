@@ -46,7 +46,7 @@ class Basket extends React.Component {
 
           <div key={item._id} className="columns">
 
-            <div className="column is-6">
+            <div className="column is-4">
               <p>{item.name}</p>
             </div>
             {
@@ -60,10 +60,13 @@ class Basket extends React.Component {
             //   }
             // </div>
             //
-            // <div className="column is-1">
-            // <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
-            // </div>
             }
+            <div className="column is-1">
+              <p>{item.quantity}</p>
+            </div>
+            <div className="column is-1">
+              <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+            </div>
             <div className="column is-6">
               <p>£{item.price}</p>
             </div>
