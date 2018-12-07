@@ -11,7 +11,6 @@ export default class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(getHeader());
     axios.get(`/api/users/${this.props.match.params.userId}`, getHeader())
       .then(res => {
         this.setState({ user: res.data });

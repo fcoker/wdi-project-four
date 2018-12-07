@@ -14,11 +14,9 @@ class UserEdit extends React.Component {
     axios.put(`/api/users/${this.props.match.params.userId}`, this.state,  getHeader())
       .then(result => this.props.history.push(`/user/${result.data._id}`));
     event.preventDefault();
-    console.log('Form submitted with ', this.state);
   }
 
   handleChange({ target: { name, value }}) {
-    console.log('event.target.name is', event.target.name, this.state);
     this.setState({ [name]: value });
   }
 

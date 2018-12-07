@@ -11,12 +11,10 @@ class MyPurchaseHistory extends React.Component {
 
   componentDidMount() {
     const token = getToken();
-    console.log(token);
     axios.get('/api/mypurchases', getHeader())
       .then(result => this.setState({ purchases: result.data }));
   }
   render() {
-    console.log(this.state.purchases);
     return (
       <main>
         {
