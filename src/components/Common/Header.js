@@ -15,7 +15,6 @@ class Header extends React.Component {
     this.props.history.push('/');
   }
   render() {
-    console.log(isAdmin());
     return (
       <nav className="navbar is-danger">
         <div className="navbar-start">
