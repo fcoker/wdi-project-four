@@ -9,8 +9,10 @@ class Basket extends React.Component {
     this.checkout = basketLib.checkout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = handleChange.bind(this);
-    this.handleEditSubmit = this.handleEditSubmit.bind(this);
-    this.handleQuantityDoubleClick = this.handleQuantityDoubleClick.bind(this);
+    // this.handleEditSubmit = this.handleEditSubmit.bind(this);
+    // this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleMinusClick = this.handleMinusClick.bind(this);
+    this.handlePlusClick = this.handlePlusClick.bind(this);
   }
 
   componentDidMount() {
@@ -22,17 +24,28 @@ class Basket extends React.Component {
     this.setState({ basket: basketLib.getBasket()});
   }
 
-  handleEditSubmit(e) {
-    e.preventDefault();
-    basketLib.updateQuantity(this.state.editing, this.state.editQuantity);
-    this.setState({ editing: null, editQuantity: null, basket: basketLib.getBasket() });
+  // handleEditSubmit(e) {
+  //   e.preventDefault();
+  //   basketLib.setQuantity(this.state.editing, this.state.editQuantity);
+  //   this.setState({ editing: null, editQuantity: null, basket: basketLib.getBasket() });
+  // }
+  //
+  // handleEditClick(item) {
+  //   this.setState({
+  //     editQuantity: item.quantity,
+  //     editing: item._id});
+  // }
+  handlePlusClick(item) {
+    basketLib.incrementQuantity(basketLib.getBasket(), item._id, 1);
+    this.setState({ basket: basketLib.getBasket() });
+    basketLib.totalBasketPrice();
+  }
+  handleMinusClick(item) {
+    basketLib.decrementQuantity(basketLib.getBasket(), item._id, 1);
+    this.setState({ basket: basketLib.getBasket() });
+
   }
 
-  handleQuantityDoubleClick(item) {
-    this.setState({
-      editQuantity: item.quantity,
-      editing: item._id});
-  }
 
   render() {
     const basket = this.state.basket;
@@ -50,25 +63,27 @@ class Basket extends React.Component {
               <p>{item.name}</p>
             </div>
             {
-            // <div className="column is-3" onDoubleClick={() => this.handleQuantityDoubleClick(item)}>
-            //   {(this.state.editing === item._id) ?
-            //     <form onSubmit={this.handleEditSubmit}>
-            //       <input className="input" type="number" value={this.state.editQuantity} name="editQuantity" onChange={this.handleChange}/>
-            //     </form>
-            //     :
-            //     <p>{item.quantity}</p>
-            //   }
-            // </div>
-            //
+              // <div className="column is-3">
+              // <button onClick={() => this.handleEditClick(item)}>✏️ Edit</button>
+              // {(this.state.editing === item._id) ?
+              //   <form onSubmit={this.handleEditSubmit}>
+              //   <input className="input" type="number" value={this.state.editQuantity} name="editQuantity" onChange={this.handleChange}/>
+              //   </form>
+              //   :
+              //   <p>{item.quantity}</p>
+              // }
+              // </div>
             }
             <div className="column is-1">
-              <p>{item.quantity}</p>
+              <span onClick={() => this.handleMinusClick(item)}> ➖ </span>
+              <span>{item.unitQuantity}</span>
+              <span onClick={() => this.handlePlusClick(item)}> ➕ </span>
             </div>
             <div className="column is-1">
               <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
             </div>
             <div className="column is-6">
-              <p>£{item.price}</p>
+              <p>£{item.unitPrice}</p>
             </div>
           </div>
         )
@@ -78,13 +93,13 @@ class Basket extends React.Component {
         {basket && hasItems &&
           <section className="columns">
             <div className="column">
-              <button className="button is-warning" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
+              <button className="button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
             </div>
             <div className="column">
               <p className="column">Total price: £{basketLib.totalBasketPrice()}</p>
             </div>
             <div className="column">
-              <button className="button is-link" onClick={this.checkout}>Check out</button>
+              <button className="button is-success" onClick={this.checkout}>Check out</button>
             </div>
           </section>
         }

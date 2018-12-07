@@ -6,7 +6,7 @@ const productSchema = mongoose.Schema({
   genre: {type: String, enum: ['Action', 'Action-Adventure', 'Adventure', 'Role-Playing', 'Simulation', 'Strategy', 'Sport']},
   images: [String],
   video: [String],
-  price: Number,
+  unitPrice: Number,
   description: String,
   releaseDate: String,
   reviews: [{

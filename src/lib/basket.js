@@ -20,7 +20,15 @@ export function getItem(basket, itemId) {
 
 export function incrementQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
-  item.quantity = (item.quantity || 0) + quantity;
+  item.unitQuantity = (item.unitQuantity || 0) + quantity;
+  saveBasket(basket);
+}
+
+export function decrementQuantity(basket, itemId, quantity) {
+  const item = getItem(basket, itemId);
+  if(item.unitQuantity > 0)
+    item.unitQuantity = item.unitQuantity - quantity;
+  saveBasket(basket);
 }
 
 export function addItem(itemToAdd, quantity) {
@@ -32,11 +40,11 @@ export function addItem(itemToAdd, quantity) {
   saveBasket(basket);
 }
 
-export function setQuantity(itemId, newQuantity) {
-  const basket = getBasket();
-  getItem(basket, itemId).quantity = newQuantity;
-  saveBasket(basket);
-}
+// export function setQuantity(itemId, newQuantity) {
+//   const basket = getBasket();
+//   getItem(basket, itemId).quantity = newQuantity;
+//   saveBasket(basket);
+// }
 
 export function removeItem(itemToRemoveId) {
   const basket = getBasket();
@@ -47,7 +55,8 @@ export function removeItem(itemToRemoveId) {
 
 export function totalBasketPrice() {
   const basket = getBasket();
-  const itemTotals = basket.map(item => item.price * item.quantity);
+  const itemTotals = basket.map(item => item.unitPrice * item.unitQuantity);
+  console.log(itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0));
   return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
 }
 
@@ -65,6 +74,6 @@ export function checkout() {
 
 export default {
   createBasket, getBasket, saveBasket, getItem, addItem,
-  incrementQuantity, setQuantity, removeItem, totalBasketPrice, getBasketCount,
+  incrementQuantity, decrementQuantity, removeItem, totalBasketPrice, getBasketCount,
   checkout
 };
