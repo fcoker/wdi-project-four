@@ -57,7 +57,7 @@ class ProductsShow extends React.Component {
               <img id="image" src={product.images} />
 
               <div className="videoBox">
-                <iframe width="300" height="200"src={product.video}>  </iframe>
+                <iframe width="800" height="400"src={product.video}>  </iframe>
               </div>
 
             </article>
