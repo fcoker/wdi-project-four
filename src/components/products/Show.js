@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
 
 class ProductsShow extends React.Component {
@@ -12,6 +12,7 @@ class ProductsShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,14 @@ class ProductsShow extends React.Component {
   handleChange(e) {
     const { target: {name, value} } = e;
     this.setState({[name]: value});
+  }
+
+  // componentDidUpdate(prevProps){
+  //   if(this.props.match.params.productId !== prevProps.props.match.params.productId){
+  //   }
+  // }
+  handleRedirect(id){
+    this.props.history.push(`/product/${id}`);
   }
 
   render() {
@@ -87,10 +96,11 @@ class ProductsShow extends React.Component {
                 <div>
                   <h3>You may also like:</h3>
                   {suggested.map(suggestion =>
-                    <div key={suggestion._id}>
+                    <div onClick={() => this.handleRedirect(suggestion._id)} key={suggestion._id}>
                       <p>{suggestion.name}</p>
                       <img src={suggestion.images[0]}/>
-                    </div>)}
+                    </div>)
+                  }
                 </div>
               }
             </div>
@@ -103,4 +113,4 @@ class ProductsShow extends React.Component {
 }
 
 
-export default ProductsShow;
+export default withRouter(ProductsShow);

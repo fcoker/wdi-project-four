@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ProductBox from './ProductBox';
+import IndexSuggestion from './IndexSuggestion';
 
 
 class ProductsIndex extends React.Component {
@@ -16,7 +17,7 @@ class ProductsIndex extends React.Component {
     axios.get('/api')
       .then(result => this.setState({ products: result.data, filteredProducts: result.data }));
   }
-  
+
   handleSearch(event){
     this.setState({ query: event.target.value });
     let filteredProducts = this.state.filteredProducts;
@@ -34,7 +35,7 @@ class ProductsIndex extends React.Component {
     return (
       <section>
         <div>
-
+          <IndexSuggestion products={this.state.products}/>
           <form>
             <input
               placeholder="Search for..."
