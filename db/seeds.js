@@ -15,18 +15,21 @@ const userData = [
     _id: userIds[0],
     username: 'Sham',
     email: 'sh@m',
+    profilePic: '/assets/images/sham.png',
     password: 'pass',
     accountType: 'admin'
   }, {
     _id: userIds[1],
     username: 'Rafa',
     email: 'r@fa',
+    profilePic: '/assets/images/raph.png',
     password: 'pass',
     accountType: 'customer'
   }, {
     _id: userIds[2],
     username: 'Femi',
     email: 'f@mi',
+    profilePic: '/assets/images/femi.png',
     password: 'pass',
     accountType: 'customer'
   }

@@ -1,6 +1,6 @@
 import React from 'react';
-import basketLib from '../lib/basket';
-import { handleChange } from '../lib/common';
+import basketLib from '../../lib/basket';
+import { handleChange } from '../../lib/common';
 
 class Basket extends React.Component {
   constructor(props) {
@@ -41,28 +41,37 @@ class Basket extends React.Component {
     return (
       <main>
         <h1>Products in your basket</h1>
+
         {basket && hasItems ? basket.map(item =>
+
           <div key={item._id} className="columns">
-            <div className="column is-3">
+
+            <div className="column is-6">
               <p>{item.name}</p>
             </div>
-            <div className="column is-3" onDoubleClick={() => this.handleQuantityDoubleClick(item)}>
-              {(this.state.editing === item._id) ?
-                <form onSubmit={this.handleEditSubmit}>
-                  <input className="input" type="number" value={this.state.editQuantity} name="editQuantity" onChange={this.handleChange}/>
-                </form>
-                :
-                <p>{item.quantity}</p>
-              }
-            </div>
-            <div className="column is-3">
+            {
+            // <div className="column is-3" onDoubleClick={() => this.handleQuantityDoubleClick(item)}>
+            //   {(this.state.editing === item._id) ?
+            //     <form onSubmit={this.handleEditSubmit}>
+            //       <input className="input" type="number" value={this.state.editQuantity} name="editQuantity" onChange={this.handleChange}/>
+            //     </form>
+            //     :
+            //     <p>{item.quantity}</p>
+            //   }
+            // </div>
+            //
+            // <div className="column is-1">
+            // <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+            // </div>
+            }
+            <div className="column is-6">
               <p>£{item.price}</p>
             </div>
-            <div className="column is-1">
-              <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
-            </div>
           </div>
-        ) : <p>No items</p>}
+        )
+          :
+          <p>No items</p>}
+
         {basket && hasItems &&
           <section className="columns">
             <div className="column">

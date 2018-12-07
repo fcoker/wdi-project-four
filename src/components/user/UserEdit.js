@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { getHeader } from '../../lib/auth';
 
 class UserEdit extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class UserEdit extends React.Component {
   }
 
   handleSubmit(event) {
-    axios.post(`/api/users/${this.props.match.params.id}`, this.state)
+    axios.put(`/api/users/${this.props.match.params.userId}`, this.state,  getHeader())
       .then(result => this.props.history.push(`/user/${result.data._id}`));
     event.preventDefault();
     console.log('Form submitted with ', this.state);
@@ -39,7 +40,7 @@ class UserEdit extends React.Component {
           <input onChange={this.handleChange}
             value={this.state.address || ''}
             name="address"
-          />      
+          />
           <button onClick={this.handleSubmit}>Edit</button>
         </form>
       </section>
