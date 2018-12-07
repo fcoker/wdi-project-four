@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { getHeader, decodeToken } from '../../lib/auth';
 import { Link } from 'react-router-dom';
-
+import MyPurchaseHistory from '../common/MyPurchaseHistory';
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -39,6 +39,7 @@ export default class UserShow extends React.Component {
 
             <div>
               <h3>Order History</h3>
+              <MyPurchaseHistory />
             </div>
 
             <Link to= {`/users/${decodeToken().sub}/edit`}>

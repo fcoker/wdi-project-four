@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { getToken } from '../lib/auth';
+import { getToken, getHeader } from '../../lib/auth';
 
-class PurchaseHistory extends React.Component {
+class AllPurchases extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,23 +12,22 @@ class PurchaseHistory extends React.Component {
   componentDidMount() {
     const token = getToken();
     console.log(token);
-    axios.get('/api/purchases', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    axios.get('/api/allpurchases', getHeader())
       .then(result => this.setState({ purchases: result.data }));
   }
   render() {
     console.log(this.state.purchases);
-    return(
+    return (
       <main>
         {
           this.state.purchases && this.state.purchases.map(purchase =>
             <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <p>{purchase.burger.name}</p>
-              <p>Per unit £{purchase.price}</p>
-              <p>{purchase.quantity}</p>
-              <p>Total £{purchase.totalPrice}</p>
               <p>{moment(purchase.createdAt).fromNow()}</p>
+              <p>{purchase.user.username}</p>
+              <p>{purchase.product.name}</p>
+              <p>£{purchase.unitPrice} per unit</p>
+              <p>{purchase.unitQuantity}</p>
+              <p>Total £{purchase.totalPrice}</p>
             </div>
           )
         }
@@ -37,4 +36,4 @@ class PurchaseHistory extends React.Component {
   }
 }
 
-export default PurchaseHistory;
+export default AllPurchases;
