@@ -8,7 +8,6 @@ function getMyGenres(myPurchases){
 }
 
 export function getSuggestion(myPurchases, products){
-  console.log(myPurchases);
   if(!!myPurchases && myPurchases.length > 0){
     const productArray = [];
     const myGenres = getMyGenres(myPurchases);

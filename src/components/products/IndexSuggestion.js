@@ -9,11 +9,13 @@ class IndexSuggestion extends React.Component {
     super(props);
     this.state = {};
   }
-  
+
   componentDidMount() {
     axios.get('/api/mypurchases', getHeader())
       .then(result => this.setState({
         myPurchases: result.data,
+        //sometimes this isn't happening fast enough,
+        //so no products are show as suggestions:
         suggestion: getSuggestion(result.data, this.props.products)
       }));
   }
