@@ -96,7 +96,7 @@ class ProductsShow extends React.Component {
                   {suggested.map(suggestion =>
                     <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
                       <p>{suggestion.name}</p>
-                      <img src={suggestion.images[0]}/>
+                      <img height="100px" src={suggestion.images[0]}/>
                     </div>)
                   }
                 </div>
