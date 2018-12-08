@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
 
 class ProductsShow extends React.Component {
@@ -21,6 +21,7 @@ class ProductsShow extends React.Component {
         const showPageProduct = res.data.find(product => product._id === this.props.match.params.productId);
         this.setState({
           product: showPageProduct,
+          allProducts: res.data,
           suggested: res.data.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct)
         });
       });
@@ -42,12 +43,9 @@ class ProductsShow extends React.Component {
     this.setState({[name]: value});
   }
 
-  // componentDidUpdate(prevProps){
-  //   if(this.props.match.params.productId !== prevProps.props.match.params.productId){
-  //   }
-  // }
-  handleRedirect(id){
-    this.props.history.push(`/product/${id}`);
+  handleRedirect(showPageProduct, products){
+    this.props.history.push(`/product/${showPageProduct._id}`);
+    this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
   }
 
   render() {
@@ -96,7 +94,7 @@ class ProductsShow extends React.Component {
                 <div>
                   <h3>You may also like:</h3>
                   {suggested.map(suggestion =>
-                    <div onClick={() => this.handleRedirect(suggestion._id)} key={suggestion._id}>
+                    <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
                       <p>{suggestion.name}</p>
                       <img src={suggestion.images[0]}/>
                     </div>)
@@ -113,4 +111,4 @@ class ProductsShow extends React.Component {
 }
 
 
-export default withRouter(ProductsShow);
+export default ProductsShow;
