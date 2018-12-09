@@ -36,7 +36,7 @@ const userData = [
   }
 ];
 //GENRE KEY!!
-//GAME: RPG--racing--
+//GAME: RPG--racing--shooter
 //MOVIE: drama--adventure--
 
 const productData = [
@@ -302,6 +302,61 @@ const productData = [
     unitPrice: 9,
     description: 'Young Ben Carson didn\'t have much of a chance. Growing up in a broken home amongst poverty and prejudice, his grades suffered and his temper flared, and yet, his mother never lost her faith in him. Insisting he follow the opportunities she never had, she helped to grow his imagination, intelligence and, most importantly, his belief in himself. That faith would be his gift.',
     releaseDate: '7/02/2009',
+    reviews: []
+  },
+  {
+    name: 'CALL OF DUTY: BLACK OPS 4',
+    format: 'PS4',
+    genre: 'shooter',
+    images: '/assets/images/blackOps.png',
+    video: 'https://www.youtube.com/embed/CoLKsV0eMro',
+    unitPrice: 48,
+    description: 'Featuring gritty, grounded Multiplayer combat, the biggest Zombies offering ever with three full undead adventures at launch, and Blackout, where the universe of Black Ops comes to life in a massive battle royale experience. Blackout features the largest map in Call of Duty history, signature Black Ops combat, and characters, locations and weapons from the Black Ops series. ',
+    releaseDate: '11/10/2018',
+    reviews: []
+  },
+  {
+    name: 'OVERWATCH - GAME OF THE YEAR EDITION',
+    format: 'PS4',
+    genre: 'shooter',
+    images: '/assets/images/overwatch.png',
+    video: 'https://www.youtube.com/embed/FqnKB22pOC0',
+    unitPrice: 45,
+    description: 'The world needs heroes. Join over 30 million players* as you clash on the battlefields of tomorrow. Choose your hero from a diverse cast of soldiers, scientists, adventurers, and oddities. Bend time, defy physics, and unleash an array of extraordinary powers and weapons. Engage your enemies in iconic locations from around the globe in the ultimate team-based shooter. Take your place in Overwatch. Based on internal company records and reports from key distribution partners.',
+    releaseDate: '28/07/2017',
+    reviews: []
+  },
+  {
+    name: 'BATTLEFIELD V',
+    format: 'PS4',
+    genre: 'shooter',
+    images: '/assets/images/battlefield.png',
+    video: 'https://www.youtube.com/embed/-FEgeuGsmzQ',
+    unitPrice: 50,
+    description: 'Enter mankind’s greatest conflict with Battlefield™ V as the series goes back to its roots in a never-before-seen portrayal of World War 2. Take on all-out multiplayer across the world or witness human drama set against global combat in single player War Stories. Firestorm is Battle Royale, reimagined for Battlefield™ V. Prepare for an all-out war of survival, where players fight to become the last squad standing – all set against the backdrop of mankind\'s greatest conflict. As part of the Tides of War post-launch journey all players will go on, Firestorm is an all-new, different way to fight, with the epic scale of weapons, vehicles, team play, and destruction Battlefield is renowned for. Royale will never be the same.',
+    releaseDate: '20/11/2018',
+    reviews: []
+  },
+  {
+    name: 'Rage 2',
+    format: 'PS4',
+    genre: 'shooter',
+    images: '/assets/images/rage2.png',
+    video: 'https://www.youtube.com/embed/szDECq67c30',
+    unitPrice: 58,
+    description: 'An asteroid has annihilated 80% of the earth’s population, and humanity’s numbers are dwindling. Ruthless and bloodthirsty gangs roam the open roads and the tyrannical Authority seek to rule with an iron fist. As Walker, the last Ranger of the wasteland and a threat to their power, you have been robbed of your home and left for dead. Now you’ll have to rage for justice and freedom. With ludicrous vehicle combat, super-powered first-person mayhem, and an open world full of emergent madness, you will tear across an unforgiving wasteland battling sadistic gangs to find the tools and tech needed to crush the oppressive rule of The Authority once and for all.',
+    releaseDate: '14/05/2019',
+    reviews: []
+  },
+  {
+    name: 'Titan Fall 2',
+    format: 'PS4',
+    genre: 'shooter',
+    images: '/assets/images/titanfall2.png',
+    video: 'https://www.youtube.com/embed/VqeMjHmL9eg',
+    unitPrice: 58,
+    description: 'Respawn Entertainment returns with the highly anticipated sequel Titanfall 2. Featuring a captivating single player campaign along with an expanded multiplayer mode, Titanfall 2 delivers a fast-paced thrilling experience for action fans.',
+    releaseDate: '28/10/2016',
     reviews: []
   }
 ];
