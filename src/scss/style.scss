@@ -1,10 +1,92 @@
+
+
 #image {
-  width: 200px;
+margin-left: -145px;
+margin-right: -145px;
 }
 
+// #imagebox {
+//   height: 327px;
+//     margin-left: 41px;
+//     width: 239px;
+// }
+#bar {
+     width: 100%;
+     height: 90px;
+     margin: 0 auto;
+     background-color: rgba(255,255,255,0);
+     position: absolute;
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-width: 200px;
-  }
+}
+
+// @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+// @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
+body {
+	background: #DDD;
+	font-size: 15px;
+}
+#wrap {
+  margin: 50px 100px;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+      margin-right: 18px;
+}
+
+input[type="text"] {
+  height: 60px;
+  font-size: 30px;
+  display: inline-block;
+  font-weight: 800;
+  color: black;
+
+  border: none;
+  outline: none;
+  color: #555;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+}
+
+input[type="text"]:focus:hover {
+  border-bottom: 1px solid #BBB;
+}
+
+input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+}
+input[type="submit"] {
+  height: 67px;
+  width: 63px;
+  display: inline-block;
+  color:red;
+  float: right;
+  background: url(https://dl1.cbsistatic.com/i/r/2017/02/13/e2d6543a-58db-4a3e-9ed4-b9c1dcf3ed73/thumbnail/64x64/834716c2b2a7a0c2715c0fe74e20af6a/imgingest-7687987059836092415.png) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}

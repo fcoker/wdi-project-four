@@ -33,21 +33,30 @@ class ProductsIndex extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="hero">
+        <figure id="image">
+          <img src="https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg"/>
+        </figure>
+
+        <div className="section">
+          <div id="searchbox" className="box">
+            <div className="field has-addons">
+              <div className="control is-expanded">
+                <input className="input has-text-centered" ref={input => this.search = input} onChange={this.handleSearch} type="search" placeholder="What are you looking for?"/>
+              </div>
+              <div className="control">
+                <a className="button is-info">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <div>
           <IndexSuggestion products={this.state.products}/>
-          <form>
-            <input
-              placeholder="Search for..."
-              ref={input => this.search = input}
-              onChange={this.handleSearch}
-              className="form-input"
-            />
-          </form>
+
         </div>
         <hr/>
         <div>
-          <div>
+          <div className="columns is-multiline is-mobile">
             {this.state.filteredProducts && this.state.filteredProducts.map(
               product => <ProductBox key={product._id} product={product}/>
             )}
@@ -57,5 +66,6 @@ class ProductsIndex extends React.Component {
     );
   }
 }
+
 
 export default ProductsIndex;

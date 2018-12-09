@@ -61,7 +61,7 @@ class ProductsShow extends React.Component {
             <article>
               <h3>{product.name}</h3>
               <h3>{product.price}</h3>
-              <img id="image" src={product.images} />
+              <img id="imageshow" src={product.images} />
               <div>
                 <p>{product.description}</p>
               </div>

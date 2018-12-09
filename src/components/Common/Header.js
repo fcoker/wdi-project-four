@@ -16,7 +16,7 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <nav className="navbar is-danger">
+      <nav id="bar" className="navbar is-danger">
         <div className="navbar-start">
           <Link className="navbar-item" to={'/'}>P&W Products</Link>
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
@@ -27,9 +27,21 @@ class Header extends React.Component {
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleLoginClick}>Log In</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleRegisterClick}>Register</a>}
         </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="field">
+              <div id="wrap">
+                <form action="" autoComplete="on">
+                  <input id="search" name="search" type="text" placeholder="What're you looking for ?"/><input id="search_submit" value="Rechercher" type="submit"/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     );
   }
 }
+
 
 export default withRouter(Header);
