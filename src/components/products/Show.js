@@ -12,14 +12,21 @@ class ProductsShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/api/product/${this.props.match.params.productId}`)
+    axios.get('/api')
       .then(res => {
-        this.setState({ product: res.data });
+        const showPageProduct = res.data.find(product => product._id === this.props.match.params.productId);
+        this.setState({
+          product: showPageProduct,
+          allProducts: res.data,
+          suggested: res.data.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct)
+        });
       });
   }
+
   handleAddToCart() {
     addItem(this.state.product, parseInt(this.state.quantity));
     this.props.history.push('/');
@@ -36,8 +43,15 @@ class ProductsShow extends React.Component {
     this.setState({[name]: value});
   }
 
+  handleRedirect(showPageProduct, products){
+    this.props.history.push(`/product/${showPageProduct._id}`);
+    this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
+  }
+
   render() {
     const product = this.state.product;
+    const suggested = this.state.suggested;
+    const hasSuggestions = suggested && !!suggested.length;
     return (
 
       <section>
@@ -48,6 +62,13 @@ class ProductsShow extends React.Component {
               <h3>{product.name}</h3>
               <h3>{product.price}</h3>
               <img id="image" src={product.images} />
+              <div>
+                <p>{product.description}</p>
+              </div>
+              <div className="videoBox">
+                <iframe width="800" height="400"src={product.video}>  </iframe>
+              </div>
+
             </article>
           </div>
 
@@ -68,6 +89,22 @@ class ProductsShow extends React.Component {
             <div className="">
               <button className="button is-light" onClick={this.handleAddToCart}>Add to cart</button>
             </div>
+
+            <div className="">
+              { hasSuggestions
+                &&
+                <div>
+                  <h3>You may also like:</h3>
+                  {suggested.map(suggestion =>
+                    <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
+                      <p>{suggestion.name}</p>
+                      <img height="100px" src={suggestion.images[0]}/>
+                    </div>)
+                  }
+                </div>
+              }
+            </div>
+
           </div>
         </div>
       </section>

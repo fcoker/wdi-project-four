@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { getToken, getHeader } from '../../lib/auth';
+import { getHeader } from '../../lib/auth';
 
 class MyPurchaseHistory extends React.Component {
   constructor(props) {
@@ -10,17 +10,16 @@ class MyPurchaseHistory extends React.Component {
   }
 
   componentDidMount() {
-    const token = getToken();
-    console.log(token);
     axios.get('/api/mypurchases', getHeader())
       .then(result => this.setState({ purchases: result.data }));
   }
   render() {
-    console.log(this.state.purchases);
+    const hasPurchases = this.state.purchases && !!this.state.purchases.length;
     return (
       <main>
-        {
-          this.state.purchases && this.state.purchases.map(purchase =>
+        {hasPurchases
+          ?
+          this.state.purchases.map(purchase =>
             <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
               <p>{moment(purchase.createdAt).fromNow()}</p>
               <p>{purchase.product.name}</p>
@@ -29,6 +28,8 @@ class MyPurchaseHistory extends React.Component {
               <p>Total £{purchase.totalPrice}</p>
             </div>
           )
+          :
+          <p>Your purchases will be shown here.</p>
         }
       </main>
     );

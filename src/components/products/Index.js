@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ProductBox from './ProductBox';
+import IndexSuggestion from './IndexSuggestion';
 
 
 class ProductsIndex extends React.Component {
@@ -15,19 +16,18 @@ class ProductsIndex extends React.Component {
   componentDidMount() {
     axios.get('/api')
       .then(result => this.setState({ products: result.data, filteredProducts: result.data }));
-
   }
-  handleSearch = (event) => {
-    this.setState({ query: event.target.value }, () => console.log(this.state)
-    );
+
+  handleSearch(event){
+    this.setState({ query: event.target.value });
     let filteredProducts = this.state.filteredProducts;
     const products = this.state.products;
     const query = this.state.query;
     filteredProducts = products.filter(product =>
-      product.name.toLowerCase().startsWith(query.toLowerCase()) ||
+      product.name.toLowerCase().includes(query.toLowerCase()) ||
+      product.format.toLowerCase().includes(query.toLowerCase()) ||
       product.genre.toLowerCase().includes(query.toLowerCase())
     );
-    console.log('state is...', this.state);
     this.setState({ filteredProducts: filteredProducts });
   }
 
@@ -35,7 +35,7 @@ class ProductsIndex extends React.Component {
     return (
       <section>
         <div>
-
+          <IndexSuggestion products={this.state.products}/>
           <form>
             <input
               placeholder="Search for..."
@@ -58,17 +58,4 @@ class ProductsIndex extends React.Component {
   }
 }
 
-//   render() {
-//
-//
-//     return (
-//
-//       <section>
-//
-//
-//         {this.state.products && this.state.products.map(product => <ProductBox key={product._id} product={product}/>)}
-//       </section>
-//     );
-//   }
-// }
 export default ProductsIndex;

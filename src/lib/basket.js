@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getHeader } from './auth';
+import { getHeader, decodeToken } from './auth';
 
 export function createBasket() {
   localStorage.setItem('basket', '[]');
@@ -20,7 +20,7 @@ export function getItem(basket, itemId) {
 
 export function incrementQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
-  item.unitQuantity = (item.unitQuantity || 0) + quantity;
+  item.unitQuantity =(item.unitQuantity || 0) + Math.abs(quantity);
   saveBasket(basket);
 }
 
@@ -56,7 +56,6 @@ export function removeItem(itemToRemoveId) {
 export function totalBasketPrice() {
   const basket = getBasket();
   const itemTotals = basket.map(item => item.unitPrice * item.unitQuantity);
-  console.log(itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0));
   return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
 }
 
@@ -68,7 +67,7 @@ export function checkout() {
   axios.post('/api/checkout', getBasket(), getHeader())
     .then(() => {
       createBasket();
-      this.props.history.push('/purchases');
+      this.props.history.push(`/users/${decodeToken().sub}`);
     });
 }
 

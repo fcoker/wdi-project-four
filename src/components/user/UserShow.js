@@ -11,7 +11,6 @@ export default class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(getHeader());
     axios.get(`/api/users/${this.props.match.params.userId}`, getHeader())
       .then(res => {
         this.setState({ user: res.data });
@@ -33,12 +32,11 @@ export default class UserShow extends React.Component {
             </div>
 
             <div>
-              <p>{user.name}</p>
               <p>{user.email}</p>
             </div>
 
             <div>
-              <h3>Order History</h3>
+              <h3>Order History:</h3>
               <MyPurchaseHistory />
             </div>
 

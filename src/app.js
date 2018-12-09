@@ -52,11 +52,11 @@ class App extends React.Component {
           {this.state.login && <Login handleLoginClick={this.toggleLogin}/>}
           {this.state.register && <Register handleRegisterClick={this.toggleRegister}/>}
           <Switch>
-            <Route exact path='/' component={ProductsIndex} />
+            <Route exact path="/" component={ProductsIndex} />
             <Route exact path="/product/new" component={ProductNew} />
             <Route exact path="/stats" component={AllPurchases} />
             <Route path="/product/:productId/edit" component={ProductUpdate} />
-            <Route path='/product/:productId' component={ProductsShow}/>
+            <Route path="/product/:productId" component={ProductsShow}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/basket" component={Basket} />
             <Route exact path="/register" component={Register} />
