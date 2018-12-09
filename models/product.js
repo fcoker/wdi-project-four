@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
   name: {type: String, required: true},
   format: {type: String, enum: ['Movie', 'PC', 'XBOX', 'PS4', 'Music']},
-  genre: {type: String, enum: ['Action', 'Action-Adventure', 'Adventure', 'Role-Playing', 'Simulation', 'Strategy', 'Sport']},
+  genre: [String],
   images: [String],
   video: [String],
   unitPrice: Number,
