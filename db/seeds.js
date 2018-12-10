@@ -250,28 +250,6 @@ const productData = [
     reviews: []
   },
   {
-    name: '12 Years a Slave',
-    format: 'Movie',
-    genre: 'drama',
-    images: ['/assets/images/12Years.png'],
-    video: 'https://www.youtube.com/embed/z02Ie8wKKRg',
-    unitPrice: 20,
-    description: 'Based on an incredible true story of one man\'s fight for survival and freedom. In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. Facing cruelty personified by a malevolent slave owner, as well as unexpected kindnesses, Solomon struggles not only to stay alive, but to retain his dignity. In the twelfth year of his unforgettable odyssey, Solomon\'s chance meeting with a Canadian abolitionist will forever alter his life.',
-    releaseDate: '10/01/2014',
-    reviews: []
-  },
-  {
-    name: '12 Years a Slave',
-    format: 'Movie',
-    genre: 'drama',
-    images: ['/assets/images/precious.png'],
-    video: 'https://www.youtube.com/embed/06ZF3zw1gHs',
-    unitPrice: 9,
-    description: 'Pregnant by her own father for the second time, 16-year-old Claireece "Precious" Jones (Gabourey Sidibe) can neither read nor write and suffers constant abuse at the hands of her vicious mother (Mo\'Nique). Precious instinctively sees a chance to turn her life around when she is offered the opportunity to transfer to an alternative school. Under the patient, firm guidance of her new teacher, Ms. Rain (Paula Patton), Precious begins the journey from oppression to self-determination.',
-    releaseDate: '29/01/2010',
-    reviews: []
-  },
-  {
     name: 'Amistad',
     format: 'Movie',
     genre: 'drama',
