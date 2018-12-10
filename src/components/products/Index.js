@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import ProductBox from './ProductBox';
 import IndexSuggestion from './IndexSuggestion';
-
+import { getHeader } from '../../lib/auth';
+import { getSuggestion } from '../../lib/common';
 
 class ProductsIndex extends React.Component {
   constructor(props) {
@@ -15,7 +16,16 @@ class ProductsIndex extends React.Component {
 
   componentDidMount() {
     axios.get('/api')
-      .then(result => this.setState({ products: result.data, filteredProducts: result.data }));
+      .then(result => this.setState({
+        products: result.data,
+        filteredProducts: result.data
+      }, () => axios.get('/api/mypurchases', getHeader())
+        .then(myPurchases => this.setState({
+          myPurchases: myPurchases.data
+        }, () => {
+          this.setState({ suggestion: getSuggestion(myPurchases.data, result.data)});
+        }))
+      ));
   }
 
   handleSearch(event){
@@ -51,9 +61,12 @@ class ProductsIndex extends React.Component {
           </div>
         </div>
         <div>
-          {this.state.products && <IndexSuggestion products={this.state.products}/>
-          }
+          <IndexSuggestion suggestion={this.state.suggestion}/>
+          {
+            // this.state.suggestion &&
 
+            // <div>Placeholder for featured items</div>
+          }
         </div>
         <hr/>
         <div>
