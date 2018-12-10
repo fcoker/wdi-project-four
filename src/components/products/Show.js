@@ -78,21 +78,32 @@ class ProductsShow extends React.Component {
                 <img id="imageshow" src={product.images[0]} />
               </div>
               <div id="detailsShow" className="column is-3">
-                <h3>{product.name}</h3>
-                <h3>{product.unitPrice}</h3>
+                <h3 id="black">{product.name}</h3>
+                <h3 id="price">£{product.unitPrice}</h3>
+                <h4><strong>BARCODE: </strong>{product._id}</h4>
                 <hr/>
-                <h3>Genre: {product.genre}</h3>
-                <h3>Format: {product.format}</h3>
-                <h3>Released: {product.releaseDate}</h3>
+                <h3>Genre: <strong>{product.genre}</strong></h3>
+                <h3>Format: <strong>{product.format}</strong></h3>
+                <h3>Released: <strong>{product.releaseDate}</strong></h3>
                 <hr/>
-                <hr/>
-                <h3>PLEASE NOTE: Prices in Stores may differ.</h3>
+
+                <h4><span id="red">PLEASE NOTE: </span>Prices in P&W Stores may differ.</h4>
               </div>
               <div id="addtocart" className="column is-3">
-                <label htmlFor="quantity" className="label">Quantity</label>
-                <input className="input" type="number" min="1" name="quantity"
+                <label htmlFor="quantity" className="label">Quantity:</label>
+                <input id="inputshow" className="input" type="number" min="1" name="quantity"
                   value={this.state.quantity || 1} onChange={this.handleChange}/>
-                <button className="button is-light" onClick={this.handleAddToCart}>Add to cart  🛒</button>
+                <div>
+                  <br />
+                  <button className="button is-link" onClick={this.handleAddToCart}>Add to cart ▶︎</button>
+                  <br />
+                  <br />
+                  <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
+                  <Link to={`/product/${this.props.match.params.productId}/edit`}>
+                    <button className="button is-light has-text-centered edit">Edit</button>
+                  </Link>
+
+                </div>
               </div>
 
 
@@ -102,8 +113,8 @@ class ProductsShow extends React.Component {
                 <div id="videoblock" className="column is-12">
                   <p id="textshow"><strong>Synopsis: </strong>{product.description}</p>
                   <div>
-                    <div className="column is-12 is-centered">
-                      <iframe width="1130" height="600"src={product.video}>  </iframe>
+                    <div className="column is-12">
+                      <iframe width="1110" height="600"src={product.video}></iframe>
                     </div>
                   </div>
                 </div>
@@ -115,23 +126,13 @@ class ProductsShow extends React.Component {
 
           <p>Please wait...</p>}
         <div>
-          <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
-          <Link to={`/product/${this.props.match.params.productId}/edit`}>
-            <button className="button is-light has-text-centered edit">Edit</button>
-          </Link>
+
+
+
+
+
           <div className="">
-
-            <div className="">
-              <label htmlFor="quantity" className="label">Quantity</label>
-              <input className="input" type="number" min="1" name="quantity"
-                value={this.state.quantity || 1} onChange={this.handleChange}/>
-            </div>
-            <div className="">
-              <button className="button is-light" onClick={this.handleAddToCart}>Add to cart</button>
-            </div>
-
-            <div className="">
-              { hasSuggestions
+            { hasSuggestions
                 &&
                 <div>
                   <h3>You may also like:</h3>
@@ -148,11 +149,12 @@ class ProductsShow extends React.Component {
                     }
                   </div>
                 </div>
-              }
-            </div>
-
+            }
           </div>
+
         </div>
+
+
       </section>
     );
   }

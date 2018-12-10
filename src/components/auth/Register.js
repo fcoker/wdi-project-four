@@ -26,9 +26,9 @@ class Register extends React.Component {
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
-          <div className="container has-text-centered">
+          <div id="registerbox" className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-danger">Register</h3>
+              <h3 id="registertext" className="title has-text-danger">Register</h3>
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
