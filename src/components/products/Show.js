@@ -12,7 +12,7 @@ class ProductsShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
-    this.handleRedirect = this.handleRedirect.bind(this);
+    // this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +25,21 @@ class ProductsShow extends React.Component {
           suggested: res.data.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct)
         });
       });
+  }
+
+  componentDidUpdate(prevProps){
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      axios.get('/api')
+        .then(res => {
+          window.scrollTo(0, 0);
+          const showPageProduct = res.data.find(product => product._id === this.props.match.params.productId);
+          this.setState({
+            product: showPageProduct,
+            allProducts: res.data,
+            suggested: res.data.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct)
+          });
+        });
+    }
   }
 
   handleAddToCart() {
@@ -43,10 +58,10 @@ class ProductsShow extends React.Component {
     this.setState({[name]: value});
   }
 
-  handleRedirect(showPageProduct, products){
-    this.props.history.push(`/product/${showPageProduct._id}`);
-    this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
-  }
+  // handleRedirect(showPageProduct, products){
+  //   this.props.history.push(`/product/${showPageProduct._id}`);
+  //   // this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
+  // }
 
   render() {
     const product = this.state.product;
@@ -84,6 +99,7 @@ class ProductsShow extends React.Component {
             <button className="button is-light has-text-centered edit">Edit</button>
           </Link>
           <div className="">
+          
             <div className="">
               <label htmlFor="quantity" className="label">Quantity</label>
               <input className="input" type="number" min="1" name="quantity"
@@ -99,9 +115,12 @@ class ProductsShow extends React.Component {
                 <div>
                   <h3>You may also like:</h3>
                   {suggested.map(suggestion =>
-                    <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                      <p>{suggestion.name}</p>
-                      <img height="100px" src={suggestion.images[0]}/>
+                    //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
+                    <div key={suggestion._id}>
+                      <Link to={`/product/${suggestion._id}`}>
+                        <p>{suggestion.name}</p>
+                        <img height="100px" src={suggestion.images[0]}/>
+                      </Link>
                     </div>)
                   }
                 </div>

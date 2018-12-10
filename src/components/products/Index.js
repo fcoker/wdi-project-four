@@ -51,7 +51,8 @@ class ProductsIndex extends React.Component {
           </div>
         </div>
         <div>
-          <IndexSuggestion products={this.state.products}/>
+          {this.state.products && <IndexSuggestion products={this.state.products}/>
+          }
 
         </div>
         <hr/>
