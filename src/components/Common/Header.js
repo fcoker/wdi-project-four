@@ -15,7 +15,7 @@ class Header extends React.Component {
     this.props.history.push('/');
   }
   render() {
-    
+
     return (
       <nav id="bar" className="navbar is-danger">
         <div className="navbar-start">
@@ -33,7 +33,7 @@ class Header extends React.Component {
             <div className="field">
               <div id="wrap">
                 <form action="" autoComplete="on">
-                  <input id="search" name="search" type="text" placeholder="What're you looking for ?"/><input id="search_submit" value="Rechercher" type="submit"/>
+                  <input id="search" name="search" type="text" placeholder="What're you looking for ?"/><input id="search_submit"  type="submit"/>
                 </form>
               </div>
             </div>

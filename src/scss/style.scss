@@ -16,16 +16,17 @@ html {
 }
 #detailsShow {
   margin-top: 142px;
-margin-left: -110px;
+  margin-left: -130px;
+  width: 330px;
 }
 // #videoblock {
 //   margin-left: -140px;
 // }
 #textshow {
   text-align: justify;
-    margin-left: 10px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 #showpic {
   margin-top: 115px;
@@ -41,18 +42,33 @@ margin-left: -110px;
 //
 #showpage{
   background: white;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.8);
 
 }
 #addtocart {
   margin-top: 142px;
-margin-left: 55px;
+  margin-left: 55px;
 }
 // #imagebox {
 //   height: 327px;
 //     margin-left: 41px;
 //     width: 239px;
 // }
+
+div.show-suggestion {
+  div {
+    width: 3000px;
+  }
+
+  display: flex;
+
+  height: 400px;
+
+  overflow: auto;
+  img {
+    width: 300px;
+  }
+}
 #bar {
   width: 100%;
   height: 90px;

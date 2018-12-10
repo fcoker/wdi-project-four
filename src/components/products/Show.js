@@ -77,7 +77,7 @@ class ProductsShow extends React.Component {
                 <label htmlFor="quantity" className="label">Quantity</label>
                 <input className="input" type="number" min="1" name="quantity"
                   value={this.state.quantity || 1} onChange={this.handleChange}/>
-                <button className="button is-light" onClick={this.handleAddToCart}>Add to cart</button>
+                <button className="button is-light" onClick={this.handleAddToCart}>Add to cart  🛒</button>
               </div>
 
 
@@ -105,21 +105,22 @@ class ProductsShow extends React.Component {
             <button className="button is-light has-text-centered edit">Edit</button>
           </Link>
           <div className="">
-            <div className="">
-            </div>
+
 
             <div className="">
               { hasSuggestions
                 &&
-                <div>
-                  <h3>You may also like:</h3>
-                  {suggested.map(suggestion =>
-                    <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                      <p>{suggestion.name}</p>
-                      <img height="100px" src={suggestion.images[0]}/>
-                    </div>)
-                  }
-                </div>
+                    <div>
+                      <h3>You may also like:</h3>
+                      <div className="show-suggestion">
+                        {suggested.map(suggestion =>
+                          <div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
+                            <p>{suggestion.name}</p>
+                            <img width="200px" src={suggestion.images[0]}/>
+                          </div>)
+                        }
+                      </div>
+                    </div>
               }
             </div>
 
