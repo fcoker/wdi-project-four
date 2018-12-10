@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 // import { getHeader } from '../../lib/auth';
 // import { getSuggestion } from '../../lib/common';
 
-function IndexSuggestion({suggestion} ) {
+function IndexSuggestion({suggestion}) {
   return (
     <section className="container" height="200px">
-      {!!suggestion &&
+      {suggestion &&
         <div>
           <h1>Featured:</h1>
           <div>
