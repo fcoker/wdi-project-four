@@ -1,46 +1,67 @@
-#body {
-  background: white;
+html {
+  background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
-#image {
-margin-left: -145px;
-margin-right: -145px;
+#frames {
+  width: 200px;
 }
-
-#videoblock {
-  margin-left: -140px;
+#searchbox{
+  margin-top: 600px;
 }
-
+#marginIndex {
+  margin-top: 20px;
+}
+#detailsShow {
+  margin-top: 142px;
+margin-left: -110px;
+}
+// #videoblock {
+//   margin-left: -140px;
+// }
+#textshow {
+  text-align: justify;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#showpic {
+  margin-top: 115px;
+}
 #imageshow {
   width: 400px;
 }
 #showblock{
 
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-top: 0px;
+  margin-left: 0px;
 }
+//
+#showpage{
+  background: white;
+  background-color: rgba(255,255,255,0.9);
 
+}
+#addtocart {
+  margin-top: 142px;
+margin-left: 55px;
+}
 // #imagebox {
 //   height: 327px;
 //     margin-left: 41px;
 //     width: 239px;
 // }
 #bar {
-     width: 100%;
-     height: 90px;
-     margin: 0 auto;
-     background-color: rgba(255,255,255,0.3);
-     position: absolute;
+  width: 100%;
+  height: 90px;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.3);
+  position: absolute;
 
 }
 
-// @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
-// @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
-
-body {
-	background: #DDD;
-	font-size: 15px;
-}
 #wrap {
   margin: 50px 100px;
   display: inline-block;
@@ -48,7 +69,7 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-      margin-right: 18px;
+  margin-right: 18px;
 }
 
 input[type="text"] {

@@ -54,21 +54,42 @@ class ProductsShow extends React.Component {
     const hasSuggestions = suggested && !!suggested.length;
     return (
 
-      <section>
+      <section id="showpage">
         {product
           ?
           <article>
-            <h3>{product.name}</h3>
-            <h3>{product.price}</h3>
             <div id="showblock" className="columns is-multiline">
-              <div className="column is-6">
+              <div id="showpic" className="column is-6">
                 <img id="imageshow" src={product.images} />
               </div>
-              <div id="videoblock" className="column is-6">
-                <p><strong>Synopsis: </strong>{product.description}</p>
-                <div>
-                  <div className="videoBox">
-                    <iframe width="600" height="400"src={product.video}>  </iframe>
+              <div id="detailsShow" className="column is-3">
+                <h3>{product.name}</h3>
+                <h3>{product.unitPrice}</h3>
+                <hr/>
+                <h3>Genre: {product.genre}</h3>
+                <h3>Format: {product.format}</h3>
+                <h3>Released: {product.releaseDate}</h3>
+                <hr/>
+                <hr/>
+                <h3>PLEASE NOTE: Prices in Stores may differ.</h3>
+              </div>
+              <div id="addtocart" className="column is-3">
+                <label htmlFor="quantity" className="label">Quantity</label>
+                <input className="input" type="number" min="1" name="quantity"
+                  value={this.state.quantity || 1} onChange={this.handleChange}/>
+                <button className="button is-light" onClick={this.handleAddToCart}>Add to cart</button>
+              </div>
+
+
+
+
+              <div className="columns is-multiline">
+                <div id="videoblock" className="column is-12">
+                  <p id="textshow"><strong>Synopsis: </strong>{product.description}</p>
+                  <div>
+                    <div className="column is-12 is-centered">
+                      <iframe width="1130" height="600"src={product.video}>  </iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -85,12 +106,6 @@ class ProductsShow extends React.Component {
           </Link>
           <div className="">
             <div className="">
-              <label htmlFor="quantity" className="label">Quantity</label>
-              <input className="input" type="number" min="1" name="quantity"
-                value={this.state.quantity || 1} onChange={this.handleChange}/>
-            </div>
-            <div className="">
-              <button className="button is-light" onClick={this.handleAddToCart}>Add to cart</button>
             </div>
 
             <div className="">
