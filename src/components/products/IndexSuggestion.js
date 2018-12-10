@@ -20,6 +20,7 @@ function IndexSuggestion({suggestion}) {
       }
     </section>
   );
+
   // const prod = getSuggestion(myPurchases, products);
   // console.log('inside the IndexSuggestion products is:', products);
   // console.log('inside the IndexSuggestion myPurchases is:', myPurchases);

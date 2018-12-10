@@ -17,56 +17,34 @@ function getMyGenres(myPurchases){
 
 export function getSuggestion(myPurchases, products){
   if(!!myPurchases && myPurchases.length > 0){
+  //find products with the same genre as what user has purchased:
     const productArray = [];
     const myGenres = getMyGenres(myPurchases);
-    const myIds = [];
-    for(let i = 0; i < myPurchases.length; i++){
-      myIds.push(myPurchases[i].product._id);
-    }
-    console.log('my purchased', myIds);
-
-
-    
-    // products.forEach(prod => {
-    //   for(let i = 0; i < myPurchases.length; i++){
-    //     if(myPurchases[i].product._id !== prod._id){
-    //       if(notPurchased.indexOf(prod) < 0) {
-    //         notPurchased.push(prod);
-    //       }
-    //     }
-    //   }
-    // });
-
-    // for (let i = 0; i < products.length; i++){
-    //   if(myPurchases[i] && myPurchases[i].product['_id'] !== products[i]._id){
-    //     if(notPurchased.indexOf(products[i]) < 0) {
-    //       notPurchased.push(products[i]);
-    //     }
-    //   }
-    // }
-
-    //filter not purchased
-    //forEach items
-    //forEach genres
-
+    //cycle through both arrays(all products and myGenres)
     products.forEach(prod => {
-      myPurchases.forEach(purchase => {
-        myGenres.forEach(myGenre => {
-          if(prod.genre === myGenre && purchase.product._id !== prod._id){
-            if(productArray.indexOf(prod) < 0){
-              productArray.push(prod);
-            }
+      myGenres.forEach(myGenre => {
+        //if myGenre matches the products genre,
+        if(prod.genre === myGenre){
+          //and if the product is not already in the array
+          if(productArray.indexOf(prod) < 0){
+            //push this product into the productArray
+            productArray.push(prod);
           }
-        });
+        }
       });
     });
-    const length = productArray.length;
-    console.log('product items:', productArray);
-    // const returnArray = productArray.slice(length - 1);
-    // console.log('return items:', returnArray);
-    return productArray[Math.floor(Math.random()*(productArray.length))];
-    // return returnArray[0];
+    //get all the product IDs from myPurchases
+    const purchaseIds = [];
+    for(let i = 0; i < myPurchases.length; i++){
+      purchaseIds.push(myPurchases[i].product._id);
+    }
+    //remove users purchased items from productArray to avoid suggesting
+    //already purchased items:
+    const finalArray = productArray.filter(prod => !purchaseIds.includes(prod._id));
+    //pick a random item from finalArray:
+    return finalArray[Math.floor(Math.random()*(finalArray.length))];
   } else {
+    //if no purchases made/user is not logged in, pick a random from all products:
     const length = products.length;
     return products[Math.floor(Math.random()*(length))];
   }
