@@ -24,7 +24,7 @@ export function getSuggestion(myPurchases, products){
     const returnArray = productArray.slice(length - 1);
 
     return returnArray[Math.floor(Math.random()*(length))];
-  } else if (products){
+  } else {
     const length = products.length;
     return products[Math.floor(Math.random()*(length))];
   }

@@ -14,7 +14,7 @@ function ProductBox({ product }) {
                   <p className="title">{product.name}</p>
                   <p className="subtitle">{product.unitPrice}</p>
                   <figure className="image">
-                    <img id="image" src={product.images} />
+                    <img id="image" src={product.images[0]} />
                   </figure>
                 </article>
               </div>
