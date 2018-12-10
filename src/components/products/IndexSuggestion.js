@@ -1,10 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import axios from 'axios';
 // import { getHeader } from '../../lib/auth';
 // import { getSuggestion } from '../../lib/common';
-import { Link } from 'react-router-dom';
 
-function IndexSuggestion({suggestion} ) {
+function IndexSuggestion({suggestion}) {
+  return (
+    <section className="container" height="200px">
+      {suggestion &&
+        <div>
+          <h1>Featured:</h1>
+          <div>
+            <Link to={`/product/${suggestion._id}`}>
+              <img width="100px" src={suggestion.images}/>
+              <p>{suggestion.name}</p>
+            </Link>
+          </div>
+        </div>
+      }
+    </section>
+  );
+
   // const prod = getSuggestion(myPurchases, products);
   // console.log('inside the IndexSuggestion products is:', products);
   // console.log('inside the IndexSuggestion myPurchases is:', myPurchases);
@@ -29,22 +45,7 @@ function IndexSuggestion({suggestion} ) {
   // render(){
   // const products = this.props.products;
   // const suggestion = this.state.suggestion;
-  
-  return (
-    <section className="container" height="200px">
-      {!!suggestion &&
-        <div>
-          <h1>Featured:</h1>
-          <div>
-            <Link to={`/product/${suggestion._id}`}>
-              <img width="100px" src={suggestion.images}/>
-              <p>{suggestion.name}</p>
-            </Link>
-          </div>
-        </div>
-      }
-    </section>
-  );
+
 }
 
 export default IndexSuggestion;

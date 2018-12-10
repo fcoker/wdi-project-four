@@ -58,15 +58,16 @@ class ProductsIndex extends React.Component {
             </div>
           </div>
         </div>
-        <div>
-          <IndexSuggestion suggestion={this.state.suggestion}/>
-          {
-            // this.state.suggestion &&
 
-            // <div>Placeholder for featured items</div>
+        <div>
+          {this.state.suggestion &&
+            <div>
+              <IndexSuggestion suggestion={this.state.suggestion}/>
+              <p>Suggestions</p>
+            </div>
           }
         </div>
-    
+
         <div id="marginIndex">
           <div className="columns is-multiline">
             {this.state.filteredProducts && this.state.filteredProducts.map(
