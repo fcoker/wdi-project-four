@@ -44,9 +44,7 @@ class ProductsIndex extends React.Component {
   render() {
     return (
       <section className="hero">
-        <figure id="image">
-          <img src="https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg"/>
-        </figure>
+
 
         <div className="section">
           <div id="searchbox" className="box">
@@ -68,9 +66,9 @@ class ProductsIndex extends React.Component {
             // <div>Placeholder for featured items</div>
           }
         </div>
-        <hr/>
-        <div>
-          <div className="columns is-multiline is-mobile">
+    
+        <div id="marginIndex">
+          <div className="columns is-multiline">
             {this.state.filteredProducts && this.state.filteredProducts.map(
               product => <ProductBox key={product._id} product={product}/>
             )}
