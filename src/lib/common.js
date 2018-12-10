@@ -22,7 +22,7 @@ export function getSuggestion(myPurchases, products){
     });
     const length = productArray.length;
     const returnArray = productArray.slice(length - 1);
-
+    console.log(returnArray);
     return returnArray[Math.floor(Math.random()*(length))];
   } else {
     const length = products.length;

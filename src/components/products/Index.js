@@ -62,7 +62,7 @@ class ProductsIndex extends React.Component {
         </div>
         <div>
           <IndexSuggestion suggestion={this.state.suggestion}/>
-          {
+          {console.log('IndexSuggestion loaded', new Date())
             // this.state.suggestion &&
 
             // <div>Placeholder for featured items</div>
