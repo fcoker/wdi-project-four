@@ -55,7 +55,7 @@ const productData = [
     name: 'Forza Motorsport 6',
     format: 'XBOX',
     genre: 'racing',
-    images: ['/assets/images/forza6.png'],
+    images: ['/assets/images/forza6.png', '/assets/images/dirt4.png', '/assets/images/dirt4.png'],
     video: 'https://www.youtube.com/embed/4vLQpUgm0aU',
     unitPrice: 45,
     description: 'Breathtaking graphics at 1080p resolution and 60 frames per second. Witness the spectacle of night racing under the stadium lights of Daytona and the intense claustrophobia of racing by headlight in the utter blackness of Le Mans’ back stretch. Experience the immersion of racing in the rain as working wipers barely clear the spray and tires hydroplane across physically based 3D puddles.',

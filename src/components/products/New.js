@@ -52,7 +52,14 @@ class ProductNew extends React.Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.genre || ''}  name="genre"  placeholder="genre"/>
+                      <select value={this.state.genre} onChange={this.handleChange}>
+                        <option>Select Genre</option>
+                        <option name="RPG" value="RPG">RPG</option>
+                        <option name="racing" value="racing">racing</option>
+                        <option name="shooter" value="shooter">shooter</option>
+                        <option name="drama" value="drama">drama</option>
+                        <option name="adventure" value="adventure">adventure</option>
+                      </select>
                     </div>
                   </div>
                   <div className="field">
