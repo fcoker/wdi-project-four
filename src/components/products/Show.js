@@ -16,7 +16,7 @@ class ProductsShow extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api')
+    axios.get('/api/')
       .then(res => {
         const showPageProduct = res.data.find(product => product._id === this.props.match.params.productId);
         this.setState({
@@ -77,7 +77,7 @@ class ProductsShow extends React.Component {
             <h3>{product.price}</h3>
             <div id="showblock" className="columns is-multiline">
               <div className="column is-6">
-                <img id="imageshow" src={product.images} />
+                <img id="imageshow" src={product.images[0]} />
               </div>
               <div id="videoblock" className="column is-6">
                 <p><strong>Synopsis: </strong>{product.description}</p>
