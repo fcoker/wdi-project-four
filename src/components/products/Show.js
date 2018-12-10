@@ -57,20 +57,23 @@ class ProductsShow extends React.Component {
       <section>
         {product
           ?
-          <div>
-            <article>
-              <h3>{product.name}</h3>
-              <h3>{product.price}</h3>
-              <img id="image" src={product.images} />
-              <div>
-                <p>{product.description}</p>
+          <article>
+            <h3>{product.name}</h3>
+            <h3>{product.price}</h3>
+            <div id="showblock" className="columns is-multiline">
+              <div className="column is-6">
+                <img id="imageshow" src={product.images} />
               </div>
-              <div className="videoBox">
-                <iframe width="800" height="400"src={product.video}>  </iframe>
+              <div id="videoblock" className="column is-6">
+                <p><strong>Synopsis: </strong>{product.description}</p>
+                <div>
+                  <div className="videoBox">
+                    <iframe width="600" height="400"src={product.video}>  </iframe>
+                  </div>
+                </div>
               </div>
-
-            </article>
-          </div>
+            </div>
+          </article>
 
           :
 
