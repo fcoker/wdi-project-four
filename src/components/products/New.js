@@ -1,22 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-import { getToken } from '../../lib/auth';
+import { getHeader } from '../../lib/auth';
 
 class ProductNew extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      images: ['', '', '']
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(event) {
     event.preventDefault();
     console.log('form subbmitted', this.state);
-    axios.post('/api/product', this.state, {
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      }
-    })
+    axios.post('/api/', this.state, getHeader())
       .then(result => {
         console.log(result);
         this.props.history.push(`/product/${result.data._id}`);
@@ -24,8 +22,12 @@ class ProductNew extends React.Component {
   }
 
   handleChange({ target: {name, value }}) {
-    console.log('this is name', { [name]: value });
-    console.log('event.target.name is', event.target.name, this.state);
+    if(name.includes('images')) {
+      const index = name[6] - 1;
+      const newImages = this.state.images;
+      newImages.splice(index, 1, value);
+      this.setState({ images: newImages });
+    }
     this.setState({ [name]: value });
   }
 
@@ -55,7 +57,9 @@ class ProductNew extends React.Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.images || ''}  name="image"  placeholder="imageUrl"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[0] || ['']}  name="images1"  placeholder="main imageUrl"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[1] || ['']}  name="images2"  placeholder="imageUrl 2"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="imageUrl 3"/>
                     </div>
                   </div>
                   <div className="field">
@@ -65,7 +69,7 @@ class ProductNew extends React.Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.price || ''}  name="price"  placeholder="price"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.unitPrice || ''}  name="unitPrice"  placeholder="price"/>
                     </div>
                   </div>
                   <div className="field">
