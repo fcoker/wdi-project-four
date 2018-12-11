@@ -18,7 +18,7 @@ class Slider extends React.Component {
 
   componentDidMount() {
 
-    console.log('this.props.images------->',this.props.images);
+    console.log('this.props.images----->',this.props.images);
   }
 
   prevSlide = () => {
@@ -27,7 +27,7 @@ class Slider extends React.Component {
     }));
   }
   nextSlide = () => {
-    if(this.state.currentIndex === this.state.images.length - 1) {
+    if(this.state.currentIndex === this.props.images.length - 1) {
       return this.setState({
         currentIndex: 0,
         translateValue: 0
