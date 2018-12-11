@@ -19,9 +19,11 @@ class Header extends React.Component {
     return (
       <nav id="bar" className="navbar is-black">
         <div className="navbar-start">
-          <a>
-            <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
-          </a>
+          <Link className="navbar-item" to='/'>
+            <a>
+              <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
+            </a>
+          </Link>
 
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
@@ -34,7 +36,7 @@ class Header extends React.Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="field">
-          
+
             </div>
           </div>
         </div>
