@@ -10,7 +10,7 @@ const productSchema = mongoose.Schema({
   description: String,
   releaseDate: String,
   reviews: [{
-    ratingValue: { type: Number, required: true, min: 0, max: 10 },
+    ratingValue: { type: Number, required: true, min: 1, max: 5 },
     user: { type: mongoose.Schema.ObjectId, ref: 'User' }
   }]
 });
