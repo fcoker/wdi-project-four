@@ -44,8 +44,6 @@ class ProductsIndex extends React.Component {
   render() {
     return (
       <section className="hero">
-
-
         <div className="section">
           <div id="searchbox" className="box">
             <div className="field has-addons">
