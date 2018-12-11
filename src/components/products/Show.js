@@ -144,11 +144,11 @@ class ProductsShow extends React.Component {
                 &&
                 <div>
                   <h3>You may also like:</h3>
-                  <div className="show-suggestion">
+                  <div className="show-suggestion columns">
 
                     {suggested.map(suggestion =>
                       //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                      <div key={suggestion._id}>
+                      <div className="column is-4" key={suggestion._id}>
                         <Link to={`/product/${suggestion._id}`}>
                           <p>{suggestion.name}</p>
                           <img height="200px" src={suggestion.images[0]}/>
