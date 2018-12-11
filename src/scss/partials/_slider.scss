@@ -1,0 +1,51 @@
+.slider {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  transition: transform ease-out 0.45s;
+}
+
+.slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin: 0 50px;
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: gold;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.nextArrow, .prevArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  color: #fff;
+}
+
+.nextArrow{
+  right: 5%;
+}
+
+.prevArrow {
+  left: 5%;
+}
+
+.fa-arrow-right, .fa-arrow-left {
+  color: #222
+}

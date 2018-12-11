@@ -9,32 +9,28 @@ import RightArrow from './RightArrow';
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentIndex: 0,
-      translateValue: 0
+      translateValue: 0,
+      images: this.props.images
     };
+    this.goToPrevSlide = this.goToPrevSlide.bind(this);
+    this.goToNextSlide = this.goToNextSlide.bind(this);
   }
 
-  componentDidMount() {
-
-    console.log('this.props.images----->',this.props.images);
-  }
-
-  prevSlide = () => {
+  goToPrevSlide(){
     if(this.state.currentIndex === 0)
       return;
 
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex - 1,
-      translateValue: prevState.translateValue + this.slideWidth()
+      translateValue: prevState.translateValue + this.slideWidth() + 100
     }));
   }
 
-
-  nextSlide = () => {
-    if(this.state.currentIndex === this.props.images.length - 1) {
-      console.log('<----clicked next---->');
+  goToNextSlide(){
+    console.log('moving to next slide');
+    if(this.state.currentIndex === this.state.images.length - 1) {
       return this.setState({
         currentIndex: 0,
         translateValue: 0
@@ -43,29 +39,34 @@ class Slider extends React.Component {
 
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex + 1,
-      translateValue: prevState.translateValue + -(this.slideWidth())
+      translateValue: prevState.translateValue + (-this.slideWidth()) - 100
     }));
   }
 
-  slideWidth = () => {
+  slideWidth(){
     return document.querySelector('.slide').clientWidth;
   }
 
   render() {
+    const images = this.state.images;
     return (
-      <div className="slider proileImage">
-        <div className="sliderWrapper"style={{
-          transform: `translateX(${this.state.translateValue}px)`,
-          transition: 'transform ease-out 0.45s'
+      <div className="slider">
+        <div className="slider-wrapper" style={{
+          transform: `translateX(${this.state.translateValue}px)`
         }}>
-          {this.props.images &&
-            this.props.images.map((image, i) => (
+
+          {
+            images.map((image, i) => (
               <Slide key={i} image={image} />
             ))
           }
-          <LeftArrow prevSlide={this.prevSlide} />
-          <RightArrow nextSlide={this.nextSlide} />
         </div>
+        {(images.length > 1) &&
+          <LeftArrow goToPrevSlide={this.goToPrevSlide} />
+        }
+        {(images.length > 1) &&
+          <RightArrow goToNextSlide={this.goToNextSlide} />
+        }
       </div>
     );
   }

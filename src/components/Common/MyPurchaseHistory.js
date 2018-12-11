@@ -20,12 +20,22 @@ class MyPurchaseHistory extends React.Component {
         {hasPurchases
           ?
           this.state.purchases.map(purchase =>
-            <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <p>{moment(purchase.createdAt).fromNow()}</p>
-              <p>{purchase.product.name}</p>
-              <p>£{purchase.unitPrice} per unit</p>
-              <p>{purchase.unitQuantity}</p>
-              <p>Total £{purchase.totalPrice}</p>
+            <div className="columns is-pulled-left" key={purchase._id} >
+              <div className="column is-2.5">
+                <p>{moment(purchase.createdAt).fromNow()}</p>
+              </div>
+              <div className="column is-6" >
+                <p>{purchase.product.name}</p>
+              </div>
+              <div className="column ">
+                <p>£{purchase.unitPrice} per unit</p>
+              </div>
+              <div className="column ">
+                <p>{purchase.unitQuantity}</p>
+              </div>
+              <div className="column ">
+                <p>Total £{purchase.totalPrice}</p>
+              </div>
             </div>
           )
           :

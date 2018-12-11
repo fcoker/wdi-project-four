@@ -1,4 +1,5 @@
 @import "partials/ratingbox";
+@import "partials/slider";
 
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
@@ -33,7 +34,7 @@ html {
 
 #detailsShow {
   margin-top: 116px;
-  margin-left: -143px;
+  // margin-left: -143px;
   width: 375px;
 }
 
@@ -82,7 +83,7 @@ html {
 
 #addtocart {
   margin-top: 142px;
-  margin-left: 55px;
+  // margin-left: 55px;
 }
 
 div.show-suggestion {
@@ -187,13 +188,6 @@ input[type="submit"]:hover {
 }
 
 
-.slider{
-  width: 350px;
-  height: 427px;
-  position: relative;
-  top: 130px;
-}
-
 #profileShow {
   // height: 292px;
   // width: 27%;
@@ -209,22 +203,4 @@ input[type="submit"]:hover {
     padding-left: 23px;
     padding-top: 16px;
   }
-}
-
-
-.prevArrow{
-  position: relative;
-  bottom: 218px;
-  color: white;
-}
-.nextArrow{
-  position: relative;
-  bottom: 253px;
-  left: 318px;
-  color: white;
-}
-div.sliderWrapper, div.slide{
-  width:  100%;
-  height: 100%;
-  position: relative;
 }

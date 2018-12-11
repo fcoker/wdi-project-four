@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true },
   password: { type: String, required: true },
-  profilePic: { type: String },
+  profilePic: { type: String, default: '/assets/images/profilePic.png' },
   address: { type: String },
   accountType: {type: String, enum: ['customer', 'admin'], default: 'customer'}
 });
