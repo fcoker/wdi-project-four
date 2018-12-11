@@ -93,6 +93,10 @@ class ProductsShow extends React.Component {
                 <hr/>
 
                 <h4><span id="red">PLEASE NOTE: </span>Prices in P&W Stores may differ.</h4>
+
+                <hr/>
+                <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>
+
               </div>
               <div id="addtocart" className="column is-3">
                 <h3 id="price">£{product.unitPrice}</h3>
@@ -103,7 +107,6 @@ class ProductsShow extends React.Component {
                   <br />
                   <button className="button is-link" onClick={this.handleAddToCart}>Add to cart ▶︎</button>
                   <br />
-                  <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>
                   <br />
                   <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
                   <Link to={`/product/${this.props.match.params.productId}/edit`}>
