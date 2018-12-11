@@ -66,6 +66,7 @@ class ProductsShow extends React.Component {
       });
   }
 
+
   // handleRedirect(showPageProduct, products){
   //   this.props.history.push(`/product/${showPageProduct._id}`);
   //   // this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
@@ -82,10 +83,10 @@ class ProductsShow extends React.Component {
           ?
           <article>
             <div id="showblock" className="columns is-multiline">
-              <div className="column is-6">
+              <div className="column is-5">
                 <Slider images={product.images} />
               </div>
-              <div id="detailsShow" className="column is-3">
+              <div id="detailsShow" className="column is-5">
                 <h3 id="black">{product.name} <span className="is-pulled-right">{product.averageRating} ⭐️</span></h3>
                 <h4><strong>BARCODE: </strong>{product._id}</h4>
                 <hr/>
@@ -100,7 +101,7 @@ class ProductsShow extends React.Component {
                 {isAuthenticated() && <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>}
 
               </div>
-              <div id="addtocart" className="column is-3">
+              <div id="addtocart" className="column is-2">
                 <h3 id="price">£{product.unitPrice}</h3>
                 <label htmlFor="quantity" className="label">Quantity:</label>
                 <input id="inputshow" className="input" type="number" min="1" name="quantity"
