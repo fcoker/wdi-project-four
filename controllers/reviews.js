@@ -5,8 +5,16 @@ function createRoute(req, res, next) {
   Product.findById(req.params.productId)
     .populate('reviews.user')
     .then(product => {
-      product.reviews.push(req.body);
-      return product.save();
+      if(product.reviews){
+        const review = product.reviews.filter(review => review.user._id.toString() === req.body.user)[0];
+        if(review){
+          review.ratingValue = req.body.ratingValue;
+          return product.save();
+        } else {
+          product.reviews.push(req.body);
+          return product.save();
+        }
+      }
     })
     .then(product => res.json(product))
     .catch(next);

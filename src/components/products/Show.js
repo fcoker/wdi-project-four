@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
+import { isAuthenticated } from '../../lib/auth';
 import RatingBox from '../rating/RatingBox';
 import Slider from './showSlider/Slider';
 
@@ -96,7 +97,7 @@ class ProductsShow extends React.Component {
                 <h4><span id="red">PLEASE NOTE: </span>Prices in P&W Stores may differ.</h4>
 
                 <hr/>
-                <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>
+                {isAuthenticated() && <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>}
 
               </div>
               <div id="addtocart" className="column is-3">
