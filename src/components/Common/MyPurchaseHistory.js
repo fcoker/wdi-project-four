@@ -17,30 +17,37 @@ class MyPurchaseHistory extends React.Component {
     const hasPurchases = this.state.purchases && !!this.state.purchases.length;
     return (
       <main>
-        {hasPurchases
-          ?
-          this.state.purchases.map(purchase =>
-            <div className="columns is-pulled-left" key={purchase._id} >
-              <div className="column is-2.5">
-                <p>{moment(purchase.createdAt).fromNow()}</p>
-              </div>
-              <div className="column is-6" >
-                <p>{purchase.product.name}</p>
-              </div>
-              <div className="column ">
-                <p>£{purchase.unitPrice} per unit</p>
-              </div>
-              <div className="column ">
-                <p>{purchase.unitQuantity}</p>
-              </div>
-              <div className="column ">
-                <p>Total £{purchase.totalPrice}</p>
-              </div>
-            </div>
-          )
-          :
-          <p>Your purchases will be shown here.</p>
-        }
+        <table width="100%">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th>Qty</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hasPurchases
+              ?
+              this.state.purchases.map(purchase =>
+                <tr key={purchase._id} >
+
+                  <td>{moment(purchase.createdAt).fromNow()}</td>
+                  <td>{purchase.product.name}</td>
+                  <td>£{purchase.unitPrice}</td>
+                  <td>{purchase.unitQuantity}</td>
+                  <td>£{purchase.totalPrice}</td>
+
+                </tr>
+              )
+              :
+              <tr>
+                <td colSpan={5}>Your purchases will be shown here.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </main>
     );
   }

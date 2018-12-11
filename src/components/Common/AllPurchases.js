@@ -18,19 +18,33 @@ class AllPurchases extends React.Component {
   render() {
     console.log(this.state.purchases);
     return (
-      <main>
-        {
-          this.state.purchases && this.state.purchases.map(purchase =>
-            <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <p>{moment(purchase.createdAt).fromNow()}</p>
-              <p>{purchase.user.username}</p>
-              <p>{purchase.product.name}</p>
-              <p>£{purchase.unitPrice} per unit</p>
-              <p>{purchase.unitQuantity}</p>
-              <p>Total £{purchase.totalPrice}</p>
-            </div>
-          )
-        }
+      <main id="statisticShow">
+        <table width="100%">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Username</th>
+              <th>Product Name</th>
+              <th>Unit Price</th>
+              <th>Unit Quantity</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              this.state.purchases && this.state.purchases.map(purchase =>
+                <tr key={purchase._id} >
+                  <td>{moment(purchase.createdAt).fromNow()}</td>
+                  <td>{purchase.user.username}</td>
+                  <td>{purchase.product.name}</td>
+                  <td>£{purchase.unitPrice}</td>
+                  <td>{purchase.unitQuantity}</td>
+                  <td>Total £{purchase.totalPrice}</td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
       </main>
     );
   }
