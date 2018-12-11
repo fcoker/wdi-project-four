@@ -9,24 +9,15 @@ import RightArrow from './RightArrow';
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentIndex: 0,
       translateValue: 0,
       images: this.props.images
     };
-
-
     this.goToPrevSlide = this.goToPrevSlide.bind(this);
     this.goToNextSlide = this.goToNextSlide.bind(this);
   }
 
-  // goToPrevSlide(){
-  //   console.log('moving to prev slide');
-  //   this.setState(nextState => ({
-  //     currentIndex: nextState.currentIndex - 1
-  //   }));
-  // }
   goToPrevSlide(){
     if(this.state.currentIndex === 0)
       return;
@@ -36,8 +27,6 @@ class Slider extends React.Component {
       translateValue: prevState.translateValue + this.slideWidth() + 100
     }));
   }
-
-
 
   goToNextSlide(){
     console.log('moving to next slide');
@@ -54,11 +43,12 @@ class Slider extends React.Component {
     }));
   }
 
-  slideWidth = () => {
+  slideWidth(){
     return document.querySelector('.slide').clientWidth;
   }
 
   render() {
+    const images = this.state.images;
     return (
       <div className="slider">
         <div className="slider-wrapper" style={{
@@ -66,13 +56,17 @@ class Slider extends React.Component {
         }}>
 
           {
-            this.state.images.map((image, i) => (
+            images.map((image, i) => (
               <Slide key={i} image={image} />
             ))
           }
         </div>
-        <LeftArrow goToPrevSlide={this.goToPrevSlide} />
-        <RightArrow goToNextSlide={this.goToNextSlide} />
+        {(images.length > 1) &&
+          <LeftArrow goToPrevSlide={this.goToPrevSlide} />
+        }
+        {(images.length > 1) &&
+          <RightArrow goToNextSlide={this.goToNextSlide} />
+        }
       </div>
     );
   }
