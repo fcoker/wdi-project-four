@@ -40,9 +40,3 @@ export function isAuthenticated() {
 export function isAdmin() {
   return tokenAccountType() === 'admin';
 }
-
-export function authorizationHeader() {
-  return {
-    headers: { Authorization: 'Bearer ' + getToken() }
-  };
-}

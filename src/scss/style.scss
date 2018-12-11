@@ -5,28 +5,49 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
+
+.hero {
+  margin-left: 17px;
+}
+
+#square {
+  width: 300px;
+  height: 500px;
+      border-radius: inherit;
+}
+
 #frames {
   width: 200px;
 }
+
 #searchbox{
-  margin-top: 600px;
+  margin-top: 750px;
 }
+
 #marginIndex {
   margin-top: 20px;
 }
+
 #detailsShow {
-  margin-top: 142px;
-  margin-left: -130px;
-  width: 330px;
+  margin-top: 116px;
+  margin-left: -143px;
+  width: 375px;
 }
-// #videoblock {
-//   margin-left: -140px;
-// }
+
+#imageshow{
+  margin-top: 115px;
+}
+
+#inputshow{
+  width: 60px;
+}
+
 #textshow {
   text-align: justify;
   margin-left: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 30px;
+  margin-bottom: 10px;
 }
 #showpic {
   margin-top: 115px;
@@ -37,33 +58,37 @@ html {
 #showblock{
 
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 10px;
 }
-//
+#price {
+  font-size: 20px;
+    color: black;
+}
+#black {
+  color: black;
+  font-weight: 900;
+  font-size: 28px;
+}
+#red {
+  color: red;
+  font-weight: 700;
+}
 #showpage{
   background: white;
   background-color: rgba(255,255,255,0.8);
-
 }
+
 #addtocart {
   margin-top: 142px;
   margin-left: 55px;
 }
-// #imagebox {
-//   height: 327px;
-//     margin-left: 41px;
-//     width: 239px;
-// }
 
 div.show-suggestion {
   div {
     width: 3000px;
   }
-
   display: flex;
-
   height: 400px;
-
   overflow: auto;
   img {
     width: 300px;
@@ -143,6 +168,23 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
+#loginbox {
+  margin-top: -300px;
+}
+
+#logintext {
+  margin-left: 150px;
+}
+
+#registerbox {
+  margin-top: -250px;
+}
+
+#registertext {
+  margin-left: 150px;
+}
+
+
 .slider{
   width:  500px;
   height: 500px;
@@ -150,4 +192,3 @@ input[type="submit"]:hover {
 .slide{
   width:  100%;
   height: 100%;
-}

@@ -29,9 +29,9 @@ class Login extends React.Component {
     return (
       <section className="hero is-fullheight">
         <div className="hero-body">
-          <div className="container has-text-centered">
+          <div id="loginbox" className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-danger">Login</h3>
+              <h3 id="logintext" className="title has-text-danger">Login</h3>
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
