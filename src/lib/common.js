@@ -17,7 +17,7 @@ function getMyGenres(myPurchases){
 
 export function getSuggestion(myPurchases, products){
   //if myPurchases exist and user has not purchased all items:
-  if(!!myPurchases && myPurchases.length > 0 && myPurchases.length < products.length){
+  if(myPurchases && !!myPurchases.length > 0){
   //find products with the same genre as what user has purchased:
     const productArray = [];
     const myGenres = getMyGenres(myPurchases);
@@ -45,10 +45,14 @@ export function getSuggestion(myPurchases, products){
     //pick a random item from finalArray:
     return finalArray[Math.floor(Math.random()*(finalArray.length))];
   } else {
-    //if no purchases made/user is not logged in, pick a random from all products:
-    const length = products.length;
-    return products[Math.floor(Math.random()*(length))];
+    //if no purchases made pick a random from all products:
+    return getRandomProduct(products);
   }
+}
+
+export function getRandomProduct(products){
+  const length = products.length;
+  return products[Math.floor(Math.random()*(length))];
 }
 
 // export function getSimilarProducts(myGenres, products){

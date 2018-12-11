@@ -8,7 +8,6 @@ class RatingBox extends React.Component {
     this.state = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.createRatingScale = this.createRatingScale.bind(this);
   }
   handleSubmit(event){
     event.preventDefault();
@@ -25,39 +24,29 @@ class RatingBox extends React.Component {
     this.setState({ [name]: value }, ()=> console.log(this.state));
   }
 
-  createRatingScale(){
-    const scale = [];
-    for(let i = 1; i <= 10; i++){
-      scale.push(i);
-    }
-    return scale;
-  }
-
   render() {
     return (
       <section className="hero is-fullheight">
         <div className="box">
-          <form onSubmit={this.handleSubmit}>
-            <div className="field">
-              <div className="control">
-                {
-                  this.createRatingScale().map(num =>
-                    <label key={num}>
-                      <input type="radio" value={num} name="ratingValue" onChange={this.handleChange} />
-                    </label>
-                  )
-                }
-              </div>
-              <div className="control">
-                {
-                  this.createRatingScale().map(num =>
-                    <span key={num}>{num}</span>
-                  )
-                }
-              </div>
+          <div className="star-box">
+            <div className="stars">
+              <form onSubmit={this.handleSubmit}>
+                <input className="star star-5" value="5" id="star-5" onChange={this.handleChange} type="radio" name="ratingValue"/>
+                <label className="star star-5" htmlFor="star-5"></label>
+                <input className="star star-4" value="4" id="star-4" onChange={this.handleChange} type="radio" name="ratingValue"/>
+                <label className="star star-4" htmlFor="star-4"></label>
+                <input className="star star-3" value="3" id="star-3" onChange={this.handleChange} type="radio" name="ratingValue"/>
+                <label className="star star-3" htmlFor="star-3"></label>
+                <input className="star star-2" value="2" id="star-2" onChange={this.handleChange} type="radio" name="ratingValue"/>
+                <label className="star star-2" htmlFor="star-2"></label>
+                <input className="star star-1" value="1" id="star-1" onChange={this.handleChange} type="radio" name="ratingValue"/>
+                <label className="star star-1" htmlFor="star-1"></label>
+                <div>
+                  <button className="button">Submit rating</button>
+                </div>
+              </form>
             </div>
-            <button className="button">Submit rating</button>
-          </form>
+          </div>
         </div>
       </section>
     );

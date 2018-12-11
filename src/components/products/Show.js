@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
+import { isAuthenticated } from '../../lib/auth';
 import RatingBox from '../rating/RatingBox';
 import Slider from './showSlider/Slider';
 
@@ -65,6 +66,7 @@ class ProductsShow extends React.Component {
       });
   }
 
+
   // handleRedirect(showPageProduct, products){
   //   this.props.history.push(`/product/${showPageProduct._id}`);
   //   // this.setState({ product: showPageProduct, suggested: products.filter(prod => prod.genre === showPageProduct.genre && prod !== showPageProduct) });
@@ -81,10 +83,10 @@ class ProductsShow extends React.Component {
           ?
           <article>
             <div id="showblock" className="columns is-multiline">
-              <div className="column is-6">
+              <div className="column is-5">
                 <Slider images={product.images} />
               </div>
-              <div id="detailsShow" className="column is-3">
+              <div id="detailsShow" className="column is-5">
                 <h3 id="black">{product.name} <span className="is-pulled-right">{product.averageRating} ⭐️</span></h3>
                 <h4><strong>BARCODE: </strong>{product._id}</h4>
                 <hr/>
@@ -94,8 +96,12 @@ class ProductsShow extends React.Component {
                 <hr/>
 
                 <h4><span id="red">PLEASE NOTE: </span>Prices in P&W Stores may differ.</h4>
+
+                <hr/>
+                {isAuthenticated() && <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>}
+
               </div>
-              <div id="addtocart" className="column is-3">
+              <div id="addtocart" className="column is-2">
                 <h3 id="price">£{product.unitPrice}</h3>
                 <label htmlFor="quantity" className="label">Quantity:</label>
                 <input id="inputshow" className="input" type="number" min="1" name="quantity"
@@ -104,7 +110,6 @@ class ProductsShow extends React.Component {
                   <br />
                   <button className="button is-link" onClick={this.handleAddToCart}>Add to cart ▶︎</button>
                   <br />
-                  <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>
                   <br />
                   <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
                   <Link to={`/product/${this.props.match.params.productId}/edit`}>

@@ -1,3 +1,6 @@
+@import "partials/ratingbox";
+@import "partials/slider";
+
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -64,7 +67,7 @@ font-weight: 200;
 
 #detailsShow {
   margin-top: 116px;
-  margin-left: -143px;
+  // margin-left: -143px;
   width: 375px;
 }
 
@@ -123,7 +126,7 @@ font-weight: 200;
 
 #addtocart {
   margin-top: 142px;
-  margin-left: 55px;
+  // margin-left: 55px;
 }
 
 div.show-suggestion {
@@ -167,15 +170,4 @@ div.show-suggestion {
 
 #registertext {
   margin-left: 150px;
-}
-
-
-.slider{
-  width:  500px;
-  height: 500px;
-}
-div.sliderWrapper, div.slide{
-  width:  100%;
-  height: 100%;
-  position: relative;
 }
