@@ -21,18 +21,18 @@ export default class UserShow extends React.Component {
   render() {
     const user = this.state.user;
     return (
-      <section>
+      <section id="profileShow">
         {user
           ?
           <div>
 
             <div>
-              <img src={user.profilePic} alt={user.name}/>
-              <p>{user.username}</p>
+              <img id="profilePic" src={user.profilePic} alt={user.name}/>
+              <p>Username: {user.username}</p>
             </div>
 
             <div>
-              <p>{user.email}</p>
+              <p>Email: {user.email}</p>
             </div>
 
             <div>

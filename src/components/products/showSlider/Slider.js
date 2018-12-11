@@ -53,7 +53,7 @@ class Slider extends React.Component {
 
   render() {
     return (
-      <div className="slider">
+      <div className="slider proileImage">
         <div className="sliderWrapper"style={{
           transform: `translateX(${this.state.translateValue}px)`,
           transition: 'transform ease-out 0.45s'

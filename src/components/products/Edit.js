@@ -6,7 +6,9 @@ import { getHeader } from '../../lib/auth';
 class ProductUpdate extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      images: ['', '', '']
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -28,10 +30,19 @@ class ProductUpdate extends React.Component{
       });
   }
 
-  handleChange({ target: {name, value}}) {
-    this.setState({ ...this.state, [name]: value });
-  }
+  // handleChange({ target: {name, value}}) {
+  //   this.setState({ ...this.state, [name]: value });
+  // }
 
+  handleChange({ target: {name, value }}) {
+    if(name.includes('images')) {
+      const index = name[6] - 1;
+      const newImages = this.state.images;
+      newImages[index] = value;
+      this.setState({ images: newImages });
+    }
+    this.setState({ [name]: value });
+  }
 
   render() {
     return (
@@ -76,6 +87,20 @@ class ProductUpdate extends React.Component{
                       <input className="input" onChange={this.handleChange}   value={this.state.images || ''}  name="image"  placeholder="Image URL"/>
                     </div>
                   </div>
+
+                  <div className="field">
+                    <div className="control">
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[0] || ['']}  name="images1"  placeholder="main imageUrl"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[1] || ['']}  name="images2"  placeholder="imageUrl 2"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="imageUrl 3"/>
+                    </div>
+                  </div>
+
+
+
+
+
+
                   <div className="field">
                     <div className="control">
                       <input className="input" onChange={this.handleChange}   value={this.state.video || ''}  name="video"  placeholder="YouTube Video URL"/>

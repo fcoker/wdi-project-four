@@ -78,6 +78,7 @@ class ProductNew extends React.Component {
                       <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="imageUrl 3"/>
                     </div>
                   </div>
+
                   <div className="field">
                     <div className="control">
                       <input className="input" onChange={this.handleChange}   value={this.state.video || ''}  name="video"  placeholder="video"/>
