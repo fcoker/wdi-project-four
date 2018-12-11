@@ -40,37 +40,44 @@ class Basket extends React.Component {
 
     return (
       <main>
-        <h1>Products in your basket</h1>
+        <div className="section is-small">
+          <section id="basket" className="hero">
+            <h1>Products in your basket</h1>
 
-        {basket && hasItems ? basket.map(item =>
+            {basket && hasItems ? basket.map(item =>
 
-          <div key={item._id} className="columns">
+              <div key={item._id} className="columns">
 
-            <div className="column is-4">
-              <p>{item.name}</p>
-            </div>
+                <div className="column is-4">
+                  <figure className="image">
+                    <p id="basketname">{item.name}</p>
+                    <img id="imagebasket" src={item.images[0]} />
+                  </figure>
+                </div>
 
-            <div className="column is-1">
-              <span onClick={() => this.handleMinusClick(item)}> ➖ </span>
-              <span>{item.unitQuantity}</span>
-              <span onClick={() => this.handlePlusClick(item)}> ➕ </span>
-            </div>
+                <div className="column is-1">
+                  <div>
+                    <span onClick={() => this.handleMinusClick(item)}> ➖ </span>
+                    <span>{item.unitQuantity}</span>
+                    <span onClick={() => this.handlePlusClick(item)}> ➕ </span>
+                  </div>
+                </div>
 
-            <div className="column is-1">
-              <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
-            </div>
+                <div className="column is-1">
+                  <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+                </div>
 
-            <div className="column is-6">
-              <p>£{item.unitPrice}</p>
-            </div>
+                <div className="column is-6">
+                  <p>£{item.unitPrice}</p>
+                </div>
 
-          </div>
-        )
-          :
-          <p>No items</p>}
+              </div>
+            )
+              :
+              <p>No items</p>}
 
-        {basket && hasItems &&
-          <section className="columns">
+            {basket && hasItems &&
+          <div className="columns">
             <div className="column">
               <button className="button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
             </div>
@@ -80,8 +87,10 @@ class Basket extends React.Component {
             <div className="column">
               <button className="button is-success" onClick={this.checkout}>Check out</button>
             </div>
+          </div>
+            }
           </section>
-        }
+        </div>
       </main>
     );
   }

@@ -17,9 +17,12 @@ class Header extends React.Component {
   render() {
 
     return (
-      <nav id="bar" className="navbar is-danger">
+      <nav id="bar" className="navbar is-black">
         <div className="navbar-start">
-          <Link className="navbar-item" to={'/'}>P&W Products</Link>
+          <a>
+            <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
+          </a>
+
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
           {isAuthenticated() && <Link className="navbar-item" to='/basket'>🛒({getBasketCount()})</Link>}
@@ -31,11 +34,7 @@ class Header extends React.Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="field">
-              <div id="wrap">
-                <form action="" autoComplete="on">
-                  <input id="search" name="search" type="text" placeholder="What're you looking for ?"/><input id="search_submit"  type="submit"/>
-                </form>
-              </div>
+          
             </div>
           </div>
         </div>

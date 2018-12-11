@@ -84,7 +84,7 @@ class ProductsShow extends React.Component {
           <article>
             <div id="showblock" className="columns is-multiline">
               <div className="column is-5">
-                <Slider images={product.images} />
+                <Slider renderShowPage={this.renderShowPage} images={product.images} />
               </div>
               <div id="detailsShow" className="column is-5">
                 <h3 id="black">{product.name} <span className="is-pulled-right">{product.averageRating} ⭐️</span></h3>
@@ -149,11 +149,11 @@ class ProductsShow extends React.Component {
                 &&
                 <div>
                   <h3>You may also like:</h3>
-                  <div className="show-suggestion">
+                  <div className="show-suggestion columns">
 
                     {suggested.map(suggestion =>
                       //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                      <div key={suggestion._id}>
+                      <div className="column is-4" key={suggestion._id}>
                         <Link to={`/product/${suggestion._id}`}>
                           <p>{suggestion.name}</p>
                           <img height="200px" src={suggestion.images[0]}/>

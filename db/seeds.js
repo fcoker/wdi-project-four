@@ -336,6 +336,39 @@ const productData = [
     description: 'Respawn Entertainment returns with the highly anticipated sequel Titanfall 2. Featuring a captivating single player campaign along with an expanded multiplayer mode, Titanfall 2 delivers a fast-paced thrilling experience for action fans.',
     releaseDate: '28/10/2016',
     reviews: []
+  },
+  {
+    name: 'Skyscraper',
+    format: 'Movie',
+    genre: 'Action',
+    images: ['/assets/images/skyscraper1.png', '/assets/images/skyscraper2.jpg', '/assets/images/skyscraper3.jpg'],
+    video: 'https://www.youtube.com/embed/t9QePUT-Yt8',
+    unitPrice: 14.99,
+    description: 'Global icon Dwayne Johnson leads the cast of Legendary`s Skyscraper as former FBI Hostage Rescue Team leader and U.S. war veteran Will Sawyer, who now assesses security for skyscrapers. On assignment in China he finds the tallest, safest building in the world suddenly ablaze, and he`s been framed for it. A wanted man on the run, Will must find those responsible, clear his name and somehow rescue his family who is trapped inside the building...above the fire line.',
+    releaseDate: '19/11/2018',
+    reviews: []
+  },
+  {
+    name: 'Atomic Blonde',
+    format: 'Movie',
+    genre: 'Action',
+    images: ['/assets/images/atomicblonde1.jpg', '/assets/images/atomicblonde2.jpeg', '/assets/images/atomicblonde3.jpg'],
+    video: 'https://www.youtube.com/embed/yIUube1pSC0',
+    unitPrice: 14.99,
+    description: 'An undercover MI6 agent is sent to Berlin during the Cold War to investigate the murder of a fellow agent and recover a missing list of double agents.',
+    releaseDate: '09/08/2017',
+    reviews: []
+  },
+  {
+    name: 'Batman v Superman: Dawn of Justice',
+    format: 'Movie',
+    genre: 'Action',
+    images: ['/assets/images/batmanvsuperman1.jpeg', '/assets/images/batmanvsuperman2.jpg'],
+    video: 'https://www.youtube.com/embed/0WWzgGyAH6Y',
+    unitPrice: 12.99,
+    description: 'Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.',
+    releaseDate: '25/03/2016',
+    reviews: []
   }
 ];
 

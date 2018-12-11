@@ -11,7 +11,7 @@ function ProductBox({ product }) {
             <div id="frames" className="tile is-ancestor">
               <div className="tile is-parent">
                 <article id="square" className="tile is-child box">
-                  <p className="title">{product.name}</p>
+                  <p id="indexname" className="title">{product.name}</p>
                   <p id="price"className="subtitle">£{product.unitPrice}</p>
                   <figure className="image">
                     <img id="image" src={product.images[0]} />

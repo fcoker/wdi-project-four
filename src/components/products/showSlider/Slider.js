@@ -18,6 +18,12 @@ class Slider extends React.Component {
     this.goToNextSlide = this.goToNextSlide.bind(this);
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.location !== this.props.location) {
+      this.props.renderShowPage();
+    }
+  }
+
   goToPrevSlide(){
     if(this.state.currentIndex === 0)
       return;
