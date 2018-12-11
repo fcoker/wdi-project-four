@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
+import Slider from './showSlider/Slider';
 
 class ProductsShow extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class ProductsShow extends React.Component {
           <article>
             <div id="showblock" className="columns is-multiline">
               <div className="column is-6">
-                <img id="imageshow" src={product.images[0]} />
+                <Slider images={product.images} />
               </div>
               <div id="detailsShow" className="column is-3">
                 <h3>{product.name}</h3>
