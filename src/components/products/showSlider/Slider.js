@@ -22,12 +22,19 @@ class Slider extends React.Component {
   }
 
   prevSlide = () => {
-    this.setState(nextState => ({
-      currentIndex: nextState.currentIndex - 1
+    if(this.state.currentIndex === 0)
+      return;
+
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex - 1,
+      translateValue: prevState.translateValue + this.slideWidth()
     }));
   }
+
+
   nextSlide = () => {
     if(this.state.currentIndex === this.props.images.length - 1) {
+      console.log('<----clicked next---->');
       return this.setState({
         currentIndex: 0,
         translateValue: 0

@@ -188,8 +188,22 @@ input[type="submit"]:hover {
 
 
 .slider{
-  width:  500px;
-  height: 500px;
+  width: 350px;
+  height: 427px;
+  position: relative;
+  top: 130px;
+}
+
+.prevArrow{
+  position: relative;
+  bottom: 218px;
+  color: white;
+}
+.nextArrow{
+  position: relative;
+  bottom: 253px;
+  left: 318px;
+  color: white;
 }
 div.sliderWrapper, div.slide{
   width:  100%;
