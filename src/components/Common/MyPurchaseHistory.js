@@ -17,20 +17,37 @@ class MyPurchaseHistory extends React.Component {
     const hasPurchases = this.state.purchases && !!this.state.purchases.length;
     return (
       <main>
-        {hasPurchases
-          ?
-          this.state.purchases.map(purchase =>
-            <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <p>{moment(purchase.createdAt).fromNow()}</p>
-              <p>{purchase.product.name}</p>
-              <p>£{purchase.unitPrice} per unit</p>
-              <p>{purchase.unitQuantity}</p>
-              <p>Total £{purchase.totalPrice}</p>
-            </div>
-          )
-          :
-          <p>Your purchases will be shown here.</p>
-        }
+        <table width="100%">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th>Qty</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hasPurchases
+              ?
+              this.state.purchases.map(purchase =>
+                <tr key={purchase._id} >
+
+                  <td>{moment(purchase.createdAt).fromNow()}</td>
+                  <td>{purchase.product.name}</td>
+                  <td>£{purchase.unitPrice}</td>
+                  <td>{purchase.unitQuantity}</td>
+                  <td>£{purchase.totalPrice}</td>
+
+                </tr>
+              )
+              :
+              <tr>
+                <td colSpan={5}>Your purchases will be shown here.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </main>
     );
   }

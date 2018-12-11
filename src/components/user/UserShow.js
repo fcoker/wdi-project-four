@@ -21,27 +21,29 @@ export default class UserShow extends React.Component {
   render() {
     const user = this.state.user;
     return (
-      <section>
+      <section id="profileShow">
         {user
           ?
           <div>
 
             <div>
-              <img src={user.profilePic} alt={user.name}/>
-              <p>{user.username}</p>
+              <div>
+                <img id="profilePic" src={user.profilePic} alt={user.name}/>
+                <p>Username: {user.username}</p>
+              </div>
             </div>
 
             <div>
-              <p>{user.email}</p>
+              <p>Email: {user.email}</p>
             </div>
 
-            <div>
+            <div id="purchaseHistoryBox">
               <h3>Order History:</h3>
               <MyPurchaseHistory />
             </div>
 
             <Link to= {`/users/${decodeToken().sub}/edit`}>
-              <button>Edit</button>
+              <button id="editProfileButton">Edit Profile</button>
             </Link>
 
           </div>
