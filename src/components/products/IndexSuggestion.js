@@ -12,7 +12,7 @@ function IndexSuggestion({suggestion}) {
           <h1>Featured:</h1>
           <div>
             <Link to={`/product/${suggestion._id}`}>
-              <img width="100px" src={suggestion.images}/>
+              <img width="100px" src={suggestion.images[0]}/>
               <p>{suggestion.name}</p>
             </Link>
           </div>
