@@ -84,7 +84,7 @@ class ProductsShow extends React.Component {
           <article>
             <div id="showblock" className="columns is-multiline">
               <div className="column is-5">
-                <Slider images={product.images} />
+                <Slider renderShowPage={this.renderShowPage} images={product.images} />
               </div>
               <div id="detailsShow" className="column is-5">
                 <h3 id="black">{product.name} <span className="is-pulled-right">{product.averageRating} ⭐️</span></h3>
