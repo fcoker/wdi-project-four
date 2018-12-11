@@ -41,6 +41,13 @@ class ProductNew extends React.Component {
               <div className="box">
                 <form onSubmit={this.handleSubmit}>
 
+
+                  <div className="field">
+                    <div className="control">
+                      <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="name"  />
+                    </div>
+                  </div>
+
                   <div className="field">
                     <div className="control">
                       <select name="format" onChange={this.handleChange} selected={this.state.format || ''}>
@@ -61,11 +68,6 @@ class ProductNew extends React.Component {
                         <option value="drama">drama</option>
                         <option value="adventure">adventure</option>
                       </select>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="name"  />
                     </div>
                   </div>
 
