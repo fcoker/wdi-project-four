@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import ProductBox from './ProductBox';
 import IndexSuggestion from './IndexSuggestion';
-import { getHeader } from '../../lib/auth';
-import { getSuggestion } from '../../lib/common';
+import { getHeader, isAuthenticated } from '../../lib/auth';
+import { getSuggestion, getRandomProduct } from '../../lib/common';
 
 class ProductsIndex extends React.Component {
   constructor(props) {
@@ -12,20 +12,49 @@ class ProductsIndex extends React.Component {
       query: ''
     };
     this.handleSearch = this.handleSearch.bind(this);
+    this.loadSuggestion = this.loadSuggestion.bind(this);
+    this.getMyPurchases = this.getMyPurchases.bind(this);
   }
 
   componentDidMount() {
+    //get all products
     axios.get('/api')
-      .then(result => this.setState({
-        products: result.data,
-        filteredProducts: result.data
-      }, () => axios.get('/api/mypurchases', getHeader())
-        .then(myPurchases => this.setState({
+      .then(result => {
+        //if user is logged in:
+        if(isAuthenticated()){
+          this.setState({
+            products: result.data,
+            filteredProducts: result.data
+          },
+          //get the users purchase history
+          this.getMyPurchases());
+        } else {
+          //if user is not logged in:
+          this.setState({
+            products: result.data,
+            filteredProducts: result.data,
+            //get a random suggestion:
+            suggestion: getRandomProduct(result.data)
+          });
+        }
+      });
+  }
+  getMyPurchases(){
+    axios.get('/api/mypurchases', getHeader())
+      .then(myPurchases =>
+        this.setState({
           myPurchases: myPurchases.data
-        }, () => {
-          this.setState({ suggestion: getSuggestion(myPurchases.data, result.data)});
-        }))
-      ));
+          //use all the products and the purchase history to get a suggestion
+        }, this.loadSuggestion(myPurchases.data)
+        ));
+  }
+
+  loadSuggestion(myPurchases){
+    const product = getSuggestion(myPurchases, this.state.products);
+    this.setState({
+      suggestion: product
+    });
+
   }
 
   handleSearch(event){
