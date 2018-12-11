@@ -19,6 +19,7 @@ class AllPurchases extends React.Component {
     console.log(this.state.purchases);
     return (
       <main id="statisticShow">
+        <h1>Statistics</h1>
         <table width="100%">
           <thead>
             <tr>
