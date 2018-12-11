@@ -185,3 +185,14 @@ input[type="submit"]:hover {
 #registertext {
   margin-left: 150px;
 }
+
+
+.slider{
+  width:  500px;
+  height: 500px;
+}
+div.sliderWrapper, div.slide{
+  width:  100%;
+  height: 100%;
+  position: relative;
+}

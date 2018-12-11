@@ -44,19 +44,33 @@ class ProductUpdate extends React.Component{
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <div className="control">
+                      <select name="format" onChange={this.handleChange} selected={this.state.format || ''}>
+                        <option>Select Format</option>
+                        <option value="PS4">PS4</option>
+                        <option value="XBOX">XBOX</option>
+                        <option value="Movie">Movie</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <div className="control">
+                      <select name="genre" onChange={this.handleChange} selected={this.state.genre || ''}>
+                        <option>Select Genre</option>
+                        <option value="RPG">RPG</option>
+                        <option value="racing">racing</option>
+                        <option value="shooter">shooter</option>
+                        <option value="drama">drama</option>
+                        <option value="adventure">adventure</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <div className="control">
                       <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="Name"  />
                     </div>
                   </div>
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.format || ''}  name="format"  placeholder="Format"/>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.genre || ''}  name="genre"  placeholder="Genre"/>
-                    </div>
-                  </div>
+
+
                   <div className="field">
                     <div className="control">
                       <input className="input" onChange={this.handleChange}   value={this.state.images || ''}  name="image"  placeholder="Image URL"/>
