@@ -1,5 +1,6 @@
 @import "partials/ratingbox";
 @import "partials/slider";
+@import "partials/indexsuggestion";
 
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
@@ -9,10 +10,6 @@ html {
   background-size: cover;
 }
 
-
-.hero {
-  margin-left: 17px;
-}
 
 #basket {
   margin-top: 100px;
@@ -41,16 +38,16 @@ html {
 
 h1 {
   text-align: center;
-font-size: 40px;
-color: gold;
-font-weight: 200;
+  font-size: 40px;
+  color: gold;
+  font-weight: 400;
 }
 
 #square {
   width: 300px;
   height: 500px;
-      border-radius: inherit;
-          background-color: rgba(0,0,0, 0.4);
+  border-radius: inherit;
+  background-color: rgba(0,0,0, 0.4);
 }
 
 #frames {
@@ -98,17 +95,17 @@ font-weight: 200;
 }
 #price {
   font-size: 20px;
-    color: gold;
-    font-weight: 700;
+  color: gold;
+  font-weight: 700;
 }
 #indexname{
   color: gold;
   font-size: 20px;
-    font-weight: 900;
+  font-weight: 900;
   // width: 220px;
- // white-space: nowrap;
- // overflow: hidden;
- // text-overflow: ellipsis;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 }
 #black {
   color: black;
@@ -136,23 +133,26 @@ div.show-suggestion {
 #bar {
   width: 100%;
   height: 70px;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.3);
-  // position: absolute;
-  background-color: black;
+  background-color: rgba(0,0,0, 1);
+  position: absolute;
+  top: 0;
+  margin-bottom: 10px;
   opacity: 0.6;
   position: fixed;
   font-weight: 900;
   font-size: 15px;
-
-
 }
+
+main.container {
+  top: 70px;
+  position: relative;
+}
+
 #name {
   // font-family: 'Pacifico', cursive;
   font-family: 'Luckiest Guy', cursive;
-
-      font-size: 45px;
-      margin-top: 10px;
+  font-size: 45px;
+  margin-top: 10px;
 }
 
 

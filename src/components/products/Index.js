@@ -73,6 +73,13 @@ class ProductsIndex extends React.Component {
   render() {
     return (
       <section className="hero">
+        <div>
+          {this.state.suggestion &&
+            <div>
+              <IndexSuggestion suggestion={this.state.suggestion}/>
+            </div>
+          }
+        </div>
         <div className="section">
           <div id="searchbox" className="box">
             <div className="field has-addons">
@@ -86,14 +93,6 @@ class ProductsIndex extends React.Component {
           </div>
         </div>
 
-        <div>
-          {this.state.suggestion &&
-            <div>
-              <IndexSuggestion suggestion={this.state.suggestion}/>
-              <p>Suggestions</p>
-            </div>
-          }
-        </div>
 
         <div id="marginIndex">
           <div className="columns is-multiline">
