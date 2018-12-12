@@ -31,20 +31,20 @@ class Login extends React.Component {
         <div className="hero-body">
           <div id="loginbox" className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 id="logintext" className="title has-text-danger">Login</h3>
-              <div className="box">
-                <form onSubmit={this.handleSubmit}>
+              <div className="box back-image">
+                <h3 id="logintext" className="title">Login</h3>
+                <form className="loginform" onSubmit={this.handleSubmit}>
                   <div className="field">
                     <div className="control">
-                      <input className="input " onChange={this.handleChange}  value={this.state.email || ''}  name="email"  placeholder="email"/>
+                      <input className="input " onChange={this.handleChange}  value={this.state.email || ''}  name="email"  placeholder="Email"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.password || ''}  name="password"  placeholder="password"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.password || ''}  name="password"  type="password" placeholder="Password"/>
                     </div>
                   </div>
-                  <button className="button is-primary">Login</button>
+                  <button className="button button-form">Sign in</button>
                 </form>
               </div>
             </div>

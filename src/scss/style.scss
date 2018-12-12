@@ -12,6 +12,12 @@ html {
   background-size: cover;
 }
 
+.back-image {
+  background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
+
+}
+
+
 
 #basket {
   background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
@@ -28,6 +34,7 @@ html {
 }
 
 .basket-button {
+  border: none;
   display: flex;
   width: 102px;
   justify-content: space-around;
@@ -55,6 +62,16 @@ h1 {
   font-size: 40px;
   color: gold;
   font-weight: 400;
+}
+
+h6 {
+
+  text-align: center;
+  font-size: 40px;
+  color: gold;
+  font-weight: 400;
+  margin-bottom: 270px;
+
 }
 
 #square {
@@ -222,20 +239,61 @@ main.container {
 
 #loginbox {
   margin-top: -300px;
+
 }
 
 #logintext {
-  margin-left: 150px;
+  color: gold;
+}
+
+#addingtext {
+  color: gold;
 }
 
 #registerbox {
   margin-top: -250px;
+
 }
 
 #registertext {
-  margin-left: 150px;
+  color: gold;
 }
 
+.input {
+  background-color: rgba(0,0,0, 0.8);
+  caret-color: gold;
+  color: white;
+}
+.loginform{
+
+  ::placeholder {
+    color: white;
+  }
+}
+.imagesadd {
+  margin-top: 10px;
+}
+.button-form{
+  background-color: #76ad89;
+  color: white;
+  border: none;
+}
+
+.selection {
+  width: 150px;
+
+}
+
+.select select {
+    background-color: black;
+    border-color: #dbdbdb;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    max-width: 100%;
+    outline: none;
+}
 
 #profileShow {
   // height: 292px;

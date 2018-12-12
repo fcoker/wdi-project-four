@@ -37,69 +37,68 @@ class ProductNew extends React.Component {
         <div className="hero-body">
           <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 className="title has-text-grey">Adding...</h3>
-              <div className="box">
-                <form onSubmit={this.handleSubmit}>
+              <div className="box back-image">
+                <h3 id="addingtext" className="title">Add a Product</h3>
+                <form className="loginform" onSubmit={this.handleSubmit}>
 
 
                   <div className="field">
                     <div className="control">
-                      <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="name"  />
+                      <input className="input " onChange={this.handleChange}  value={this.state.name || ''}  name="name" placeholder="Name"  />
+                    </div>
+                  </div>
+
+                  <div className="select">
+                    <select className="selection" name="format" onChange={this.handleChange} selected={this.state.format || ''}>
+                      <option>Format</option>
+                      <option value="PS4">PS4</option>
+                      <option value="XBOX">XBOX</option>
+                      <option value="Movie">Movie</option>
+                    </select>
+                  </div>
+
+
+                  <div className="select">
+                    <select className="selection" name="genre" onChange={this.handleChange} selected={this.state.genre || ''}>
+                      <option>Genre</option>
+                      <option value="RPG">RPG</option>
+                      <option value="Racing">Racing</option>
+                      <option value="Shooter">Shooter</option>
+                      <option value="Drama">Drama</option>
+                      <option value="Action">Action</option>
+                    </select>
+                  </div>
+
+
+                  <div className="field imagesadd">
+                    <div className="control">
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[0] || ['']}  name="images1"  placeholder="Main imageUrl"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[1] || ['']}  name="images2"  placeholder="ImageUrl 2"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="ImageUrl 3"/>
                     </div>
                   </div>
 
                   <div className="field">
                     <div className="control">
-                      <select name="format" onChange={this.handleChange} selected={this.state.format || ''}>
-                        <option>Select Format</option>
-                        <option value="PS4">PS4</option>
-                        <option value="XBOX">XBOX</option>
-                        <option value="Movie">Movie</option>
-                      </select>
+                      <input className="input" onChange={this.handleChange}   value={this.state.video || ''}  name="video"  placeholder="Video"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <select name="genre" onChange={this.handleChange} selected={this.state.genre || ''}>
-                        <option>Select Genre</option>
-                        <option value="RPG">RPG</option>
-                        <option value="Racing">Racing</option>
-                        <option value="Shooter">Shooter</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Action">Action</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.images[0] || ['']}  name="images1"  placeholder="main imageUrl"/>
-                      <input className="input" onChange={this.handleChange}   value={this.state.images[1] || ['']}  name="images2"  placeholder="imageUrl 2"/>
-                      <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="imageUrl 3"/>
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.video || ''}  name="video"  placeholder="video"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.unitPrice || ''}  name="unitPrice"  placeholder="Price"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.unitPrice || ''}  name="unitPrice"  placeholder="price"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="Description"/>
                     </div>
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="description"/>
+                      <input className="input" onChange={this.handleChange}   value={this.state.releaseDate || ''}  name="releaseDate"  placeholder="Release Date"/>
                     </div>
                   </div>
-                  <div className="field">
-                    <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.releaseDate || ''}  name="releaseDate"  placeholder="releaseDate"/>
-                    </div>
-                  </div>
-                  <button className="button is-primary">Add</button>
+                  <button className="button button-form">Add</button>
                 </form>
               </div>
             </div>

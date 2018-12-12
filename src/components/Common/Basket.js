@@ -74,12 +74,12 @@ class Basket extends React.Component {
               </div>
             )
               :
-              <p>No items</p>}
+              <h6>...No items...</h6>}
 
             {basket && hasItems &&
           <div className="columns basket-amount">
             <div className="column">
-              <button className="button is-orange basket-button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>
+              <button className="button basket-button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>
                 <span>
                   <i className='fas fa-shopping-basket'></i>
                 </span>
@@ -95,7 +95,7 @@ class Basket extends React.Component {
               <p className="column">Total price: £{basketLib.totalBasketPrice()}</p>
             </div>
             <div className="column">
-              <button className="button is-success" onClick={this.checkout}>Check out</button>
+              <button className="button button-form" onClick={this.checkout}>Check out</button>
             </div>
           </div>
             }
