@@ -54,7 +54,7 @@ const productData = [
   {
     name: 'Forza Motorsport 6',
     format: 'XBOX',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/3/4/4/9/344998_xb1_a.png', '/assets/images/redDead.png', 'https://images.store.hmv.com/app_/responsive/HMVStore/media/product/788036/01-788036.jpg?w=950' ],
     video: 'https://www.youtube.com/embed/4vLQpUgm0aU',
     unitPrice: 44.99,
@@ -76,7 +76,7 @@ const productData = [
   {
     name: '12 Years a Slave',
     format: 'Movie',
-    genre: 'drama',
+    genre: 'Action',
     images: ['https://images.store.hmv.com/app_/responsive/HMVStore/media/product/788036/01-788036.jpg?w=950'],
     video: 'https://www.youtube.com/embed/z02Ie8wKKRg',
     unitPrice: 19.99,
