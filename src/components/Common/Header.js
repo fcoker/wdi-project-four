@@ -17,7 +17,7 @@ class Header extends React.Component {
   render() {
 
     return (
-      <nav id="bar" className="navbar is-black">
+      <nav className="navbar is-black">
         <div className="navbar-start">
           <Link className="navbar-item" to='/'>
             <a>

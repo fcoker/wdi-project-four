@@ -1,5 +1,7 @@
 @import "partials/ratingbox";
 @import "partials/slider";
+@import "partials/indexsuggestion";
+@import "partials/searchbox";
 
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
@@ -9,10 +11,6 @@ html {
   background-size: cover;
 }
 
-
-.hero {
-  margin-left: 17px;
-}
 
 #basket {
   margin-top: 100px;
@@ -35,31 +33,30 @@ html {
 }
 #logote {
   width: 58px;
-    margin-top: 4px;
-    margin-left: 15px;
+  margin-top: 4px;
+  margin-left: 15px;
 }
 
 h1 {
   text-align: center;
-font-size: 40px;
-color: gold;
-font-weight: 200;
+  font-size: 40px;
+  color: gold;
+  font-weight: 400;
 }
 
 #square {
   width: 300px;
   height: 500px;
-      border-radius: inherit;
-          background-color: rgba(0,0,0, 0.4);
+  border-radius: inherit;
+  background-color: rgba(0,0,0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#frames {
-  width: 200px;
-}
 
-#searchbox{
-  margin-top: 750px;
-}
+
+
 
 #marginIndex {
   margin-top: 20px;
@@ -96,20 +93,33 @@ font-weight: 200;
   margin-top: 0px;
   margin-left: 10px;
 }
-#price {
-  font-size: 20px;
-    color: gold;
-    font-weight: 700;
+
+div.product-box {
+  div.frames {
+    width: 200px;
+    p {
+      font-size: 20px;
+      color: gold;
+      font-weight: 700;
+    }
+    p.title{
+      font-weight: 900;
+    }
+    p.rating{
+      font-size: 30px;
+    }
+    article.square {
+      width: 300px;
+      height: 500px;
+      border-radius: inherit;
+      background-color: rgba(0,0,0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
 }
-#indexname{
-  color: gold;
-  font-size: 20px;
-    font-weight: 900;
-  // width: 220px;
- // white-space: nowrap;
- // overflow: hidden;
- // text-overflow: ellipsis;
-}
+
 #black {
   color: black;
   font-weight: 900;
@@ -133,26 +143,30 @@ div.show-suggestion {
   height: 400px;
   overflow: auto;
 }
-#bar {
+
+nav.navbar {
   width: 100%;
-  height: 70px;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.3);
-  // position: absolute;
-  background-color: black;
+  height: 9vh;
+  background-color: rgba(0,0,0, 1);
+  position: absolute;
+  top: 0;
+  margin-bottom: 10px;
   opacity: 0.6;
   position: fixed;
   font-weight: 900;
   font-size: 15px;
-
-
 }
+
+main.container {
+  top: 10vh;
+  position: relative;
+}
+
 #name {
   // font-family: 'Pacifico', cursive;
   font-family: 'Luckiest Guy', cursive;
-
-      font-size: 45px;
-      margin-top: 10px;
+  font-size: 45px;
+  margin-top: 10px;
 }
 
 

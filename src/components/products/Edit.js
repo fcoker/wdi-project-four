@@ -68,10 +68,10 @@ class ProductUpdate extends React.Component{
                       <select name="genre" onChange={this.handleChange} selected={this.state.genre || ''}>
                         <option>Select Genre</option>
                         <option value="RPG">RPG</option>
-                        <option value="racing">racing</option>
-                        <option value="shooter">shooter</option>
-                        <option value="drama">drama</option>
-                        <option value="adventure">adventure</option>
+                        <option value="Racing">Racing</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Action">Action</option>
                       </select>
                     </div>
                   </div>
