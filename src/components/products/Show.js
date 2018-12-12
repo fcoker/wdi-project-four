@@ -149,16 +149,15 @@ class ProductsShow extends React.Component {
                 </div>
               </div>
 
-              <div className="show-suggestions column is-12">
+              <div className="suggestions-slider column is-12">
                 { hasSuggestions
                     &&
                     <div>
                       <h3><strong>You may also like:</strong></h3>
-                      <div className="columns">
-
+                      <div className="columns show-suggestions">
                         {suggested.map(suggestion =>
                           //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                          <div className="column is-3" key={suggestion._id}>
+                          <div className="column is-3 has-text-centered" key={suggestion._id}>
                             <Link to={`/product/${suggestion._id}`}>
                               <img className="suggestion-img" height="200px" src={suggestion.images[0]}/>
                             </Link>
