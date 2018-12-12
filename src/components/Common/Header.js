@@ -24,10 +24,9 @@ class Header extends React.Component {
               <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
             </a>
           </Link>
-
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
-          {isAuthenticated() && <Link className="navbar-item" to='/basket'>🛒({getBasketCount()})</Link>}
+          {isAuthenticated() && <Link className="navbar-item" to='/basket'><i className='fas fa-shopping-basket'></i>({getBasketCount()})</Link>}
           {isAuthenticated() && <Link className="navbar-item" to={`/users/${decodeToken().sub}`}>Profile</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item" to='/logout'>Log Out</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleLoginClick}>Log In</a>}
