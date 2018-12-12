@@ -13,10 +13,8 @@ class ProductNew extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form subbmitted', this.state);
     axios.post('/api/', this.state, getHeader())
       .then(result => {
-        console.log(result);
         this.props.history.push(`/product/${result.data._id}`);
       });
   }
@@ -90,7 +88,7 @@ class ProductNew extends React.Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="Description"/>
+                      <textarea className="input" onChange={this.handleChange} value={this.state.description || ''} placeholder="Enter description here..." name="description" ></textarea>
                     </div>
                   </div>
                   <div className="field">

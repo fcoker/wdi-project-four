@@ -5,7 +5,7 @@ function Slide({ image }){
   return <div className="slide"
     style={{
       backgroundImage: `url(${image})`,
-      backgroundSize: 'cover',
+      backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50% 60%'
     }}></div>;

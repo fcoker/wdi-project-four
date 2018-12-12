@@ -3,6 +3,10 @@ export function handleChange(e) {
   this.setState({ [name]: value });
 }
 
+export function scrollToTop(){
+  window.scrollTo(0, 0);
+}
+
 function getMyGenres(myPurchases){
   const genres = myPurchases.map(purchase => purchase.product.genre);
   const myGenres = [];

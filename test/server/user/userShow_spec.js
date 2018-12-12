@@ -46,15 +46,15 @@ describe('user SHOW', () => {
         done();
       });
   });
-
-  console.log('userId-------->',userId);
+  //
+  // console.log('userId-------->',userId);
   it('should return an object', done => {
     api.get(`/api/users/${userIds[0]}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         // console.log('userId is ------>', userId);
-        console.log('res.body in userSHow------>', res.body);
+        // console.log('res.body in userSHow------>', res.body);
         done();
       });
   });
@@ -63,7 +63,7 @@ describe('user SHOW', () => {
     api.get(`/api/users/${userIds[0]}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
-        console.log('token-------->', token);
+        console.log('res.body._id-------->', res.body._id);
         expect(res.body._id).to.eq(userData[0]._id);
         expect(res.body.username).to.eq(userData[0].username);
         expect(res.body.email).to.eq(userData[0].email);

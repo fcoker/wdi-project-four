@@ -55,7 +55,7 @@ const productData = [
     name: 'Forza Motorsport 6',
     format: 'XBOX',
     genre: 'Racing',
-    images: ['https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/3/4/4/9/344998_xb1_a.png', '/assets/images/redDead.png', 'https://images.store.hmv.com/app_/responsive/HMVStore/media/product/788036/01-788036.jpg?w=950' ],
+    images: ['https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/3/4/4/9/344998_xb1_a.png', 'https://img.game.co.uk/ml2/3/4/4/9/344998_scr2_a.png', 'https://66.media.tumblr.com/4fe29e8221bb454c9f677a20c326fc8c/tumblr_mldg417iOL1qzwtdlo1_500.jpg' ],
     video: 'https://www.youtube.com/embed/4vLQpUgm0aU',
     unitPrice: 44.99,
     description: 'Breathtaking graphics at 1080p resolution and 60 frames per second. Witness the spectacle of night racing under the stadium lights of Daytona and the intense claustrophobia of racing by headlight in the utter blackness of Le Mans’ back stretch. Experience the immersion of racing in the rain as working wipers barely clear the spray and tires hydroplane across physically based 3D puddles.',

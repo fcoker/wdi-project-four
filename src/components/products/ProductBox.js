@@ -14,8 +14,8 @@ function ProductBox({ product }) {
                     <p className="title">{product.name}</p>
                     <p className="subtitle">£{product.unitPrice}</p>
                   </div>
-                  <figure className="image">
-                    <img id="image" src={product.images[0]} />
+                  <figure className="">
+                    <img src={product.images[0]} />
                     <br/>
                     {(product.averageRating > 0)
                       ?

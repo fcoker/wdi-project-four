@@ -2,8 +2,8 @@ import React from 'react';
 
 function RightArrow(props){
   return (
-    <div className="nextArrow arrow" onClick={props.goToNextSlide}>
-      <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+    <div className="nextArrow arrow rightArrow" onClick={props.goToNextSlide}>
+      <i className="fas fa-angle-right fa-3x" aria-hidden="true"></i>
     </div>
   );
 }

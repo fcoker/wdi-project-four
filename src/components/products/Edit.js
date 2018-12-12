@@ -22,10 +22,8 @@ class ProductUpdate extends React.Component{
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form subbmitted', this.state);
     axios.put(`/api/product/${this.props.match.params.productId}`, this.state, getHeader())
-      .then(result => {
-        console.log(result);
+      .then(() => {
         this.props.history.push(`/product/${this.props.match.params.productId}`);
       });
   }
@@ -113,7 +111,7 @@ class ProductUpdate extends React.Component{
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="Description"/>
+                      <textarea className="input" onChange={this.handleChange} value={this.state.description || ''} placeholder="Enter description here..." name="description" >Enter description here...</textarea>
                     </div>
                   </div>
                   <div className="field">
