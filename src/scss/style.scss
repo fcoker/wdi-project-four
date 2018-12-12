@@ -3,6 +3,7 @@
 @import "partials/indexsuggestion";
 @import "partials/searchbox";
 
+
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -13,22 +14,43 @@ html {
 
 
 #basket {
+<<<<<<< HEAD
   background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
   color: white;
   background-repeat: round;
   height: 75vh;
   overflow: auto;
+=======
+  margin-top: 100px;
+
+  background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
+  color: white;
+  background-repeat: round;
+  height: 600px;
+>>>>>>> development
 }
 
 #imagebasket {
   width: 100px;
-  margin-left: 221px;
+  margin-left: 430px;
   margin-top: -63px;
+}
+
+.basket-button {
+  display: flex;
+  width: 102px;
+  justify-content: space-around;
+  background-color: orange;
+  margin-left: -220px;
+}
+.basket-amount {
+  margin-left: 530px;
+  margin-bottom: 10px;
 }
 
 #basketname {
   font-size: 20px;
-  margin-left: 20px;
+  margin-left: 120px;
 }
 
 #logote {
@@ -88,10 +110,10 @@ h1 {
 #imageshow {
   width: 400px;
 }
-#showblock{
+article.showblock{
+  margin-top: 3vh;
 
-  margin-top: 0px;
-  margin-left: 10px;
+
 }
 
 div.product-box {
@@ -210,6 +232,11 @@ main.container {
   left: 474px;
 }
 
+#userEditBox{
+  position: relative;
+  top: 92px;
+}
+
 #purchaseHistoryBox{
   padding-top: 30px;
 }
@@ -221,4 +248,8 @@ main.container {
   top: 90px;
   height: 711px;
   padding: 2em;
+}
+
+.basket-quantity {
+  margin-right: 230px;
 }

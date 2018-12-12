@@ -81,8 +81,8 @@ class ProductsShow extends React.Component {
       <section id="showpage">
         {product
           ?
-          <article>
-            <div id="showblock" className="columns is-multiline">
+          <article className="showblock">
+            <div  className="columns is-multiline">
               <div className="column is-5">
                 <Slider renderShowPage={this.renderShowPage} images={product.images} />
               </div>

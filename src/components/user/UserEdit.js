@@ -31,24 +31,38 @@ class UserEdit extends React.Component {
   render() {
     return (
       <section>
-        <form onSubmit={this.handleSubmit}>
-          <label>User Name</label>
-          <input onChange={this.handleChange}
-            value={this.state.username || ''}
-            name="username"
-          />
-          <label>Profile Picture</label>
-          <input onChange={this.handleChange}
-            value={this.state.profilePic || ''}
-            name="profilePic"
-          />
-          <label>Address</label>
-          <input onChange={this.handleChange}
-            value={this.state.address || ''}
-            name="address"
-          />
-          <button onClick={this.handleSubmit}>Edit</button>
-        </form>
+        <div className="hero-body">
+          <div id="userEditBox" className="container has-text-centered">
+            <div className="column is-4 is-offset-4">
+              <h3 id="userEditText" className="title has-text-danger">Edit</h3>
+              <div className="box">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <div className="control">
+                      <label>User Name</label>
+                      <input className="input " onChange={this.handleChange}  value={this.state.username || ''}  name="username"  placeholder="username"/>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <div className="control">
+                      <label>Profile Picture</label>
+                      <input className="input " onChange={this.handleChange}  value={this.state.profilePic || ''}  name="profilePic"  placeholder="profile Pic URL"/>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <div className="control">
+                      <label>Address</label>
+                      <input className="input" onChange={this.handleChange}   value={this.state.address || ''}  name="address"  placeholder="address"/>
+                    </div>
+                  </div>
+                  <button className="button is-primary" onClick={this.handleSubmit}>Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </section>
     );
   }
