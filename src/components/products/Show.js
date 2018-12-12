@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
-import { isAuthenticated, isAdmin } from '../../lib/auth';
+import { isAuthenticated, isAdmin, getHeader } from '../../lib/auth';
 import RatingBox from '../rating/RatingBox';
 import Slider from './showSlider/Slider';
 
@@ -44,7 +44,7 @@ class ProductsShow extends React.Component {
 
   handleDelete(event){
     event.preventDefault();
-    axios.delete(`/api/product/${this.state.product._id}`)
+    axios.delete(`/api/product/${this.state.product._id}`, getHeader())
       .then(() => this.props.history.push('/'));
   }
 
