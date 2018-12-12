@@ -111,7 +111,6 @@ h6 {
 }
 
 section.showpage{
-  // background: white;
   background-color: rgba(0,0,0,0.6);
 
   article.showblock{
@@ -127,9 +126,6 @@ section.showpage{
     }
     strong{
       color: gold;
-    }
-    div.detailsShow {
-      // width: 375px;
     }
     p.textshow {
       text-align: justify;
@@ -253,22 +249,15 @@ main.container {
 
 }
 
-#logintext {
+#logintext, #registertext, #addingtext {
   color: gold;
 }
 
-#addingtext {
-  color: gold;
-}
 
 #registerbox {
   margin-top: -250px;
-
 }
 
-#registertext {
-  color: gold;
-}
 
 .input {
   background-color: rgba(0,0,0, 0.8);
@@ -365,4 +354,12 @@ main.container {
 
 .basket-quantity {
   margin-right: 230px;
+}
+.nothing-to-see{
+  margin-top: 10vh;
+  color: gold;
+  font-size: 32px;
+}
+.total {
+  text-align: right;
 }

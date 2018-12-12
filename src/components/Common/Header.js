@@ -23,6 +23,7 @@ class Header extends React.Component {
           <Link to='/'>
             <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" alt="Logo"/>
           </Link>
+          <a className="navbar-item" href='/'>All Products</a>
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
           {isAuthenticated() && <Link className="navbar-item" to='/basket'><i className='fas fa-shopping-basket'></i>({getBasketCount()})</Link>}
@@ -30,14 +31,9 @@ class Header extends React.Component {
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item" to='/logout'>Log Out</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleLoginClick}>Log In</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleRegisterClick}>Register</a>}
-          <a className="navbar-item" onClick={scrollToTop}>To top</a>
         </div>
         <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="field">
-
-            </div>
-          </div>
+          <a className="navbar-item" onClick={scrollToTop}><i className="fas fa-angle-up"></i></a>
         </div>
       </nav>
     );

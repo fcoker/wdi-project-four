@@ -22,10 +22,8 @@ class ProductUpdate extends React.Component{
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form subbmitted', this.state);
     axios.put(`/api/product/${this.props.match.params.productId}`, this.state, getHeader())
-      .then(result => {
-        console.log(result);
+      .then(() => {
         this.props.history.push(`/product/${this.props.match.params.productId}`);
       });
   }

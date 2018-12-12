@@ -13,7 +13,6 @@ class UserEdit extends React.Component {
   componentDidMount(){
     axios.get(`/api/users/${decodeToken().sub}`, getHeader())
       .then(result=> {
-        console.log('Got the user data:', result.data);
         this.setState( result.data );
       });
   }

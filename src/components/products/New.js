@@ -13,10 +13,8 @@ class ProductNew extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form subbmitted', this.state);
     axios.post('/api/', this.state, getHeader())
       .then(result => {
-        console.log(result);
         this.props.history.push(`/product/${result.data._id}`);
       });
   }

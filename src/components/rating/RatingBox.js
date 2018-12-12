@@ -11,7 +11,6 @@ class RatingBox extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    console.log(this.props);
     axios.post(`/api/product/${this.props.product._id}/reviews`, this.state, getHeader())
       .then(() => {
         this.setState({ rated: true });
@@ -20,7 +19,6 @@ class RatingBox extends React.Component {
   }
 
   handleChange({ target: { name, value }}) {
-    console.log(event.target);
     this.setState({ [name]: value });
     // setTimeout(this.handleSubmit(event), 500);
   }
