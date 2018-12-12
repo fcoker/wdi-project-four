@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { getBasketCount } from '../../lib/basket';
 import { isAuthenticated, deleteToken, decodeToken, isAdmin } from '../../lib/auth';
+import { scrollToTop } from '../../lib/common';
 
 
 class Header extends React.Component {
@@ -29,6 +30,7 @@ class Header extends React.Component {
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item" to='/logout'>Log Out</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleLoginClick}>Log In</a>}
           {!isAuthenticated() && <a className="navbar-item" onClick={this.props.handleRegisterClick}>Register</a>}
+          <a className="navbar-item" onClick={scrollToTop}>To top</a>
         </div>
         <div className="navbar-end">
           <div className="navbar-item">

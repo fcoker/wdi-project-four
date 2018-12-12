@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { scrollToTop } from './lib/common';
 
 import Header from './components/common/Header';
 // import Search from './components/common/Search';
@@ -52,11 +52,11 @@ class App extends React.Component {
   }
   toggleLogin(){
     this.setState({ login: !this.state.login, register: false });
-    window.scrollTo(0, 0);
+    scrollToTop();
   }
   toggleRegister(){
     this.setState({ register: !this.state.register, login: false });
-    window.scrollTo(0, 0);
+    scrollToTop();
   }
 
 

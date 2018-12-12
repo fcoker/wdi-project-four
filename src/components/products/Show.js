@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
 import { isAuthenticated, isAdmin, getHeader } from '../../lib/auth';
+import { scrollToTop } from '../../lib/common';
 import RatingBox from '../rating/RatingBox';
 import Slider from './showSlider/Slider';
 
@@ -56,7 +57,7 @@ class ProductsShow extends React.Component {
   renderShowPage(){
     axios.get('/api')
       .then(res => {
-        window.scrollTo(0, 0);
+        scrollToTop();
         const showPageProduct = res.data.find(product => product._id === this.props.match.params.productId);
         this.setState({
           product: showPageProduct,
