@@ -1,0 +1,29 @@
+.search-container{
+  margin-top: 10vh;
+  padding: 2.25rem;
+  padding-right: 3.5rem;
+  div.search-bar {
+    background-color: rgba(0,0,0, 0.8);
+    caret-color: gold;
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: white;
+      font-weight: 700;
+      opacity: 1; /* Firefox */
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      font-weight: 700;
+      color: white;
+    }
+    ::-ms-input-placeholder { /* Microsoft Edge */
+      font-weight: 700;
+      color: white;
+    }
+
+    .input{
+      border: none;
+      background-color: rgba(0,0,0, 0.0);
+      color: white;
+    }
+  }
+
+}

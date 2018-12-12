@@ -7,14 +7,22 @@ function ProductBox({ product }) {
 
       <Link to={`/product/${product._id}`}>
         <section className="section">
-          <div className="container has-text-centered">
-            <div id="frames" className="tile is-ancestor">
+          <div className="container has-text-centered product-box">
+            <div className="frames tile is-ancestor">
               <div className="tile is-parent">
-                <article id="square" className="tile is-child box">
-                  <p id="indexname" className="title">{product.name}</p>
-                  <p id="price"className="subtitle">£{product.unitPrice}</p>
+                <article className="square tile is-child box">
+                  <div>
+                    <p className="title">{product.name}</p>
+                    <p className="subtitle">£{product.unitPrice}</p>
+                  </div>
                   <figure className="image">
                     <img id="image" src={product.images[0]} />
+                    {(product.averageRating > 0)
+                      ?
+                      <p className="rating">{product.averageRating} <i className="fas fa-star"></i></p>
+                      :
+                      <p className="no-rating">Not rated yet</p>
+                    }
                   </figure>
                 </article>
               </div>

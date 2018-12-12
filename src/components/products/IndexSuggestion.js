@@ -10,12 +10,12 @@ function IndexSuggestion({suggestion}) {
       {suggestion &&
         <div>
           <div>
-            <Link className="columns is-centered" to={`/product/${suggestion._id}`}>
-              <div className="column is-10 index-suggestion">
+            <div className="columns is-centered">
+              <Link className="column is-9 index-suggestion" to={`/product/${suggestion._id}`}>
                 <iframe src={suggestion.video}></iframe>
                 <h1 className="is-pulled-left"><b>Featured:</b> {suggestion.name}</h1>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
         // <img width="100px" src={suggestion.images[0]}/>

@@ -80,25 +80,30 @@ class ProductsIndex extends React.Component {
             </div>
           }
         </div>
-        <div className="section">
-          <div id="searchbox" className="box">
-            <div className="field has-addons">
-              <div className="control is-expanded">
-                <input className="input has-text-centered" ref={input => this.search = input} onChange={this.handleSearch} type="search" placeholder="What are you looking for?"/>
-              </div>
-              <div className="control">
-                <a className="button is-info">Search</a>
+        <div className="columns is-centered">
+          <div className="column is-11 search-container">
+            <div className="columns is-centered">
+              <div className="column is-12 search-bar">
+                <div className="field">
+                  <div className="control is-expanded">
+                    <input className="input has-text-centered"
+                      onChange={this.handleSearch} type="search"
+                      placeholder="What are you looking for?"/>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
 
-        <div id="marginIndex">
-          <div className="columns is-multiline">
-            {this.state.filteredProducts && this.state.filteredProducts.map(
-              product => <ProductBox key={product._id} product={product}/>
-            )}
+        <div id="marginIndex" className="columns is-centered">
+          <div className="column is-12 index-items">
+            <div className="columns is-multiline">
+              {this.state.filteredProducts && this.state.filteredProducts.map(
+                product => <ProductBox key={product._id} product={product}/>
+              )}
+            </div>
           </div>
         </div>
       </section>
