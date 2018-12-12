@@ -21,16 +21,17 @@ class RatingBox extends React.Component {
 
   handleChange({ target: { name, value }}) {
     console.log(event.target);
-    this.setState({ [name]: value }, ()=> console.log(this.state));
+    this.setState({ [name]: value });
+    // setTimeout(this.handleSubmit(event), 500);
   }
 
   render() {
     return (
-      <section className="hero is-fullheight">
-        <div className="box">
-          <div className="star-box">
-            <div className="stars">
-              <form onSubmit={this.handleSubmit}>
+      <section className="columns">
+        <div className="column is-12 star-box">
+          <div className="stars">
+            <form onSubmit={this.handleSubmit}>
+              <div>
                 <input className="star star-5" value="5" id="star-5" onChange={this.handleChange} type="radio" name="ratingValue"/>
                 <label className="star star-5" htmlFor="star-5"></label>
                 <input className="star star-4" value="4" id="star-4" onChange={this.handleChange} type="radio" name="ratingValue"/>
@@ -41,11 +42,11 @@ class RatingBox extends React.Component {
                 <label className="star star-2" htmlFor="star-2"></label>
                 <input className="star star-1" value="1" id="star-1" onChange={this.handleChange} type="radio" name="ratingValue"/>
                 <label className="star star-1" htmlFor="star-1"></label>
-                <div>
-                  <button className="button">Submit rating</button>
-                </div>
-              </form>
-            </div>
+              </div>
+              <div>
+                <button className="button">Rate</button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
