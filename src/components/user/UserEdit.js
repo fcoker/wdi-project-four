@@ -32,11 +32,11 @@ class UserEdit extends React.Component {
     return (
       <section>
         <div className="hero-body">
-          <div id="userEditBox" className="container has-text-centered">
+          <div className="container has-text-centered">
             <div className="column is-4 is-offset-4">
-              <h3 id="userEditText" className="title has-text-danger">Edit</h3>
-              <div className="box">
+              <div id="userEditBox"className="box">
                 <form onSubmit={this.handleSubmit}>
+                  <h1>Edit</h1>
                   <div className="field">
                     <div className="control">
                       <label>User Name</label>
