@@ -55,19 +55,20 @@ class Basket extends React.Component {
                   </figure>
                 </div>
 
+
                 <div className="column is-1">
                   <div>
-                    <span onClick={() => this.handleMinusClick(item)}> ➖ </span>
-                    <span>{item.unitQuantity}</span>
-                    <span onClick={() => this.handlePlusClick(item)}> ➕ </span>
+                    <span onClick={() => this.handleMinusClick(item)}><i className="fas fa-minus-circle"></i></span>
+                    <span> {item.unitQuantity} </span>
+                    <span onClick={() => this.handlePlusClick(item)}> <i className="fas fa-plus"></i> </span>
                   </div>
                 </div>
 
                 <div className="column is-1">
-                  <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+                  <a onClick={() => this.handleDelete(item._id)}><i className="fas fa-trash-alt"></i></a>
                 </div>
 
-                <div className="column is-6">
+                <div className="column is-1">
                   <p>£{item.unitPrice}</p>
                 </div>
 
