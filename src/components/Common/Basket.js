@@ -48,7 +48,7 @@ class Basket extends React.Component {
 
               <div key={item._id} className="columns">
 
-                <div className="column is-4">
+                <div className="column is-4 basket-quantity">
                   <figure className="image">
                     <p id="basketname">{item.name}</p>
                     <img id="imagebasket" src={item.images[0]} />
@@ -77,9 +77,19 @@ class Basket extends React.Component {
               <p>No items</p>}
 
             {basket && hasItems &&
-          <div className="columns">
+          <div className="columns basket-amount">
             <div className="column">
-              <button className="button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
+              <button className="button is-orange basket-button" onClick={() => this.setState({ basket: basketLib.createBasket() })}>
+                <span>
+                  <i className='fas fa-shopping-basket'></i>
+                </span>
+                <span>
+                  <i className='fas fa-arrow-right'></i>
+                </span>
+                <span>
+                  <i className='fas fa-trash-alt'></i>
+                </span>
+              </button>
             </div>
             <div className="column">
               <p className="column">Total price: £{basketLib.totalBasketPrice()}</p>

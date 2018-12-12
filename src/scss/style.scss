@@ -1,6 +1,7 @@
 @import "partials/ratingbox";
 @import "partials/slider";
 
+
 html {
   background: url('https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTczwPpf10BNAIpjg93OVBXieOlxLDUVdALKHvpC.iQYxhJ_MV4dWn12.v4JDpBEq98zwdFQu.VX8YiXAUipAMnZiclYvMLWJBmbkXmtgap7EoOhB4uOi.AKoKaNKf_HbkBKAGLvSNKDhGlxfTEgstMT1QntZQmtMbhK5WzjSV5lDs-&h=1080&w=1920&format=jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -17,40 +18,52 @@ html {
 #basket {
   margin-top: 100px;
 
-    background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
-    color: white;
-    background-repeat: round;
-    height: 600px;
+  background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
+  color: white;
+  background-repeat: round;
+  height: 600px;
 }
 
 #imagebasket {
   width: 100px;
-  margin-left: 221px;
+  margin-left: 430px;
   margin-top: -63px;
+}
+
+.basket-button {
+  display: flex;
+  width: 102px;
+  justify-content: space-around;
+  background-color: orange;
+  margin-left: -220px;
+}
+.basket-amount {
+  margin-left: 530px;
+  margin-bottom: 10px;
 }
 
 #basketname {
   font-size: 20px;
-  margin-left: 20px;
+  margin-left: 120px;
 }
 #logote {
   width: 58px;
-    margin-top: 4px;
-    margin-left: 15px;
+  margin-top: 4px;
+  margin-left: 15px;
 }
 
 h1 {
   text-align: center;
-font-size: 40px;
-color: gold;
-font-weight: 200;
+  font-size: 40px;
+  color: gold;
+  font-weight: 200;
 }
 
 #square {
   width: 300px;
   height: 500px;
-      border-radius: inherit;
-          background-color: rgba(0,0,0, 0.4);
+  border-radius: inherit;
+  background-color: rgba(0,0,0, 0.4);
 }
 
 #frames {
@@ -98,17 +111,17 @@ font-weight: 200;
 }
 #price {
   font-size: 20px;
-    color: gold;
-    font-weight: 700;
+  color: gold;
+  font-weight: 700;
 }
 #indexname{
   color: gold;
   font-size: 20px;
-    font-weight: 900;
+  font-weight: 900;
   // width: 220px;
- // white-space: nowrap;
- // overflow: hidden;
- // text-overflow: ellipsis;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 }
 #black {
   color: black;
@@ -151,8 +164,8 @@ div.show-suggestion {
   // font-family: 'Pacifico', cursive;
   font-family: 'Luckiest Guy', cursive;
 
-      font-size: 45px;
-      margin-top: 10px;
+  font-size: 45px;
+  margin-top: 10px;
 }
 
 
@@ -212,4 +225,8 @@ div.show-suggestion {
   top: 90px;
   height: 711px;
   padding: 2em;
+}
+
+.basket-quantity {
+  margin-right: 230px;
 }
