@@ -33,10 +33,10 @@ class App extends React.Component {
   }
 
   toggleLogin(){
-    this.setState({ login: !this.state.login });
+    this.setState({ login: !this.state.login, register: false });
   }
   toggleRegister(){
-    this.setState({ register: !this.state.register });
+    this.setState({ register: !this.state.register, login: false });
   }
 
 
