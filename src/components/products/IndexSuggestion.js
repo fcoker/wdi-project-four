@@ -9,14 +9,16 @@ function IndexSuggestion({suggestion}) {
     <section className="container" height="200px">
       {suggestion &&
         <div>
-          <h1>Featured:</h1>
           <div>
-            <Link to={`/product/${suggestion._id}`}>
-              <img width="100px" src={suggestion.images[0]}/>
-              <p>{suggestion.name}</p>
-            </Link>
+            <div className="columns is-centered">
+              <Link className="column is-9 index-suggestion" to={`/product/${suggestion._id}`}>
+                <iframe src={suggestion.video}></iframe>
+                <h1 className="is-pulled-left"><b>Featured:</b> {suggestion.name}</h1>
+              </Link>
+            </div>
           </div>
         </div>
+        // <img width="100px" src={suggestion.images[0]}/>
       }
     </section>
   );

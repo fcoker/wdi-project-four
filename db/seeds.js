@@ -54,7 +54,7 @@ const productData = [
   {
     name: 'Forza Motorsport 6',
     format: 'XBOX',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/3/4/4/9/344998_xb1_a.png', '/assets/images/redDead.png', 'https://images.store.hmv.com/app_/responsive/HMVStore/media/product/788036/01-788036.jpg?w=950' ],
     video: 'https://www.youtube.com/embed/4vLQpUgm0aU',
     unitPrice: 44.99,
@@ -76,7 +76,7 @@ const productData = [
   {
     name: '12 Years a Slave',
     format: 'Movie',
-    genre: 'drama',
+    genre: 'Action',
     images: ['https://images.store.hmv.com/app_/responsive/HMVStore/media/product/788036/01-788036.jpg?w=950'],
     video: 'https://www.youtube.com/embed/z02Ie8wKKRg',
     unitPrice: 19.99,
@@ -87,7 +87,7 @@ const productData = [
   {
     name: 'Django',
     format: 'Movie',
-    genre: 'action',
+    genre: 'Action',
     images: ['https://images.store.hmv.com/app_/responsive/HMVStore/media/product/703704/02-703704.jpg?w=950'],
     video: 'https://www.youtube.com/embed/mUtUKeJSWbI',
     unitPrice: 9.99,
@@ -142,7 +142,7 @@ const productData = [
   {
     name: 'F1 2018',
     format: 'PS4',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['/assets/images/f12018.png'],
     video: 'https://www.youtube.com/embed/iyz9xU-h9Ms',
     unitPrice: 49.99,
@@ -153,7 +153,7 @@ const productData = [
   {
     name: 'Wreck Fest',
     format: 'PS4',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['/assets/images/wreckfest.png'],
     video: 'https://www.youtube.com/embed/cbsDiIuI7KQ',
     unitPrice: 55.99,
@@ -164,7 +164,7 @@ const productData = [
   {
     name: 'Dirt 4',
     format: 'PS4',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['/assets/images/dirt4.png'],
     video: 'https://www.youtube.com/embed/xtgwsuiax4c',
     unitPrice: 54.99,
@@ -175,7 +175,7 @@ const productData = [
   {
     name: 'Gravel',
     format: 'PS4',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['/assets/images/gravel.png'],
     video: 'https://www.youtube.com/embed/-xEGWBaadzo',
     unitPrice: 19.99,
@@ -186,7 +186,7 @@ const productData = [
   {
     name: 'Grip',
     format: 'PS4',
-    genre: 'racing',
+    genre: 'Racing',
     images: ['/assets/images/grip.png'],
     video: 'https://www.youtube.com/embed/YCump8QXWo0',
     unitPrice: 39.99,
@@ -197,7 +197,7 @@ const productData = [
   {
     name: 'Lord of The Rings The Two Towers',
     format: 'Movie',
-    genre: 'adventure',
+    genre: 'Action',
     images: ['https://store.hmv.com/app_/responsive/HMVStore/media/product/93869/02-93869.jpg?w=950'],
     video: 'https://www.youtube.com/embed/LbfMDwc4azU',
     unitPrice: 8.99,
@@ -208,7 +208,7 @@ const productData = [
   {
     name: 'Pan\'s Labyrinth',
     format: 'Movie',
-    genre: 'adventure',
+    genre: 'Action',
     images: ['https://images-na.ssl-images-amazon.com/images/I/91YKKpsxXkL._SY679_.jpg'],
     video: 'https://www.youtube.com/embed/4Evmr2ZCjWc',
     unitPrice: 6.99,
@@ -219,7 +219,7 @@ const productData = [
   {
     name: 'Spirited Away',
     format: 'Movie',
-    genre: 'adventure',
+    genre: 'Action',
     images: ['https://images-na.ssl-images-amazon.com/images/I/818jzf1RzYL._SY679_.jpg'],
     video: 'https://www.youtube.com/embed/ByXuk9QqQkk',
     unitPrice: 9.99,
@@ -230,7 +230,7 @@ const productData = [
   {
     name: 'Avatar',
     format: 'Movie',
-    genre: 'adventure',
+    genre: 'Action',
     images: ['https://images-na.ssl-images-amazon.com/images/I/81pzuyxTApL._SX522_.jpg'],
     video: 'https://www.youtube.com/embed/d1_JBMrrYw8',
     unitPrice: 7.99,
@@ -241,7 +241,7 @@ const productData = [
   {
     name: 'The Never Ending Story',
     format: 'Movie',
-    genre: 'adventure',
+    genre: 'Action',
     images: ['https://images-na.ssl-images-amazon.com/images/I/8186mfynmgL._SL1500_.jpg'],
     video: 'https://www.youtube.com/embed/UeFni9dOv7c',
     unitPrice: 6.99,
@@ -252,7 +252,7 @@ const productData = [
   {
     name: 'Amistad',
     format: 'Movie',
-    genre: 'drama',
+    genre: 'Drama',
     images: ['https://images-na.ssl-images-amazon.com/images/I/71kqX4hRuRL._SY679_.jpg'],
     video: 'https://www.youtube.com/embed/BJFDOvGMD0U',
     unitPrice: 8.99,
@@ -263,7 +263,7 @@ const productData = [
   {
     name: 'Hotel Rwanda',
     format: 'Movie',
-    genre: 'drama',
+    genre: 'Drama',
     images: ['https://images-na.ssl-images-amazon.com/images/I/81GADUkM8hL._SL1500_.jpg'],
     video: 'https://www.youtube.com/embed/qZzfxL90100',
     unitPrice: 9.99,
@@ -274,7 +274,7 @@ const productData = [
   {
     name: 'Gifted Hands: The Ben Carson Story',
     format: 'Movie',
-    genre: 'drama',
+    genre: 'Drama',
     images: ['https://i.ebayimg.com/images/g/HP8AAOSwEcxb4cKi/s-l640.jpg'],
     video: 'https://www.youtube.com/embed/Lco7mPJT9X0',
     unitPrice: 6.99,
@@ -285,7 +285,7 @@ const productData = [
   {
     name: 'Call Of Duty: Black Ops 4',
     format: 'PS4',
-    genre: 'shooter',
+    genre: 'Action',
     images: ['/assets/images/blackOps.png'],
     video: 'https://www.youtube.com/embed/CoLKsV0eMro',
     unitPrice: 44.99,
@@ -296,7 +296,7 @@ const productData = [
   {
     name: 'Overwatch',
     format: 'PS4',
-    genre: 'shooter',
+    genre: 'Action',
     images: ['https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/7/3/3/0/733075_ps4_a.png'],
     video: 'https://www.youtube.com/embed/FqnKB22pOC0',
     unitPrice: 44.99,
@@ -307,7 +307,7 @@ const productData = [
   {
     name: 'Battlefield V',
     format: 'PS4',
-    genre: 'shooter',
+    genre: 'Action',
     images: ['/assets/images/battlefield.png'],
     video: 'https://www.youtube.com/embed/-FEgeuGsmzQ',
     unitPrice: 49.99,
@@ -318,7 +318,7 @@ const productData = [
   {
     name: 'Rage 2',
     format: 'PS4',
-    genre: 'shooter',
+    genre: 'Action',
     images: ['/assets/images/rage2.png'],
     video: 'https://www.youtube.com/embed/szDECq67c30',
     unitPrice: 55.99,
@@ -329,7 +329,7 @@ const productData = [
   {
     name: 'Titan Fall 2',
     format: 'PS4',
-    genre: 'shooter',
+    genre: 'Action',
     images: ['/assets/images/titanfall2.png'],
     video: 'https://www.youtube.com/embed/VqeMjHmL9eg',
     unitPrice: 55.99,
