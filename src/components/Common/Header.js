@@ -22,7 +22,6 @@ class Header extends React.Component {
           <Link to='/'>
             <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" alt="Logo"/>
           </Link>
-
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}
           {isAuthenticated() && <Link className="navbar-item" to='/basket'>🛒({getBasketCount()})</Link>}
