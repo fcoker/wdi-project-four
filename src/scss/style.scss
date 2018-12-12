@@ -211,23 +211,19 @@ div.cart-column {
 
 
 
-div.placeholder {
+nav.navbar {
   width: 100%;
   height: 9vh;
-  background-color: rgba(0,0,0, 0.0);
+  background-color: rgba(0,0,0, 1);
   position: absolute;
-  top: -70px;
+  top: 0;
+  left: 0;
   margin-bottom: 10px;
   opacity: 0.6;
   position: fixed;
   font-weight: 900;
   font-size: 15px;
-}
-nav.navbar{
-
-}
-nav.navbar:hover{
-  top: 0px;
+  transition: left 0.4s;
 }
 
 main.container {

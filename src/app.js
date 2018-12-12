@@ -26,17 +26,37 @@ class App extends React.Component {
     super(props);
     this.state = {
       login: false,
-      register: false
+      register: false,
+      prevScrollpos: window.pageYOffset
     };
     this.toggleLogin = this.toggleLogin.bind(this);
     this.toggleRegister = this.toggleRegister.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
   }
 
+  handleScroll(){
+    const currentScrollPos = window.pageYOffset;
+    if (this.state.prevScrollpos > currentScrollPos) {
+      this.setState({ login: false, register: false });
+      document.querySelector('.navbar').style.left = '0';
+    } else {
+      this.setState({ login: false, register: false });
+      document.querySelector('.navbar').style.left = '-100%';
+    }
+    this.setState({
+      prevScrollpos: currentScrollPos
+    });
+  }
   toggleLogin(){
     this.setState({ login: !this.state.login, register: false });
+    window.scrollTo(0, 0);
   }
   toggleRegister(){
     this.setState({ register: !this.state.register, login: false });
+    window.scrollTo(0, 0);
   }
 
 
