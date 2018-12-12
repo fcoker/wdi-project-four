@@ -113,7 +113,7 @@ class ProductUpdate extends React.Component{
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input className="input" onChange={this.handleChange}   value={this.state.description || ''}  name="description"  placeholder="Description"/>
+                      <textarea className="input" onChange={this.handleChange} value={this.state.description || ''} placeholder="Enter description here..." name="description" >Enter description here...</textarea>
                     </div>
                   </div>
                   <div className="field">
