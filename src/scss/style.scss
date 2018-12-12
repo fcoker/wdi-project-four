@@ -299,11 +299,14 @@ main.container {
   // height: 292px;
   // width: 27%;
   background: white;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   position: relative;
   top: 90px;
   height: 711px;
   padding: 2em;
+  h3, p, th, td{
+    color: white;
+  }
   #profilePic{
     width: 26%;
     height: 276px;
@@ -314,7 +317,7 @@ main.container {
 }
 #editProfileButton{
   position: relative;
-  bottom: 529px;
+  bottom: 439px;
   left: 474px;
 }
 
@@ -327,13 +330,21 @@ main.container {
   padding-top: 30px;
 }
 
+#userEditBox{
+  background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
+  color: white;
+}
+
 #statisticShow{
   background: white;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   position: relative;
   top: 90px;
   height: 711px;
   padding: 2em;
+  th, td{
+    color: white;
+  }
 }
 
 .basket-quantity {
