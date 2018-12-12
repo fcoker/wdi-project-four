@@ -17,7 +17,7 @@ class Header extends React.Component {
   render() {
 
     return (
-      <nav id="bar" className="navbar is-black">
+      <nav className="navbar is-black">
         <div className="navbar-start">
           <a>
             <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
@@ -34,7 +34,7 @@ class Header extends React.Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="field">
-          
+
             </div>
           </div>
         </div>
