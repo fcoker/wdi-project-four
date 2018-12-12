@@ -19,7 +19,7 @@ class Header extends React.Component {
     return (
       <nav className="navbar is-black">
         <div className="navbar-start">
-          <Link className="navbar-item" to='/'>
+          <Link to='/'>
             <a>
               <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
             </a>
