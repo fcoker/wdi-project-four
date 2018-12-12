@@ -138,54 +138,43 @@ class ProductsShow extends React.Component {
                 }
               </div>
 
-
-
-
-              <div className="columns is-multiline">
-                <div id="videoblock" className="column is-12">
-                  <p id="textshow"><strong>Synopsis: </strong>{product.description}</p>
-                  <div>
-                    <div className="column is-12">
-                      <iframe width="1110" height="600"src={product.video}></iframe>
-                    </div>
+              <div className="column is-12">
+                <div className="columns is-multiline is-centered">
+                  <div className="column is-12">
+                    <p className="textshow"><strong>Synopsis: </strong>{product.description}</p>
+                  </div>
+                  <div className="column is-10 videoblock">
+                    <iframe src={product.video}></iframe>
                   </div>
                 </div>
               </div>
+
+              <div className="show-suggestions column is-12">
+                { hasSuggestions
+                    &&
+                    <div>
+                      <h3><strong>You may also like:</strong></h3>
+                      <div className="columns">
+
+                        {suggested.map(suggestion =>
+                          //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
+                          <div className="column is-3" key={suggestion._id}>
+                            <Link to={`/product/${suggestion._id}`}>
+                              <img className="suggestion-img" height="200px" src={suggestion.images[0]}/>
+                            </Link>
+                          </div>)
+                        }
+                      </div>
+                    </div>
+                }
+              </div>
+
             </div>
           </article>
 
           :
 
           <p>Please wait...</p>}
-        <div>
-
-
-
-
-
-          <div className="">
-            { hasSuggestions
-                &&
-                <div>
-                  <h3>You may also like:</h3>
-                  <div className="show-suggestion columns">
-
-                    {suggested.map(suggestion =>
-                      //<div onClick={() => this.handleRedirect(suggestion, this.state.allProducts)} key={suggestion._id}>
-                      <div className="column is-4" key={suggestion._id}>
-                        <Link to={`/product/${suggestion._id}`}>
-                          <p>{suggestion.name}</p>
-                          <img height="200px" src={suggestion.images[0]}/>
-                        </Link>
-                      </div>)
-                    }
-                  </div>
-                </div>
-            }
-          </div>
-
-        </div>
-
 
       </section>
     );
