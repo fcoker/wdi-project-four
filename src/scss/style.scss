@@ -13,12 +13,11 @@ html {
 
 
 #basket {
-  margin-top: 100px;
-
-    background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
-    color: white;
-    background-repeat: round;
-    height: 600px;
+  background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
+  color: white;
+  background-repeat: round;
+  height: 75vh;
+  overflow: auto;
 }
 
 #imagebasket {
@@ -31,10 +30,11 @@ html {
   font-size: 20px;
   margin-left: 20px;
 }
+
 #logote {
-  width: 58px;
+  width: 55px;
   margin-top: 4px;
-  margin-left: 15px;
+  margin-left: 7px;
 }
 
 h1 {

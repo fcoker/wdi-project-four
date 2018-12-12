@@ -56,7 +56,7 @@ export function removeItem(itemToRemoveId) {
 export function totalBasketPrice() {
   const basket = getBasket();
   const itemTotals = basket.map(item => item.unitPrice * item.unitQuantity);
-  return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
+  return parseFloat(itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0).toFixed(2));
 }
 
 export function getBasketCount(){
