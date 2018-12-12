@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addItem } from '../../lib/basket';
-import { isAuthenticated } from '../../lib/auth';
+import { isAuthenticated, isAdmin } from '../../lib/auth';
 import RatingBox from '../rating/RatingBox';
 import Slider from './showSlider/Slider';
 
@@ -78,45 +78,64 @@ class ProductsShow extends React.Component {
     const hasSuggestions = suggested && !!suggested.length;
     return (
 
-      <section id="showpage">
+      <section className="showpage">
         {product
           ?
           <article className="showblock">
-            <div  className="columns is-multiline">
+            <div className="columns is-multiline">
               <div className="column is-5">
                 <Slider renderShowPage={this.renderShowPage} images={product.images} />
               </div>
-              <div id="detailsShow" className="column is-5">
-                <h3 id="black">{product.name} <span className="is-pulled-right">{product.averageRating} ⭐️</span></h3>
-                <h4><strong>BARCODE: </strong>{product._id}</h4>
+
+              <div className="detailsShow column is-4">
+                <p className="title">{product.name}
+                  {(product.averageRating > 0) &&
+                    <span className="is-pulled-right">
+                      <p>{product.averageRating} <i className="fas fa-star"></i></p>
+                    </span>
+                  }
+                </p>
                 <hr/>
+                <h3 id="price">Price: <strong>£{product.unitPrice}</strong></h3>
                 <h3>Genre: <strong>{product.genre}</strong></h3>
                 <h3>Format: <strong>{product.format}</strong></h3>
                 <h3>Released: <strong>{product.releaseDate}</strong></h3>
+                <h4><strong>BARCODE: </strong>{product._id}</h4>
                 <hr/>
 
                 <h4><span id="red">PLEASE NOTE: </span>Prices in P&W Stores may differ.</h4>
 
-                <hr/>
+                <br/>
                 {isAuthenticated() && <RatingBox renderShowPage={this.renderShowPage} product={this.state.product}/>}
 
               </div>
-              <div id="addtocart" className="column is-2">
-                <h3 id="price">£{product.unitPrice}</h3>
-                <label htmlFor="quantity" className="label">Quantity:</label>
-                <input id="inputshow" className="input" type="number" min="1" name="quantity"
-                  value={this.state.quantity || 1} onChange={this.handleChange}/>
-                <div>
-                  <br />
-                  <button className="button is-link" onClick={this.handleAddToCart}>Add to cart ▶︎</button>
-                  <br />
-                  <br />
-                  <button className="button is-dark" onClick={this.handleDelete} >Delete</button>
-                  <Link to={`/product/${this.props.match.params.productId}/edit`}>
-                    <button className="button is-light has-text-centered edit">Edit</button>
-                  </Link>
 
+              <div className="cart-column column is-3 has-text-centered">
+                {isAdmin() &&
+                  <div className="admin-buttons has-content-centered">
+                    <button className="button is-dark delete-button" onClick={this.handleDelete}>
+                      <i className="fas fa-trash-alt"></i>
+                    </button>
+                    <Link to={`/product/${this.props.match.params.productId}/edit`}>
+                      <button className="button is-light has-text-centered edit">
+                        <i className="fas fa-edit"></i>
+                      </button>
+                    </Link>
+                  </div>
+                }
+                {isAuthenticated() &&
+                <div className="add-to-cart">
+                  <div>
+                    <strong>Quantity: </strong>
+                    <input id="inputshow" className="input" type="number" min="1" name="quantity"
+                      value={this.state.quantity || 1} onChange={this.handleChange}/>
+                  </div>
+                  <div>
+                    <br />
+                    <button className="button is-link" onClick={this.handleAddToCart}>Add to basket ▶︎</button>
+                  </div>
                 </div>
+                }
               </div>
 
 

@@ -20,9 +20,7 @@ class Header extends React.Component {
       <nav className="navbar is-black">
         <div className="navbar-start">
           <Link to='/'>
-            <a>
-              <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" href="/" alt="Logo"/>
-            </a>
+            <img id="logote" src="https://prospectwire.com/pw/images/pwmemberpass.png" alt="Logo"/>
           </Link>
           {isAdmin() && <Link className="navbar-item" to='/product/new'>Add a Product</Link>}
           {isAdmin() && <Link className="navbar-item" to='/stats'>Statistics</Link>}

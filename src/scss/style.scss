@@ -20,12 +20,11 @@ html {
 
 
 #basket {
-  margin-top: 100px;
-
   background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
   color: white;
   background-repeat: round;
-  height: 600px;
+  height: 75vh;
+  overflow: auto;
 }
 
 #imagebasket {
@@ -51,10 +50,11 @@ html {
   font-size: 20px;
   margin-left: 120px;
 }
+
 #logote {
-  width: 58px;
+  width: 55px;
   margin-top: 4px;
-  margin-left: 15px;
+  margin-left: 7px;
 }
 
 h1 {
@@ -92,11 +92,7 @@ h6 {
   margin-top: 20px;
 }
 
-#detailsShow {
-  margin-top: 116px;
-  // margin-left: -143px;
-  width: 375px;
-}
+
 
 #imageshow{
   margin-top: 115px;
@@ -118,10 +114,29 @@ h6 {
 #imageshow {
   width: 400px;
 }
-article.showblock{
-  margin-top: 3vh;
 
+section.showpage{
+  // background: white;
+  background-color: rgba(0,0,0,0.6);
 
+  article.showblock{
+    margin-top: 3vh;
+    color: white;
+      p.title {
+        color: white;
+        font-weight: 900;
+        font-size: 28px;
+        span{
+          color: gold;
+        }
+    }
+    strong{
+      color: gold;
+    }
+    div.detailsShow {
+      // width: 375px;
+    }
+  }
 }
 
 div.product-box {
@@ -150,23 +165,31 @@ div.product-box {
   }
 }
 
-#black {
-  color: black;
-  font-weight: 900;
-  font-size: 28px;
-}
+
 #red {
   color: red;
   font-weight: 700;
 }
-#showpage{
-  background: white;
-  background-color: rgba(255,255,255,0.8);
-}
 
-#addtocart {
-  margin-top: 142px;
-  // margin-left: 55px;
+
+div.cart-column {
+  strong{
+    font-size: 20px;
+  }
+  div.admin-buttons{
+    position: relative;
+    .button.delete-button{
+      background-color: orange;
+      color: black;
+    }
+  }
+  div.add-to-cart{
+    position: relative;
+    top: 12vh;
+    .button.is-link{
+      background-color: #76ad89;
+    }
+  }
 }
 
 div.show-suggestion {
