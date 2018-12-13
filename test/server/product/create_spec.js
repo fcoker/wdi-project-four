@@ -34,7 +34,12 @@ describe('Product CREATE', () => {
         password: 'test'
       }))
       .then(user => {
-        token = jwt.sign({ sub: user._id }, env.secret, { expiresIn: '6h' });
+        token = jwt.sign({
+          username: user.username,
+          sub: user._id,
+          profilePic: user.profilePic,
+          permission: user.accountType 
+        }, env.secret, { expiresIn: '6h' });
         done();
       });
   });
@@ -42,6 +47,7 @@ describe('Product CREATE', () => {
   it('should return a 401 response without a token', done => {
     api.post('/api/')
       .end((err, res) => {
+        console.log('========================', res.status);
         expect(res.status).to.eq(401);
         done();
       });

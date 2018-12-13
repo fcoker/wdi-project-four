@@ -17,7 +17,6 @@ const userData = [
     accountType: 'admin'
   }
 ];
-let userId;
 
 describe('user SHOW', () => {
   let token;
@@ -33,7 +32,7 @@ describe('user SHOW', () => {
         _id: userIds[0]
       }))
       .then(user => {
-        token = jwt.sign({ sub: user._id }, env.secret, { expiresIn: '6h' });
+        token = jwt.sign({ sub: user._id, permission: user.accountType }, env.secret, { expiresIn: '6h' });
         done();
       });
 
@@ -63,12 +62,10 @@ describe('user SHOW', () => {
     api.get(`/api/users/${userIds[0]}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
-        console.log('res.body._id-------->', res.body._id);
-        expect(res.body._id).to.eq(userData[0]._id);
+        expect(res.body._id.toString()).to.eq(userData[0]._id);
         expect(res.body.username).to.eq(userData[0].username);
         expect(res.body.email).to.eq(userData[0].email);
         expect(res.body.profilePic).to.eq(userData[0].profilePic);
-        expect(res.body.password).to.eq(userData[0].password);
         expect(res.body.accountType).to.eq(userData[0].accountType);
         done();
       });
