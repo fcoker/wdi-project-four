@@ -114,7 +114,7 @@ section.showpage{
   background-color: rgba(0,0,0,0.6);
 
   article.showblock{
-    margin-top: 3vh;
+    margin-top: 4vh;
     color: white;
       p.title {
         color: white;
@@ -295,35 +295,30 @@ main.container {
     outline: none;
 }
 
-#profileShow {
-  // height: 292px;
-  // width: 27%;
-  background: white;
+section.profileShow {
   background-color: rgba(0, 0, 0, 0.6);
-  position: relative;
-  top: 90px;
-  height: 711px;
+  margin-top: 2vh;
+  height: 85vh;
   padding: 2em;
+
   h3, p, th, td{
     color: white;
   }
-  #profilePic{
-    width: 26%;
-    height: 276px;
-    border-radius: 100%;
-    padding-left: 23px;
-    padding-top: 16px;
+  img.profilePic{
+    max-width: 75%;
+    max-height: 75%;
+    border-radius: 50%;
+  }
+  div.purchase-history{
+    height: 80vh;
+    overflow: auto;
+    h3.title{
+      color: gold;
+    }
   }
 }
-#editProfileButton{
-  position: relative;
-  bottom: 439px;
-  left: 474px;
-  background-color: #00d1b2;
-  border-top: 4px;
-  color: white;
-  font-weight: bold;
-  border-radius: 7px;
+.text-is-right {
+  text-align: right;
 }
 
 #userEditBox{
@@ -331,24 +326,26 @@ main.container {
   top: 92px;
 }
 
-#purchaseHistoryBox{
-  padding-top: 30px;
-}
+
 
 #userEditBox{
   background-image: url(https://www.rvinyl.com/Shared/Images/Product/3M-Wrap-Film-Series-1080/3M-Wrap-Film-Series-1080-Shadow-Back-SB18.jpg);
   color: white;
 }
 
-#statisticShow{
+main.statisticShow{
   background: white;
   background-color: rgba(0, 0, 0, 0.6);
-  position: relative;
-  top: 90px;
-  height: 711px;
+  margin-top: 2vh;
+  height: 85vh;
   padding: 2em;
+  overflow: auto;
   th, td{
     color: white;
+  }
+  th.grand-total{
+    color: gold;
+    font-size: 22px;
   }
 }
 
@@ -357,11 +354,8 @@ main.container {
 .basket-quantity {
   margin-right: 230px;
 }
+
 .nothing-to-see{
   margin-top: 10vh;
   color: gold;
-  font-size: 32px;
-}
-.total {
-  text-align: right;
 }

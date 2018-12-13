@@ -22,9 +22,9 @@ class MyPurchaseHistory extends React.Component {
             <tr>
               <th>Date</th>
               <th>Product</th>
-              <th>Unit Price</th>
-              <th>Qty</th>
-              <th>Total Price</th>
+              <th className="text-is-right">Unit Price</th>
+              <th className="text-is-right">Qty</th>
+              <th className="text-is-right">Total Price</th>
             </tr>
           </thead>
           <tbody>
@@ -33,11 +33,11 @@ class MyPurchaseHistory extends React.Component {
               this.state.purchases.map(purchase =>
                 <tr key={purchase._id} >
 
-                  <td>{moment(purchase.createdAt).fromNow()}</td>
+                  <td>{moment(purchase.createdAt).calendar()}</td>
                   <td>{purchase.product.name}</td>
-                  <td>£{purchase.unitPrice}</td>
-                  <td>{purchase.unitQuantity}</td>
-                  <td>£{purchase.totalPrice}</td>
+                  <td className="text-is-right">£{purchase.unitPrice}</td>
+                  <td className="text-is-right">{purchase.unitQuantity}</td>
+                  <td className="text-is-right">£{purchase.totalPrice}</td>
 
                 </tr>
               )
