@@ -11,6 +11,17 @@ const userIds = [
   '5be9b02777e350fe07977fb2'
 ];
 
+const productIds = [
+  '5c11b9fc53140e7c8dbe5800',
+  '5c11b9fc53140e7c8dbe5801',
+  '5c11b9fc53140e7c8dbe5802',
+  '5c11b9fc53140e7c8dbe5803',
+  '5c11b9fc53140e7c8dbe5804',
+  '5c11b9fc53140e7c8dbe5805',
+  '5c11b9fc53140e7c8dbe5806',
+  '5c11b9fc53140e7c8dbe5807'
+];
+
 const userData = [
   {
     _id: userIds[0],
@@ -49,9 +60,10 @@ const productData = [
     unitPrice: 49.99,
     description: 'America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. From the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.',
     releaseDate: '26/10/2018',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 5 }, {user: userIds[1], ratingValue: 4 }, {user: userIds[0], ratingValue: 5 } ]
   },
   {
+    _id: productIds[0],
     name: 'Forza Motorsport 6',
     format: 'XBOX',
     genre: 'Racing',
@@ -60,7 +72,7 @@ const productData = [
     unitPrice: 44.99,
     description: 'Breathtaking graphics at 1080p resolution and 60 frames per second. Witness the spectacle of night racing under the stadium lights of Daytona and the intense claustrophobia of racing by headlight in the utter blackness of Le Mans’ back stretch. Experience the immersion of racing in the rain as working wipers barely clear the spray and tires hydroplane across physically based 3D puddles.',
     releaseDate: '15/09/2015',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 4 }, {user: userIds[1], ratingValue: 3 }, {user: userIds[0], ratingValue: 4 } ]
   },
   {
     name: 'Fallout 76',
@@ -71,7 +83,7 @@ const productData = [
     unitPrice: 44.99,
     description: 'From the award-winning creators of Skyrim and Fallout 4, Bethesda Game Studios presents Fallout 76. It’s 25 years after the nuclear-war caused devastation in the States and Vault 76 is finally ready to open. You were selected along with a few others to rebuild society and its now Reclamation Day.Emerge into the post-nuclear war lands of West Virginia as you go alone or team up to explore the most dynamic Fallout world yet. You must rebuild walls, buildings, and the hopes of civilians as you survive in this dynamic open-world.',
     releaseDate: '14/11/2018',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 3 }, {user: userIds[1], ratingValue: 2 }, {user: userIds[0], ratingValue: 5 } ]
   },
   {
     name: '12 Years a Slave',
@@ -82,7 +94,7 @@ const productData = [
     unitPrice: 19.99,
     description: 'Based on an incredible true story of one man\'s fight for survival and freedom. In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. Facing cruelty personified by a malevolent slave owner, as well as unexpected kindnesses, Solomon struggles not only to stay alive, but to retain his dignity. In the twelfth year of his unforgettable odyssey, Solomon\'s chance meeting with a Canadian abolitionist will forever alter his life.',
     releaseDate: '10/01/2014',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 5 }, {user: userIds[1], ratingValue: 1 }, {user: userIds[0], ratingValue: 2 } ]
   },
   {
     name: 'Django',
@@ -93,7 +105,7 @@ const productData = [
     unitPrice: 9.99,
     description: 'Two years before the Civil War, Django (Jamie Foxx), a slave, finds himself accompanying an unorthodox German bounty hunter named Dr. King Schultz (Christoph Waltz) on a mission to capture the vicious Brittle brothers. Their mission successful, Schultz frees Django, and together they hunt the South\'s most-wanted criminals. Their travels take them to the infamous plantation of shady Calvin Candie (Leonardo DiCaprio), where Django\'s long-lost wife (Kerry Washington) is still a slave.',
     releaseDate: '18/01/2013',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 3 }, {user: userIds[1], ratingValue: 5 }, {user: userIds[0], ratingValue: 5 } ]
   },
   {
     name: 'Kingdom Hearts III',
@@ -104,7 +116,7 @@ const productData = [
     unitPrice: 39.99,
     description: 'Square Enix have not failed to surprise with Kingdom Hearts 3. Sora returns for a long-awaited adventure is some familiar worlds teaming up with some much-loved Disney characters. Fans have been waiting for this Disney RPG game for years and it’s available to pre-order! Immerse yourself in multiple creative worlds from iconic Disney movies where you must protect them from the Heartless invasion! Team up with Sora, Donald, and Goofy as you play in the many worlds including:',
     releaseDate: '25/01/2019',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 3 }, {user: userIds[1], ratingValue: 4 }, {user: userIds[0], ratingValue: 1 } ]
   },
   {
     name: 'The Witcher 3',
@@ -140,6 +152,7 @@ const productData = [
     reviews: []
   },
   {
+    _id: productIds[1],
     name: 'F1 2018',
     format: 'PS4',
     genre: 'Racing',
@@ -294,6 +307,7 @@ const productData = [
     reviews: []
   },
   {
+    _id: productIds[2],
     name: 'Overwatch',
     format: 'PS4',
     genre: 'Action',
@@ -302,7 +316,7 @@ const productData = [
     unitPrice: 44.99,
     description: 'The world needs heroes. Join over 30 million players* as you clash on the battlefields of tomorrow. Choose your hero from a diverse cast of soldiers, scientists, adventurers, and oddities. Bend time, defy physics, and unleash an array of extraordinary powers and weapons. Engage your enemies in iconic locations from around the globe in the ultimate team-based shooter. Take your place in Overwatch. Based on internal company records and reports from key distribution partners.',
     releaseDate: '28/07/2017',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 5 }, {user: userIds[1], ratingValue: 5 }, {user: userIds[0], ratingValue: 5 } ]
   },
   {
     name: 'Battlefield V',
@@ -327,6 +341,7 @@ const productData = [
     reviews: []
   },
   {
+    _id: productIds[3],
     name: 'Titan Fall 2',
     format: 'PS4',
     genre: 'Action',
@@ -338,6 +353,7 @@ const productData = [
     reviews: []
   },
   {
+    _id: productIds[4],
     name: 'Skyscraper',
     format: 'Movie',
     genre: 'Action',
@@ -346,9 +362,10 @@ const productData = [
     unitPrice: 14.99,
     description: 'Global icon Dwayne Johnson leads the cast of Legendary`s Skyscraper as former FBI Hostage Rescue Team leader and U.S. war veteran Will Sawyer, who now assesses security for skyscrapers. On assignment in China he finds the tallest, safest building in the world suddenly ablaze, and he`s been framed for it. A wanted man on the run, Will must find those responsible, clear his name and somehow rescue his family who is trapped inside the building...above the fire line.',
     releaseDate: '19/11/2018',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 5 }, {user: userIds[1], ratingValue: 5 }, {user: userIds[0], ratingValue: 5 } ]
   },
   {
+    _id: productIds[5],
     name: 'Atomic Blonde',
     format: 'Movie',
     genre: 'Action',
@@ -360,6 +377,7 @@ const productData = [
     reviews: []
   },
   {
+    _id: productIds[6],
     name: 'Batman v Superman: Dawn of Justice',
     format: 'Movie',
     genre: 'Action',
@@ -368,13 +386,48 @@ const productData = [
     unitPrice: 12.99,
     description: 'Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.',
     releaseDate: '25/03/2016',
-    reviews: []
+    reviews: [ {user: userIds[2], ratingValue: 5 }, {user: userIds[1], ratingValue: 4 }, {user: userIds[0], ratingValue: 5 } ]
   }
 ];
 
+const purchaseData = [
+  {
+    product: productIds[6],
+    user: userIds[2],
+    unitPrice: 26.99,
+    unitQuantity: Math.floor(Math.random() * 10) + 1
+  },
+  {
+    product: productIds[Math.floor(Math.random() * 7)],
+    user: userIds[Math.floor(Math.random() * 3)],
+    unitPrice: 14.99,
+    unitQuantity: Math.floor(Math.random() * 10) + 1
+  },
+  {
+    product: productIds[Math.floor(Math.random() * 7)],
+    user: userIds[Math.floor(Math.random() * 3)],
+    unitPrice: 75.99,
+    unitQuantity: Math.floor(Math.random() * 5) + 1
+  },
+  {
+    product: productIds[Math.floor(Math.random() * 7)],
+    user: userIds[Math.floor(Math.random() * 3)],
+    unitPrice: 45.99,
+    unitQuantity: Math.floor(Math.random() * 5) + 1
+  },
+  {
+    product: productIds[Math.floor(Math.random() * 7)],
+    user: userIds[Math.floor(Math.random() * 3)],
+    unitPrice: 16.99,
+    unitQuantity: Math.floor(Math.random() * 25) + 1
+  }
+];
+
+
+
 Product.collection.drop();
 User.collection.drop();
-Purchase.collection.drop();
+// Purchase.collection.drop();
 
 Product.create(productData)
   .then(products => {
@@ -382,6 +435,10 @@ Product.create(productData)
     User.create(userData)
       .then(users => {
         console.log(`Created ${users.length} users`);
-        mongoose.connection.close();
+        Purchase.create(purchaseData)
+          .then(purchases => {
+            console.log(`Created ${purchases.length} purchases`);
+            mongoose.connection.close();
+          });
       });
   });

@@ -10,7 +10,7 @@ const purchaseSchema = mongoose.Schema({
 
 purchaseSchema.virtual('totalPrice')
   .get(function() {
-    return this.unitQuantity * this.unitPrice;
+    return parseFloat((this.unitQuantity * this.unitPrice).toFixed(2));
   });
 
 purchaseSchema.set('toJSON', { virtuals: true });

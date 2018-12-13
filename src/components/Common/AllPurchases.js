@@ -20,7 +20,10 @@ class AllPurchases extends React.Component {
 
   getTotal(purchases){
     const totals = [];
-    purchases.forEach(purchase => totals.push(purchase.totalPrice));
+    purchases.forEach(purchase => {
+      parseFloat(purchase.totalPrice.toFixed(2));
+      totals.push(purchase.totalPrice);
+    });
     return parseFloat(totals.reduce((a,b) => a+b,0).toFixed(2));
   }
   render() {
