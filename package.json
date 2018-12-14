@@ -1,6 +1,9 @@
 {
-  "name": "Play & Watch",
+  "name": "playandwatch",
   "version": "1.0.0",
+  "engines": {
+    "node": "9.4.0"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
