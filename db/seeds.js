@@ -427,7 +427,7 @@ const purchaseData = [
 
 Product.collection.drop();
 User.collection.drop();
-Purchase.collection.drop();
+// Purchase.collection.drop();
 
 Product.create(productData)
   .then(products => {
