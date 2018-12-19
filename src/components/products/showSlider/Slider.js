@@ -20,7 +20,11 @@ class Slider extends React.Component {
 
   componentDidUpdate(prevProps){
     if (prevProps.images !== this.props.images) {
-      this.setState({ images: this.props.images });
+      this.setState({
+        images: this.props.images,
+        currentIndex: 0,
+        translateValue: 0
+      });
     }
   }
 
