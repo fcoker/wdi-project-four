@@ -19,8 +19,8 @@ class Slider extends React.Component {
   }
 
   componentDidUpdate(prevProps){
-    if (prevProps.location !== this.props.location) {
-      this.props.renderShowPage();
+    if (prevProps.images !== this.props.images) {
+      this.setState({ images: this.props.images });
     }
   }
 

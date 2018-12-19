@@ -85,14 +85,14 @@ class ProductsShow extends React.Component {
           <article className="showblock">
             <div className="columns is-multiline">
               <div className="column is-5">
-                <Slider renderShowPage={this.renderShowPage} images={product.images} />
+                <Slider renderShowPage={this.renderShowPage} images={this.state.product.images} pathname={this.props.location.pathname} />
               </div>
 
               <div className="detailsShow column is-4">
                 <p className="title">{product.name}
                   {(product.averageRating > 0) &&
                     <span className="is-pulled-right">
-                      <p>{product.averageRating} <i className="fas fa-star"></i></p>
+                      {product.averageRating} <i className="fas fa-star"></i>
                     </span>
                   }
                 </p>
