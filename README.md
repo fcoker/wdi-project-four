@@ -46,10 +46,9 @@ Launch on [Heroku](https://play-and-watch.herokuapp.com). Check out the GitHub [
 * Mocha
 
 ## Approach Taken
+![notes](/images/notes.png)
 
 ### Models
-
-
 
 #### User
 
@@ -63,14 +62,9 @@ Launch on [Heroku](https://play-and-watch.herokuapp.com). Check out the GitHub [
 
 ```
 
-### Audio
-
-``` JavaScript
-
-```
 ### Featured Piece of Code no. 1
 This extract of code is responsible for returning a product that will be displayed on the index page as a Featured/suggested product.
-It does so by taking all genres from the users purchase history, filtering through all products which match those genres and then removing the products already purchased by the user. At this point the function has an array of products not purchased by the user, but may be of interest to them because of the genre. A random product is then returned from the array .
+It does so by taking all genres from the users purchase history, filtering through all products which match those genres and then removing the products already purchased by the user. At this point the function has an array of products not purchased by the user, but may be of interest to them because of the genre. A random product is then returned from the array.
 
 From `/src/lib/common.js`:
 ``` JavaScript
