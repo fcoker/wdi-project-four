@@ -14,7 +14,6 @@ class Login extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    console.log( 'Login', this.state);
     axios.post('/api/login', this.state)
       .then(result => {
         saveToken(result.data.token);

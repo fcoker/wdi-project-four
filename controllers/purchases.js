@@ -23,7 +23,12 @@ function createRoute(req, res, next) {
 }
 
 function myPurchasesIndexRoute(req, res, next) {
-  Purchase.find({ user: req.tokenUserId })
+  //gets the url where the request was made from - users profile page:
+  const url = req.headers.referer;
+  //saves the last 24 characters from the url - users ID:
+  const urlUser = url.substring(url.length, url.length-24);
+  //finds all purchases which have this userID:
+  Purchase.find({ user: urlUser })
     .populate('product')
     .then(purchases => res.json(purchases))
     .catch(next);

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { getHeader } from '../../lib/auth';
+import { Link } from 'react-router-dom';
 
 class AllPurchases extends React.Component {
   constructor(props) {
@@ -51,8 +52,8 @@ class AllPurchases extends React.Component {
               this.state.purchases && this.state.purchases.map(purchase =>
                 <tr key={purchase._id} >
                   <td>{moment(purchase.createdAt).calendar()}</td>
-                  <td>{purchase.user.username}</td>
-                  <td>{purchase.product.name}</td>
+                  <td><Link to={`/users/${purchase.user._id}`} className="has-text-white">{purchase.user.username}</Link></td>
+                  <td><Link to={`/product/${purchase.product._id}`} className="has-text-white">{purchase.product.name}</Link></td>
                   <td className="text-is-right">£{purchase.unitPrice}</td>
                   <td className="text-is-right">{purchase.unitQuantity}</td>
                   <td className="text-is-right">£{purchase.totalPrice}</td>

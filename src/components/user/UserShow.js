@@ -37,11 +37,13 @@ export default class UserShow extends React.Component {
                       <p>Email: {user.email}</p>
                     </div>
                     <div className="column is-1">
-                      <Link to= {`/users/${decodeToken().sub}/edit`}>
-                        <button className="button is-light">
-                          <i className="fas fa-edit"></i>
-                        </button>
-                      </Link>
+                      {user._id === decodeToken().sub &&
+                        <Link to= {`/users/${decodeToken().sub}/edit`}>
+                          <button className="button is-light">
+                            <i className="fas fa-edit"></i>
+                          </button>
+                        </Link>
+                      }
                     </div>
 
                   </div>
