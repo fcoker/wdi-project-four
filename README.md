@@ -122,16 +122,45 @@ handleScroll(){
 
 ## Screenshots
 
-### At MVP
+**At MVP**
+
 ![mvp1](/images/mvp1.png)
 ![mvp2](/images/mvp2.png)
 
-### Before final layout tweaks
+**Before final layout tweaks**
+
 ![layout](/images/pre-style.png)
 
 ### Final Product
-![index](/images/index.png)
 
+Index page:
+
+![index1](/images/index1.png)
+![index2](/images/index2.png)
+
+Show page:
+
+![show1](/images/show1.png)
+![show2](/images/show2.png)
+
+Basket:
+
+![basket](/images/basket.png)
+
+Profile(logged in as **customer**):
+
+![customer](/images/customer.png)
+
+Profile:
+![admin](/images/admin.png)
+
+Add new product:
+
+![add](/images/add.png)
+
+Statistics:
+
+![statistics](/images/statistics.png)
 
 
 ## Bugs
