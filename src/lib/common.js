@@ -21,7 +21,7 @@ function getMyGenres(myPurchases){
 
 export function getSuggestion(myPurchases, products){
   //if myPurchases exist and user has not purchased all items:
-  if(myPurchases && !!myPurchases.length > 0){
+  if(myPurchases && myPurchases.length > 0){
   //find products with the same genre as what user has purchased:
     const productArray = [];
     const myGenres = getMyGenres(myPurchases);

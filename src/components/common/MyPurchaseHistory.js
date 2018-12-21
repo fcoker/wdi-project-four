@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { getHeader } from '../../lib/auth';
+import { getHeader, isAdmin } from '../../lib/auth';
 
 class MyPurchaseHistory extends React.Component {
   constructor(props) {
@@ -10,8 +10,13 @@ class MyPurchaseHistory extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/mypurchases', getHeader())
-      .then(result => this.setState({ purchases: result.data }));
+    if(isAdmin){
+      axios.get('/api/userpurchases', getHeader())
+        .then(result => this.setState({ purchases: result.data }));
+    } else {
+      axios.get('/api/mypurchases', getHeader())
+        .then(result => this.setState({ purchases: result.data }));
+    }
   }
   render() {
     const hasPurchases = this.state.purchases && !!this.state.purchases.length;

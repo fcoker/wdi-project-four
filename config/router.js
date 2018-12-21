@@ -31,6 +31,7 @@ router.route('/users/:userId')
 
 
 router.post('/checkout', secureRoute, purchases.create);
+router.get('/userpurchases', secureRoute, purchases.userPurchasesIndex);
 router.get('/mypurchases', secureRoute, purchases.myPurchasesIndex);
 router.get('/allpurchases', secureRoute, adminRoute, purchases.allPurchasesIndex);
 
