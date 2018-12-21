@@ -132,22 +132,30 @@ handleScroll(){
 ### Final Product
 ![index](/images/index.png)
 
+
+
 ## Bugs
 Below is a list of some of the known bugs within the app:
 
-* Shooting -
-* Debris Generation -
-* Game restart -
-* Bonus -
+* iFrame - if the iFrame is given an incorrect YouTube url, the show page won't render correctly, duplicating itself within the frame. If I had more time, I would have the input accept only the unique video ID, where the rest of the link is hardcoded.
+* Search bar - when a search term is deleted partially, the state doesn't update until the search term is cleared completely.
+* Rating stars - if a rating has been made, the stars don't reset if the show page is changed to another product. This is due to the ratings component being a classical component and as a result it doesn't update when the props change. I'd remedy this by adding a componentDidUpdate block to check for changes.
 
 ## Wins and Blockers
 
-One of the problems we faced initially...**add**
+One of the problems I faced initially was expectation management; we had planned on so many features that the workload seemed enormous and the goal - unattainable within the timeframe. This resulted in unnecessary stress. We had a meeting, revised the Trello board, redefined feature priorities and allocated more time to tasks with higher complexity.
 
-The biggest win, was getting the featured product suggestion working after being stuck on it for what it seemed like an eternity!
+This really helped boost our group's morale and productivity.
+
+My biggest win, was getting the featured product suggestion working after being stuck on it for what seemed like an eternity!
 
 ## Future Content
 
-**Along with adding the shooting functionality, there are a number of potential future features I'd like to implement, such as:
-
+Along with fixing the known bugs, there are a number of potential future features I could implement, such as:
+* Allowing user to sort index page.
+* Ability to remove specific genres from suggestions.
+* Show top 5 suggestions on the index page within the image slider.
+* Rewriting the suggestions based on relevance score - products of higher relevance will be shown first.
+* Customer support chat.
+* Stock management.
 * And much more!
