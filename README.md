@@ -60,6 +60,7 @@ I joined Rafa and Femi from my class and we began by planning our models and wha
 ![trello](/images/trello.png)
 
 ### Functionality
+#### Purchases
 We had to figure out how to represent a purchase on the back-end and decided to keep each product as a purchase instance with a number of purchased items.
 ``` JavaScript
 const purchaseSchema = mongoose.Schema({
