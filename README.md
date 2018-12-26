@@ -1,14 +1,15 @@
 
-# **Project 4: Play & Watch** ![General Assembly](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67)
+# **Play & Watch** ![General Assembly](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67)
 
 
 ## Overview
-Play & Watch is an e-commerce web app that sells video games and movies. Users can register and keep track of their purchase history, have tailored suggestions made to them in the form of featured products and can leave their ratings.
-Administrator accounts are able to see all the purchases made and keep track of sales  on the statistics page.
+This app is an e-commerce website that sells both video games and movies. Play & Watch is a full stack application which has all the basic functions of an e-commerce website such as placing orders, keeping track of orders through purchase history, product basket e.t.c.
+This web app is also capable of showing users suggested products based on the genre of their previous purchases.
 
-This was my fourth project as part of the General Assembly Web Development Immersive course. The objective was to build a full stack web application using React in **one week**.
+Play & Watch was the final project of the GA Immersive course and it was also a group project. Our main objective was to use React to build the front-end and our timeframe for completion was one week. I was looking forward to using React so I found this project particularly interesting.
 
-Launch on [Heroku](https://play-and-watch.herokuapp.com). Check out the GitHub [Repo](https://github.com/ShamSZ/wdi-project-four).
+Web Site [Heroku](https://play-and-watch.herokuapp.com).
+GitHub [Repo](https://github.com/fcoker/wdi-project-four).
 
 
 ## Brief
@@ -45,77 +46,127 @@ Launch on [Heroku](https://play-and-watch.herokuapp.com). Check out the GitHub [
 * Mocha
 
 ## Approach Taken
+I decided to team up with Rafa and Sham for this project. Apart from the fact that games and movies are something I really enjoy, I saw the potential for a simple MVP to be achieved relatively quickly and also the possibilities for the project to be expanded with a lot of extra features should we have extra time.
 
-This project was open to individual and group work, we had free-roam on what app to build, as long as we stuck to the brief.
-My main criteria for this project was to work in a team and on a project that had a simple MVP, but could be expanded on with many extra features.
+We were able to discuss and break down our ideas as much as possible before starting. We then proceeded to outline all our ideas on a notepad.
 
-I joined Rafa and Femi from my class and we began by planning our models and what we should include in the MVP. Brainstormed ideas and possible features to add, what would be difficult and what would be impossible to achieve within the timeframe.
+### Notepad
+![notes](/readmeImg/notepad.png)
 
-![notes](/images/notes.png)
+As I discovered in my previous project Trello is an extremely useful tool with regards to assigning tasks and keeping track of the progress of team members and phases of our projects. Our initial tasks on our Trello board are as below:
 
 ### Trello
-
- Using Trello allowed us to make a thorough plan by breaking everything down to smaller tasks. We could keep track of who was doing what, what stage they were at and what was left to do. Below is what the board looked like at the end:
-
-![trello](/images/trello.png)
+![trello](/readmeImg/trello.png)
 
 ### Functionality
-#### Purchases
-We had to figure out how to represent a purchase on the back-end and decided to keep each product as a purchase instance with a number of purchased items.
+#### Featured Code 1
+Due to the fact that each product has a maximum of three images as an array within its model to be used for the image slider, I found it particularly tricky enabling the user to add new images for new products on the form.
+
+My solution to this was hard coding the name for each image input in the form with a number right after the name "images" like so "images1". This allowed me write a conditional statement looking for any input name in the form containing the word "images", if it finds a match then it singles out and saves the number right after the word "images" as an index.
+The .splice method is then used, using the index saved and the value given in the form(image URL) to add the new image into the new array.
+
 ``` JavaScript
-const purchaseSchema = mongoose.Schema({
-  product: { type: mongoose.Schema.ObjectId, ref: 'Product' },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  unitPrice: Number,
-  unitQuantity: Number,
-  status: String
-})
-```
-
-Once we achieved MVP, we were able to work on extra features like the image slider, show page similar products, index suggestions and more.
-
-#### Featured Piece of Code no. 1
-This extract of code is responsible for returning a product that will be displayed on the index page as a Featured/suggested product.
-It does so by taking all genres from the users purchase history, filtering through all products which match those genres and then removing the products already purchased by the user. At this point the function has an array of products not purchased by the user, but may be of interest to them because of the genre. A random product is then returned from the array.
-
-From `/src/lib/common.js`:
-``` JavaScript
-function getSuggestion(myPurchases, products){
-  if(myPurchases && myPurchases.length > 0){
-    const productArray = [];
-    const myGenres = getMyGenres(myPurchases);
-    products.forEach(prod => {
-      myGenres.forEach(myGenre => {
-        if(prod.genre === myGenre){
-          if(productArray.indexOf(prod) < 0){
-            productArray.push(prod);
-          }
-        }
-      });
-    });
-    const purchaseIds = [];
-    for(let i = 0; i < myPurchases.length; i++){
-      purchaseIds.push(myPurchases[i].product._id);
-    }
-    const finalArray = productArray.filter(prod => !purchaseIds.includes(prod._id));
-    return finalArray[Math.floor(Math.random()*(finalArray.length))];
+handleChange({ target: {name, value }}) {
+  if(name.includes('images')) {
+    const index = name[6] - 1;
+    const newImages = this.state.images;
+    newImages.splice(index, 1, value);
+    this.setState({ images: newImages });
   }
+  this.setState({ [name]: value });
 }
 ```
+``` HTML
+<form>
+  <div className="field imagesadd">
+    <div className="control">
+      <input className="input" onChange={this.handleChange}   value={this.state.images[0] || ['']}  name="images1"  placeholder="Main imageUrl"/>
+      <input className="input" onChange={this.handleChange}   value={this.state.images[1] || ['']}  name="images2"  placeholder="ImageUrl 2"/>
+      <input className="input" onChange={this.handleChange}   value={this.state.images[2] || ['']}  name="images3"  placeholder="ImageUrl 3"/>
+    </div>
+  </div>
+</form>
+```
 
-#### Featured Piece of Code no. 2
-The Login and Register components are rendered conditionally based on login/register properties on this.state. When the user clicked on the button to login or register, the components would render, but the user would have click on the button again if they wanted to close the forms without submitting. As the forms were rendered earlier in the document flow, if the user scrolled down, they would still be able to see the content. I wrote the below code to toggle off the forms on scroll and found it cool how simple this solution was.  
-From `/src/app.js`:
+
+#### Featured Code 2
+
 
 ``` JavaScript
-handleScroll(){
-  const currentScrollPos = window.pageYOffset;
-  if (this.state.prevScrollpos > currentScrollPos) {
-    this.setState({ login: false, register: false });
+class Slider extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentIndex: 0,
+      translateValue: 0,
+      images: this.props.images
+    };
+    this.goToPrevSlide = this.goToPrevSlide.bind(this);
+    this.goToNextSlide = this.goToNextSlide.bind(this);
   }
-  this.setState({
-    prevScrollpos: currentScrollPos
-  });
+
+  componentDidUpdate(prevProps){
+    if (prevProps.images !== this.props.images) {
+      this.setState({
+        images: this.props.images,
+        currentIndex: 0,
+        translateValue: 0
+      });
+    }
+  }
+
+  goToPrevSlide(){
+    if(this.state.currentIndex === 0)
+      return;
+
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex - 1,
+      translateValue: prevState.translateValue + this.slideWidth() + 100
+    }));
+  }
+
+  goToNextSlide(){
+    console.log('moving to next slide');
+    if(this.state.currentIndex === this.state.images.length - 1) {
+      return this.setState({
+        currentIndex: 0,
+        translateValue: 0
+      });
+    }
+
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex + 1,
+      translateValue: prevState.translateValue + (-this.slideWidth()) - 100
+    }));
+  }
+
+  slideWidth(){
+    return document.querySelector('.slide').clientWidth;
+  }
+
+  render() {
+    const images = this.state.images;
+    return (
+      <div className="slider">
+        <div className="slider-wrapper" style={{
+          transform: `translateX(${this.state.translateValue}px)`
+        }}>
+
+          {
+            images.map((image, i) => (
+              <Slide key={i} image={image} />
+            ))
+          }
+        </div>
+        {(images.length > 1) &&
+          <LeftArrow goToPrevSlide={this.goToPrevSlide} />
+        }
+        {(images.length > 1) &&
+          <RightArrow goToNextSlide={this.goToNextSlide} />
+        }
+      </div>
+    );
+  }
 }
 ```
 
@@ -123,45 +174,32 @@ handleScroll(){
 
 ## Screenshots
 
-**At MVP**
+### At MVP
+![mvp1](/readmeImg/mvp1.png)
+![mvp2](/readmeImg/mvp2.png)
 
-![mvp1](/images/mvp1.png)
-![mvp2](/images/mvp2.png)
-
-**Before final layout tweaks**
-
-![layout](/images/pre-style.png)
 
 ### Final Product
 
-Index page:
+Landing Page:
+![landing page](/readmeImg/landingPage.png)
 
-![index1](/images/index1.png)
-![index2](/images/index2.png)
 
 Show page:
-
-![show1](/images/show1.png)
-![show2](/images/show2.png)
+![show1](/readmeImg/show.png)
+![show2](/readmeImg/trailerSuggestions.png)
 
 Basket:
-
-![basket](/images/basket.png)
-
-Profile(logged in as **customer**):
-
-![customer](/images/customer.png)
+![basket](/readmeImg/basket.png)
 
 Profile:
-![admin](/images/admin.png)
+![customer](/readmeImg/profile.png)
 
 Add new product:
-
-![add](/images/add.png)
+![new](/readmeImg/new.png)
 
 Statistics:
-
-![statistics](/images/statistics.png)
+![statistics](/readmeImg/statistics.png)
 
 
 ## Bugs
@@ -172,16 +210,16 @@ Below is a list of some of the known bugs within the app:
 * Rating stars - if a rating has been made, the stars don't reset if the show page is changed to another product. This is due to the ratings component being a classical component and as a result it doesn't update when the props change. I'd remedy this by adding a componentDidUpdate block to check for changes.
 
 ## Wins and Blockers
+One of the biggest problems I faced was getting used to using React. For some reason it took me longer to get acclimatised with the basics of using components in React as opposed to Angular and EJS. I spent a lot of unplanned extra time reading up on how to use the framework.
 
-One of the problems I faced initially was expectation management; we had planned on so many features that the workload seemed enormous and the goal - unattainable within the timeframe. This resulted in unnecessary stress. We had a meeting, revised the Trello board, redefined feature priorities and allocated more time to tasks with higher complexity.
+Another big blocker for me was getting the image slider on the show page to work. I spent way too much time on this and got about half way through before getting completely stuck. My teammate Sham was later able to figure out how to finish it.
 
-This really helped boost our group's morale and productivity.
-
-My biggest win, was getting the featured product suggestion working after being stuck on it for what seemed like an eternity!
+My biggest win was our finished product. This was the most user centric project I have produced till date. I feel we were able to incorporate everything we had generally learnt through out the course into this project. The team was an effective unit and all deliverables were handed in on time, another win was the team members I had.
 
 ## Future Content
-
 Along with fixing the known bugs, there are a number of potential future features I could implement, such as:
+* Incorporating a payment gateway that accepts credit card or Paypal.
+* Adding an extra product for music.
 * Allowing user to sort index page.
 * Ability to remove specific genres from suggestions.
 * Show top 5 suggestions on the index page within the image slider.
